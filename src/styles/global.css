@@ -1,0 +1,411 @@
+/* ============================================
+   CellPowerX Wellness Center — Design Tokens & Base
+   ============================================ */
+
+:root {
+  /* === Inherited from CellPowerX === */
+  --cpx-accent:       #c3d6dd;
+  --cpx-secondary:    #fb4616;
+  --cpx-light-bg:     #f2f2f2;
+  --cpx-dark-bg:      #282832;
+
+  /* === Wellness Center Extensions === */
+  --wc-sand:          #e8e0d4;
+  --wc-sage:          #a8b5a0;
+  --wc-warm-white:    #faf8f5;
+  --wc-charcoal:      #3a3a46;
+  --wc-mist:          #dce6ea;
+
+  /* === Opacity Scale === */
+  --opacity-whisper:  0.06;
+  --opacity-soft:     0.12;
+  --opacity-medium:   0.25;
+  --opacity-visible:  0.45;
+
+  /* === Spacing === */
+  --grid-max-width:   1200px;
+  --grid-padding:     clamp(24px, 5vw, 80px);
+  --grid-gap:         clamp(16px, 3vw, 40px);
+  --section-spacing:  clamp(80px, 10vh, 160px);
+  --block-spacing:    clamp(40px, 5vh, 80px);
+  --element-spacing:  clamp(16px, 2vh, 32px);
+
+  /* === Radii === */
+  --radius-block:     36px;
+  --radius-button:    100px;
+  --radius-input:     12px;
+  --radius-tag:       8px;
+
+  /* === Motion === */
+  --ease-default:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-soft:        cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-enter:       cubic-bezier(0, 0, 0.2, 1);
+  --duration-fast:    250ms;
+  --duration-medium:  450ms;
+  --duration-slow:    700ms;
+
+  /* === Typography === */
+  --font-heading:     'Mulish', sans-serif;
+  --font-body:        'Inter', sans-serif;
+  --fw-heading:       500;
+  --fw-body:          300;
+  --fw-body-medium:   400;
+  --tracking-heading: 0.08em;
+  --tracking-body:    0.01em;
+  --lh-body:          1.75;
+  --max-prose-width:  620px;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+  letter-spacing: var(--tracking-body);
+  line-height: var(--lh-body);
+  color: var(--wc-charcoal);
+  background: var(--wc-warm-white);
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-heading);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.2;
+  color: var(--wc-charcoal);
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+h4 { font-size: clamp(1rem, 1.5vw, 1.125rem); }
+
+p {
+  max-width: var(--max-prose-width);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--cpx-accent);
+}
+
+.label--dark {
+  color: var(--wc-charcoal);
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+}
+
+.section {
+  padding: var(--section-spacing) 0;
+}
+
+.section--accent {
+  background: linear-gradient(
+    160deg,
+    rgba(195, 214, 221, 0.15),
+    rgba(195, 214, 221, 0.06)
+  );
+}
+
+.section--warm {
+  background: var(--wc-warm-white);
+}
+
+.section--sand {
+  background: var(--wc-sand);
+}
+
+.section--dark {
+  background: var(--cpx-dark-bg);
+  color: var(--wc-warm-white);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4,
+.section--dark .label {
+  color: var(--wc-warm-white);
+}
+
+.section--dark .label {
+  color: var(--cpx-accent);
+}
+
+.section-block {
+  border-radius: var(--radius-block);
+  padding: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 80px);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8125rem;
+  padding: 16px 40px;
+  border-radius: var(--radius-button);
+  transition: all 0.35s var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--cpx-secondary);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background: #e03d12;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(251, 70, 22, 0.2);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--wc-charcoal);
+  border: 1.5px solid var(--cpx-accent);
+}
+
+.btn--secondary:hover {
+  background: var(--cpx-accent);
+  color: var(--cpx-dark-bg);
+  border-color: var(--cpx-accent);
+}
+
+.btn--ghost {
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--wc-charcoal);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--cpx-accent);
+}
+
+.btn--ghost:hover {
+  text-decoration-color: var(--cpx-secondary);
+}
+
+.btn--dark {
+  color: var(--wc-warm-white);
+  border-color: rgba(195, 214, 221, 0.4);
+}
+
+.btn--dark:hover {
+  background: var(--cpx-accent);
+  color: var(--cpx-dark-bg);
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+
+.card {
+  background: #ffffff;
+  border-radius: var(--radius-block);
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid rgba(195, 214, 221, 0.3);
+  box-shadow: 0 2px 20px rgba(40, 40, 50, 0.04);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 40px rgba(40, 40, 50, 0.08);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+  color: var(--cpx-accent);
+}
+
+/* ============================================
+   Form Inputs
+   ============================================ */
+
+.input {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+  font-size: 1rem;
+  padding: 16px 24px;
+  border-radius: var(--radius-input);
+  border: 1.5px solid var(--wc-mist);
+  background: #ffffff;
+  color: var(--wc-charcoal);
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--cpx-accent);
+  box-shadow: 0 0 0 4px rgba(195, 214, 221, 0.25);
+}
+
+.input::placeholder {
+  color: rgba(58, 58, 70, 0.4);
+}
+
+textarea.input {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* ============================================
+   Image Treatment
+   ============================================ */
+
+.img-frame {
+  border-radius: var(--radius-block);
+  overflow: hidden;
+}
+
+.img-frame img {
+  filter: saturate(0.85) contrast(0.95);
+  transition: filter 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-frame:hover img {
+  filter: saturate(1) contrast(1);
+}
+
+/* ============================================
+   Scroll Reveal
+   ============================================ */
+
+/* Reveal: GSAP sets initial opacity/transform via JS.
+   This class is only a marker — no CSS hiding.
+   Content is visible by default for accessibility & no-JS. */
+
+/* ============================================
+   Utilities
+   ============================================ */
+
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 767px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) {
+  .hide-desktop { display: none !important; }
+}

@@ -1,0 +1,297 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t } from '../../i18n/utils';
+
+const locale = 'en';
+const i = t(locale);
+
+const faqs = [
+  { q: i.contact.faq.q1, a: i.contact.faq.a1 },
+  { q: i.contact.faq.q2, a: i.contact.faq.a2 },
+  { q: i.contact.faq.q3, a: i.contact.faq.a3 },
+  { q: i.contact.faq.q4, a: i.contact.faq.a4 },
+  { q: i.contact.faq.q5, a: i.contact.faq.a5 },
+];
+---
+
+<Base title="Contact & Booking" locale={locale} description="Book your first appointment at CellPowerX Wellness Center in Lisbon. Located at Av. Fontes Pereira de Melo, between Saldanha and Marquês de Pombal.">
+
+  <!-- Booking Form -->
+  <section class="page-hero section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper reveal">
+          <h1>{i.contact.heading}</h1>
+          <p style="margin-top: 12px; margin-bottom: 32px;">{i.contact.body}</p>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="form-label">{i.contact.form.name}</label>
+                <input type="text" id="name" name="name" class="input" placeholder={i.contact.form.namePlaceholder} required />
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">{i.contact.form.email}</label>
+                <input type="email" id="email" name="email" class="input" placeholder={i.contact.form.emailPlaceholder} required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">{i.contact.form.phone}</label>
+              <input type="tel" id="phone" name="phone" class="input" placeholder={i.contact.form.phonePlaceholder} />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">{i.contact.form.message}</label>
+              <textarea id="message" name="message" class="input" placeholder={i.contact.form.messagePlaceholder}></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">
+              {i.contact.form.submit}
+              <i class="ph ph-paper-plane-tilt"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info reveal">
+          <div class="contact-info__card section-block section--accent">
+            <h3>{i.contact.infoHeading}</h3>
+
+            <div class="contact-info__items">
+              <div class="contact-info__item">
+                <i class="ph ph-phone"></i>
+                <div>
+                  <a href="tel:+351211929218">{i.contact.phone}</a>
+                  <br/>
+                  <a href="tel:+351912051564">{i.contact.phoneMobile}</a>
+                </div>
+              </div>
+              <div class="contact-info__item">
+                <i class="ph ph-envelope-simple"></i>
+                <a href={`mailto:${i.contact.email}`}>{i.contact.email}</a>
+              </div>
+              <div class="contact-info__item">
+                <i class="ph ph-map-pin"></i>
+                <div>
+                  <span>{i.contact.address}</span>
+                  <br/>
+                  <span>{i.contact.addressCity}</span>
+                  <br/>
+                  <small style="color: rgba(58,58,70,0.5);">{i.contact.reference}</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-info__hours">
+              <h4>{i.contact.hoursHeading}</h4>
+              <p>{i.contact.hoursNote}</p>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="map-placeholder img-frame">
+            <div class="map-placeholder__inner">
+              <i class="ph ph-map-trifold" style="font-size: 3rem; color: var(--cpx-accent);"></i>
+              <span>Google Maps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--accent">
+    <div class="container">
+      <h2 class="reveal" style="margin-bottom: var(--block-spacing);">{i.contact.faq.heading}</h2>
+      <div class="faq-list" data-stagger>
+        {faqs.map(({ q, a }, idx) => (
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__question">
+              <span>{q}</span>
+              <i class="ph ph-caret-down faq-item__icon"></i>
+            </summary>
+            <div class="faq-item__answer">
+              <p>{a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    padding-top: calc(72px + var(--section-spacing));
+    background: linear-gradient(160deg, var(--wc-warm-white), var(--wc-mist));
+  }
+
+  /* Contact Grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--block-spacing);
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 480px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    margin-bottom: 8px;
+    color: var(--wc-charcoal);
+  }
+
+  /* Contact Info */
+  .contact-info__card {
+    margin-bottom: 24px;
+  }
+
+  .contact-info__card h3 {
+    margin-bottom: 24px;
+  }
+
+  .contact-info__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9375rem;
+  }
+
+  .contact-info__item i {
+    color: var(--cpx-accent);
+    font-size: 1.25rem;
+    margin-top: 2px;
+  }
+
+  .contact-info__item a {
+    transition: color var(--duration-fast) ease;
+  }
+
+  .contact-info__item a:hover {
+    color: var(--cpx-secondary);
+  }
+
+  .contact-info__hours {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(195, 214, 221, 0.3);
+  }
+
+  .contact-info__hours h4 {
+    margin-bottom: 8px;
+  }
+
+  .contact-info__hours p {
+    font-size: 0.875rem;
+    color: rgba(58, 58, 70, 0.6);
+  }
+
+  /* Map placeholder */
+  .map-placeholder {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, rgba(195, 214, 221, 0.3), rgba(232, 224, 212, 0.3));
+  }
+
+  .map-placeholder__inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    color: rgba(58, 58, 70, 0.3);
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(195, 214, 221, 0.3);
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8125rem;
+    color: var(--wc-charcoal);
+    list-style: none;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    color: var(--cpx-accent);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 0 24px;
+  }
+
+  .faq-item__answer p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(58, 58, 70, 0.8);
+    max-width: none;
+  }
+</style>

@@ -1,0 +1,296 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, localeRoutes } from '../../i18n/utils';
+
+const locale = 'en';
+const i = t(locale);
+const routes = localeRoutes[locale];
+---
+
+<Base title="Frequency-Based Wellness in Lisbon" locale={locale} description="CellPowerX Wellness Center — Lisbon's pioneering frequency-based wellness center. 20+ years of experience, 70,000+ client journeys. TimeWaver, NanoPulse, Infrared & SLM Wave.">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="label reveal">{i.hero.label}</span>
+        <h1 class="reveal">{i.hero.heading}</h1>
+        <p class="hero__body reveal">{i.hero.body}</p>
+        <div class="hero__actions reveal">
+          <a href={routes.contact} class="btn btn--primary">
+            {i.hero.ctaPrimary}
+            <i class="ph ph-arrow-right"></i>
+          </a>
+          <a href={routes.treatments} class="btn btn--secondary">
+            {i.hero.ctaSecondary}
+            <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="img-frame hero__image">
+          <div class="hero__placeholder">
+            <i class="ph ph-flower-lotus" style="font-size: 4rem; color: var(--cpx-accent);"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="grid-3" data-stagger>
+        <div class="card">
+          <div class="card__icon">
+            <i class="ph ph-dna" style="font-size: 2.5rem;"></i>
+          </div>
+          <h3>{i.valueProps.card1Title}</h3>
+          <p>{i.valueProps.card1Text}</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">
+            <i class="ph ph-cpu" style="font-size: 2.5rem;"></i>
+          </div>
+          <h3>{i.valueProps.card2Title}</h3>
+          <p>{i.valueProps.card2Text}</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">
+            <i class="ph ph-users-three" style="font-size: 2.5rem;"></i>
+          </div>
+          <h3>{i.valueProps.card3Title}</h3>
+          <p>{i.valueProps.card3Text}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments Preview -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center reveal" style="margin-bottom: var(--block-spacing);">
+        {i.treatmentsPreview.heading}
+      </h2>
+      <div class="grid-4" data-stagger>
+        {[
+          { key: 'timewaver', icon: 'ph-wave-sine' },
+          { key: 'nanopulse', icon: 'ph-magnet-straight' },
+          { key: 'infrared', icon: 'ph-sun-dim' },
+          { key: 'slmwave', icon: 'ph-lighthouse' },
+        ].map(({ key, icon }) => (
+          <a href={`${routes.treatments}#${key}`} class="treatment-card card">
+            <div class="card__icon">
+              <i class={`ph ${icon}`} style="font-size: 2.5rem;"></i>
+            </div>
+            <h4>{i.treatmentsPreview[key].name}</h4>
+            <p>{i.treatmentsPreview[key].tagline}</p>
+            <span class="treatment-card__link">
+              {i.treatmentsPreview.learnMore}
+              <i class="ph ph-arrow-right"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section section--accent">
+    <div class="container text-center">
+      <blockquote class="quote reveal">
+        <p class="quote__text">"{i.quote.text}"</p>
+        <footer class="quote__attribution">
+          <strong>{i.quote.author}</strong> — {i.quote.role}
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- First Appointment CTA -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="cta-block reveal">
+        <h2>{i.firstAppointment.heading}</h2>
+        <p class="cta-block__body">{i.firstAppointment.body}</p>
+        <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
+          {i.firstAppointment.cta}
+          <i class="ph ph-arrow-right"></i>
+        </a>
+        <div class="cta-block__location">
+          <i class="ph ph-map-pin"></i>
+          <span>{i.firstAppointment.location} · {i.firstAppointment.locationDetail}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section section--warm">
+    <div class="container text-center">
+      <div class="newsletter reveal">
+        <h2>{i.newsletter.heading}</h2>
+        <p class="mx-auto">{i.newsletter.body}</p>
+        <form class="newsletter__form" action="#" method="POST">
+          <input type="email" class="input" placeholder={i.newsletter.placeholder} required />
+          <button type="submit" class="btn btn--secondary">{i.newsletter.cta}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: calc(72px + var(--section-spacing)) 0 var(--section-spacing);
+    background: linear-gradient(160deg, var(--wc-warm-white), var(--wc-mist));
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--block-spacing);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--element-spacing);
+  }
+
+  .hero__body {
+    font-size: 1.0625rem;
+    max-width: 520px;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .hero__image {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, rgba(195, 214, 221, 0.3), rgba(232, 224, 212, 0.3));
+  }
+
+  .hero__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Treatment Cards */
+  .treatment-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .treatment-card__link {
+    margin-top: auto;
+    padding-top: 20px;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    color: var(--cpx-accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .treatment-card:hover .treatment-card__link {
+    color: var(--cpx-secondary);
+  }
+
+  /* Quote */
+  .quote {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .quote__text {
+    font-family: var(--font-body);
+    font-weight: var(--fw-body);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.6;
+    font-style: italic;
+    max-width: none;
+    margin-bottom: 24px;
+  }
+
+  .quote__attribution {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    color: var(--wc-charcoal);
+  }
+
+  /* CTA Block */
+  .cta-block {
+    max-width: 640px;
+  }
+
+  .cta-block__body {
+    font-size: 1.0625rem;
+    margin-top: 16px;
+    color: rgba(250, 248, 245, 0.8);
+    max-width: none;
+  }
+
+  .cta-block__location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-size: 0.875rem;
+    color: rgba(250, 248, 245, 0.5);
+  }
+
+  .cta-block__location i {
+    color: var(--cpx-accent);
+  }
+
+  /* Newsletter */
+  .newsletter h2 {
+    margin-bottom: 12px;
+  }
+
+  .newsletter p {
+    margin-bottom: 32px;
+  }
+
+  .newsletter__form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .newsletter__form .input {
+    flex: 1;
+  }
+
+  @media (max-width: 480px) {
+    .newsletter__form {
+      flex-direction: column;
+    }
+  }
+</style>

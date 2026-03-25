@@ -1,0 +1,129 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  locale?: string;
+  canonicalUrl?: string;
+}
+
+const { title, description = 'CellPowerX Wellness Center — Lisbon\'s pioneering frequency-based wellness center since 2005.', locale = 'en', canonicalUrl } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={locale}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | CellPowerX Wellness</title>
+  <meta name="description" content={description} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- OG Tags -->
+  <meta property="og:title" content={`${title} | CellPowerX Wellness`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={locale === 'pt' ? 'pt_PT' : 'en_US'} />
+
+  {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+</head>
+<body>
+  <Nav locale={locale} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer locale={locale} />
+
+  <!-- GSAP animations (client-side module) -->
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((el) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
+
+    // Stagger groups
+    const staggerGroups = document.querySelectorAll('[data-stagger]');
+    staggerGroups.forEach((group) => {
+      const children = group.children;
+      gsap.fromTo(children,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: group,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
+
+    // Counter animation for stats
+    const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+    counters.forEach((el) => {
+      const target = el.getAttribute('data-counter');
+      if (!target) return;
+      const isNumber = /^\d+$/.test(target.replace(/[+,\.]/g, ''));
+      if (!isNumber) return;
+
+      const numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
+      const suffix = target.replace(/[0-9]/g, '');
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: numericTarget,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+              el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+            },
+          });
+        },
+      });
+    });
+  </script>
+</body>
+</html>

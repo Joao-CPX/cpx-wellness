@@ -1,0 +1,146 @@
+---
+import { t, localeRoutes } from '../i18n/utils';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const i = t(locale);
+const routes = localeRoutes[locale];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href={routes.home} class="footer__logo">CellPowerX <span>Wellness</span></a>
+      </div>
+
+      <nav class="footer__nav">
+        <a href={routes.treatments}>{i.nav.treatments}</a>
+        <a href={routes.about}>{i.nav.about}</a>
+        <a href={routes.contact}>{i.nav.contact}</a>
+        <a href="#">{i.footer.privacy}</a>
+        <a href="#">{i.footer.terms}</a>
+      </nav>
+    </div>
+
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <i class="ph ph-phone"></i>
+        <span>{i.contact.phone} · {i.contact.phoneMobile}</span>
+      </div>
+      <div class="footer__contact-item">
+        <i class="ph ph-envelope-simple"></i>
+        <a href={`mailto:${i.contact.email}`}>{i.contact.email}</a>
+      </div>
+      <div class="footer__contact-item">
+        <i class="ph ph-map-pin"></i>
+        <span>{i.contact.address} — {i.contact.addressCity}</span>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--cpx-dark-bg);
+    color: rgba(250, 248, 245, 0.7);
+    padding: clamp(48px, 6vw, 80px) 0 clamp(24px, 3vw, 40px);
+  }
+
+  .footer__top {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(195, 214, 221, 0.12);
+  }
+
+  @media (min-width: 768px) {
+    .footer__top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .footer__logo {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9375rem;
+    color: var(--wc-warm-white);
+  }
+
+  .footer__logo span {
+    color: var(--cpx-accent);
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
+
+  .footer__nav a {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    color: rgba(250, 248, 245, 0.5);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .footer__nav a:hover {
+    color: var(--wc-warm-white);
+  }
+
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .footer__contact {
+      flex-direction: row;
+      gap: 32px;
+    }
+  }
+
+  .footer__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+  }
+
+  .footer__contact-item i {
+    color: var(--cpx-accent);
+    font-size: 1rem;
+  }
+
+  .footer__contact-item a:hover {
+    color: var(--wc-warm-white);
+  }
+
+  .footer__bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgba(195, 214, 221, 0.08);
+  }
+
+  .footer__bottom p {
+    font-size: 0.75rem;
+    color: rgba(250, 248, 245, 0.35);
+  }
+</style>
