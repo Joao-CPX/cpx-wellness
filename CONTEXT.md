@@ -8,12 +8,16 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 
 ## Stack
 
+- **Framework**: Astro (static site generator) — zero JS by default, component-based `.astro` files
 - **Hosting**: Cloudflare Pages (auto-deploy from GitHub)
-- **Repo**: `rellagher/cpx-wellness`
+- **Repo**: `Joao-CPX/cpx-wellness`
+- **Animations**: GSAP + ScrollTrigger (imported as ES module via npm)
+- **Icons**: Phosphor Icons (via CDN `@phosphor-icons/web`)
 - **Backend (phase 1)**: Static site, contact form via Cloudflare Worker → email
 - **Backend (phase 2)**: Scheduling app integration (CPX scheduling app, built in parallel)
 - **Newsletter**: Brevo integration (list ID TBD, separate from CPX quiz list 18)
-- **Languages**: EN (default) + PT — JSON translation files (`/locales/en.json`, `/locales/pt.json`)
+- **Languages**: EN (default) + PT — JSON translation files (`/src/i18n/en.json`, `/src/i18n/pt.json`)
+- **i18n Routing**: Astro built-in i18n — `/en/...` and `/pt/...` with prefix on default locale
 
 ## Key Files
 
@@ -73,24 +77,30 @@ All treatments have disclaimers. See SITEMAP.md sections 3.3–3.6 for full copy
 
 ## i18n Approach
 
-- JSON translation files: `/locales/en.json`, `/locales/pt.json`
-- URL structure: `/en/treatments`, `/pt/tratamentos` or query param `?lang=pt`
-- Default language: EN
-- Toggle in header: simple PT / EN switch
+- JSON translation files: `/src/i18n/en.json`, `/src/i18n/pt.json`
+- URL structure: `/en/treatments`, `/pt/tratamentos`
+- Default language: EN (with prefix)
+- Toggle in header: PT / EN switch linking to equivalent page in other locale
 
 ## Current State
 
 - [x] Design system defined (DESIGN.md)
 - [x] Sitemap and content structure approved (SITEMAP.md)
-- [ ] Repo created and CF Pages connected
-- [ ] Homepage development
-- [ ] About page
-- [ ] Treatments page
-- [ ] Contact/Booking page
-- [ ] i18n implementation
-- [ ] Scheduling app integration
-- [ ] Photography / real assets
-- [ ] SEO (meta tags, schema.org, OG tags, sitemap.xml)
+- [x] Repo created (`Joao-CPX/cpx-wellness`) and pushed to GitHub
+- [x] Homepage development (EN + PT)
+- [x] About page (EN + PT)
+- [x] Treatments page (EN + PT)
+- [x] Contact/Booking page (EN + PT)
+- [x] i18n implementation (full EN + PT translations)
+- [x] GSAP ScrollTrigger animations
+- [x] SEO (meta tags, OG tags, sitemap.xml via @astrojs/sitemap)
+- [ ] Cloudflare Pages deployment connected
+- [ ] Contact form backend (CF Worker → email)
+- [ ] Scheduling app integration (phase 2)
+- [ ] Photography / real assets (currently placeholders)
+- [ ] Schema.org structured data (LocalBusiness)
+- [ ] Newsletter backend (Brevo integration)
+- [ ] Google Maps embed on contact page
 
 ## Decisions Log
 
@@ -103,3 +113,7 @@ All treatments have disclaimers. See SITEMAP.md sections 3.3–3.6 for full copy
 | 2026-03-25 | Scheduling app built in parallel, site launches with contact form |
 | 2026-03-25 | Blog/Journal deferred to phase 2 |
 | 2026-03-25 | Wordmark "CellPowerX Wellness" as logo (no separate logo file) |
+| 2026-03-25 | Astro chosen as framework (static SSG, zero JS by default, built-in i18n) |
+| 2026-03-25 | GSAP + ScrollTrigger for animations (imported via npm, not CDN) |
+| 2026-03-25 | Phosphor Icons via CDN for iconography |
+| 2026-03-25 | Repo moved to Joao-CPX/cpx-wellness (from rellagher) |
