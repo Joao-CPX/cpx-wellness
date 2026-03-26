@@ -6,7 +6,7 @@
     "bookNow": "Marcar"
   },
   "hero": {
-    "label": "Centro de Bem-Estar Pioneiro em Lisboa — Desde 2005",
+    "label": "Centro de Bem-Estar Pioneiro em Lisboa — Desde 2009",
     "heading": "Onde a Ciência Celular Encontra o Cuidado Restaurador",
     "body": "Duas décadas de experiência. Mais de 70.000 percursos de clientes. O centro original onde os protocolos de frequência de Nuno Nina nasceram — agora aberto para si.",
     "ctaPrimary": "Marque a Sua Primeira Sessão",
@@ -61,10 +61,10 @@
   "about": {
     "label": "A Nossa História",
     "heading": "Duas Décadas de Bem-Estar Baseado em Frequências",
-    "intro": "Fundado em 2005 como Integrative Medicine Lda, o CellPowerX Wellness Center é o espaço pioneiro de Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências para o bem-estar. O que começou como uma clínica orientada para a investigação tornou-se uma referência em bem-estar integrativo na Europa.",
+    "intro": "Fundado em 2009 como Integrative Medicine Lda, o CellPowerX Wellness Center é o espaço pioneiro de Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências para o bem-estar. O que começou como uma clínica orientada para a investigação tornou-se uma referência em bem-estar integrativo na Europa.",
     "stats": {
       "founded": "Fundação",
-      "foundedValue": "2005",
+      "foundedValue": "2009",
       "journeys": "Percursos de Clientes",
       "journeysValue": "70.000+",
       "experience": "Anos de Experiência",
@@ -154,7 +154,11 @@
     "addressCity": "1050-116 Lisboa, Portugal",
     "reference": "Entre o Saldanha e o Marquês de Pombal",
     "hoursHeading": "Horário de Funcionamento",
-    "hoursNote": "Horário a confirmar — por favor ligue para verificar disponibilidade.",
+    "hours": {
+      "monThu": "Segunda – Quinta: 9:30 – 18:30",
+      "fri": "Sexta: 9:00 – 18:00",
+      "weekend": "Sábado – Domingo: Encerrado"
+    },
     "faq": {
       "heading": "Perguntas Frequentes",
       "q1": "O que acontece na primeira consulta?",
@@ -179,6 +183,7 @@
     "newsletterHeading": "Mantenha-se Ligado",
     "newsletterBody": "Insights de bem-estar, novidades e convites exclusivos.",
     "newsletterPlaceholder": "O seu email",
-    "newsletterCta": "Subscrever"
+    "newsletterCta": "Subscrever",
+    "consentText": "Li e entendi a <a href='/pt/privacidade'>Política de Privacidade e de Cookies</a> e aceito receber comunicações comerciais personalizadas da CellPowerX através de e-mail."
   }
 }

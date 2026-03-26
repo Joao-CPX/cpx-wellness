@@ -19,6 +19,12 @@ const images = {
   infrared: '/images/redlight.png',
   slmwave: '/images/slmwave.png',
 };
+const tabNames = {
+  slmwave: 'SLM Wave',
+  nanopulse: 'NanoPulse',
+  infrared: 'InfraRed',
+  timewaver: 'TimeWaver',
+};
 ---
 
 <Base title="Serviços" locale={locale} description="Explore as nossas quatro modalidades: TimeWaver Frequency, NanoPulse, Terapia de Infravermelhos e SLM Wave. Protocolos personalizados para o seu bem-estar.">
@@ -35,7 +41,8 @@ const images = {
     <div class="container service-subnav__inner">
       {treatmentKeys.map((key) => (
         <a href={`#${key}`} class="service-subnav__item" data-target={key}>
-          {i.treatments[key].name}
+          <span class="hide-mobile">{i.treatments[key].name}</span>
+          <span class="hide-desktop">{tabNames[key]}</span>
         </a>
       ))}
     </div>
@@ -129,12 +136,13 @@ const images = {
   .page-hero {
     padding-top: calc(72px + var(--section-spacing));
   }
-  .page-hero { text-align: center; }
+  .page-hero { text-align: center; padding-bottom: 0; }
   .page-hero h1 { margin-bottom: 20px; }
   .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; }
 
-  .service-subnav { position: sticky; top: 72px; z-index: 50; background: rgba(250, 248, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
-  .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: rgba(250, 248, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
+  .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
+  @media (max-width: 767px) { .service-subnav__inner { justify-content: center; gap: 20px; } }
   .service-subnav__inner::-webkit-scrollbar { display: none; }
   .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: var(--wc-charcoal); opacity: 0.5; padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
   .service-subnav__item:hover { opacity: 0.8; }
@@ -195,6 +203,15 @@ const images = {
 </style>
 
 <script>
+  const navEl = document.getElementById('nav');
+  if (navEl) {
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+  }
+
   const navItems = document.querySelectorAll('.service-subnav__item');
   const sections = document.querySelectorAll('.treatment-detail');
   if (navItems.length && sections.length) {

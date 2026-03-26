@@ -67,7 +67,7 @@ const routes = localeRoutes[locale];
       <h2 class="text-center reveal" style="margin-bottom: var(--block-spacing);">
         {i.treatmentsPreview.heading}
       </h2>
-      <div class="grid-4" data-stagger>
+      <div class="grid-4 services-carousel" data-stagger>
         {[
           { key: 'slmwave', img: '/images/slmwave.png', pos: 'center center' },
           { key: 'nanopulse', img: '/images/nanopulse.png', pos: 'left center' },
@@ -81,6 +81,7 @@ const routes = localeRoutes[locale];
             <div class="service-card__text">
               <h4>{i.treatmentsPreview[key].name}</h4>
               <p>{i.treatmentsPreview[key].tagline}</p>
+              <span class="service-card__link">{i.treatmentsPreview.learnMore} <i class="ph ph-arrow-right"></i></span>
             </div>
           </a>
         ))}
@@ -189,6 +190,32 @@ const routes = localeRoutes[locale];
     border-color: var(--wc-warm-white);
   }
 
+  /* Services carousel — horizontal scroll on mobile */
+  @media (max-width: 767px) {
+    .services-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 16px;
+      padding-bottom: 8px;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .services-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .services-carousel .service-card {
+      flex: 0 0 72%;
+      scroll-snap-align: start;
+    }
+  }
+
   /* Service Cards (Apple style) */
   .service-card {
     display: flex;
@@ -227,6 +254,20 @@ const routes = localeRoutes[locale];
     color: var(--wc-charcoal);
     opacity: 0.6;
     line-height: 1.5;
+  }
+
+  .service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 0.8125rem;
+    color: var(--cpx-accent);
+    transition: color 0.2s ease;
+  }
+
+  .service-card:hover .service-card__link {
+    color: var(--cpx-secondary);
   }
 
   /* Quote */

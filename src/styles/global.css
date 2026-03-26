@@ -31,7 +31,7 @@
   --element-spacing:  clamp(16px, 2vh, 32px);
 
   /* === Radii === */
-  --radius-block:     36px;
+  --radius-block:     18px;
   --radius-button:    100px;
   --radius-input:     12px;
   --radius-tag:       8px;

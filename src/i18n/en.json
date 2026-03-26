@@ -6,7 +6,7 @@
     "bookNow": "Book Now"
   },
   "hero": {
-    "label": "Lisbon's Pioneering Wellness Center — Since 2005",
+    "label": "Lisbon's Pioneering Wellness Center — Since 2009",
     "heading": "Where Cellular Science Meets Restorative Care",
     "body": "Two decades of experience. 70,000+ client journeys. The original center where Nuno Nina's frequency-based protocols were born — now open to you.",
     "ctaPrimary": "Book Your First Session",
@@ -61,10 +61,10 @@
   "about": {
     "label": "Our Story",
     "heading": "Two Decades of Frequency-Based Wellness",
-    "intro": "Founded in 2005 as Integrative Medicine Lda, CellPowerX Wellness Center is Lisbon's pioneering space dedicated to bioelectrical and frequency-based approaches to well-being. What began as a research-driven clinic has grown into a reference point for integrative wellness in Europe.",
+    "intro": "Founded in 2009 as Integrative Medicine Lda, CellPowerX Wellness Center is Lisbon's pioneering space dedicated to bioelectrical and frequency-based approaches to well-being. What began as a research-driven clinic has grown into a reference point for integrative wellness in Europe.",
     "stats": {
       "founded": "Founded",
-      "foundedValue": "2005",
+      "foundedValue": "2009",
       "journeys": "Client Journeys",
       "journeysValue": "70,000+",
       "experience": "Years of Experience",
@@ -154,7 +154,11 @@
     "addressCity": "1050-116 Lisbon, Portugal",
     "reference": "Between Saldanha and Marquês de Pombal",
     "hoursHeading": "Opening Hours",
-    "hoursNote": "Hours to be confirmed — please call for availability.",
+    "hours": {
+      "monThu": "Monday – Thursday: 9:30 AM – 6:30 PM",
+      "fri": "Friday: 9:00 AM – 6:00 PM",
+      "weekend": "Saturday – Sunday: Closed"
+    },
     "faq": {
       "heading": "Frequently Asked Questions",
       "q1": "What happens in the first appointment?",
@@ -179,6 +183,7 @@
     "newsletterHeading": "Stay Connected",
     "newsletterBody": "Wellness insights, research updates, and exclusive invitations.",
     "newsletterPlaceholder": "Your email address",
-    "newsletterCta": "Subscribe"
+    "newsletterCta": "Subscribe",
+    "consentText": "I have read and understood the <a href='/en/privacy'>Privacy and Cookie Policy</a> and agree to receive personalized commercial communications from CellPowerX via email."
   }
 }

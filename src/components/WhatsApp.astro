@@ -1,0 +1,318 @@
+---
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const config = {
+  en: {
+    name: 'CellPowerX Wellness',
+    welcome: "Hello! \u{1F44B} How can we help you? Send us a message and we'll get back to you shortly.",
+    cta: 'Chat on WhatsApp',
+    replyOnline: 'Typically replies within minutes',
+    replyOffline: "We'll reply when we're back",
+  },
+  pt: {
+    name: 'CellPowerX Wellness',
+    welcome: 'Ol\u00e1! \u{1F44B} Como podemos ajudar? Envie-nos uma mensagem e responderemos brevemente.',
+    cta: 'Conversar no WhatsApp',
+    replyOnline: 'Responde em poucos minutos',
+    replyOffline: 'Responderemos quando estivermos de volta',
+  },
+};
+
+const i = config[locale] || config.en;
+const whatsappUrl = 'https://wa.me/351912051564?text=' + encodeURIComponent(
+  locale === 'pt'
+    ? 'Ol\u00e1, gostaria de saber mais sobre os vossos servi\u00e7os.'
+    : 'Hello, I\'d like to know more about your services.'
+);
+---
+
+<!-- WhatsApp Floating Widget -->
+<div class="wa" id="wa-widget">
+  <!-- Bubble -->
+  <button class="wa__bubble" id="wa-bubble" aria-label="Chat on WhatsApp">
+    <svg class="wa__icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.003 2.667A13.28 13.28 0 002.72 15.95a13.18 13.18 0 001.82 6.697L2.667 29.333l6.89-1.81A13.28 13.28 0 0016.003 29.3 13.28 13.28 0 0029.333 16 13.28 13.28 0 0016.003 2.667zm7.667 18.72c-.32.9-1.587 1.647-2.587 1.867-.68.147-1.567.267-4.56-.98-3.827-1.593-6.293-5.48-6.487-5.733-.187-.253-1.56-2.08-1.56-3.967s.987-2.813 1.34-3.2c.353-.387.767-.487 1.02-.487.253 0 .507.003.727.013.233.013.547-.087.853.653.32.767 1.087 2.653 1.18 2.847.093.193.153.42.033.673-.12.253-.18.413-.36.633-.18.22-.38.493-.54.66-.18.187-.367.393-.16.773.207.38.92 1.52 1.98 2.46 1.36 1.213 2.507 1.587 2.86 1.767.353.18.56.153.767-.093.207-.247.887-1.033 1.127-1.387.24-.353.48-.293.8-.173.32.12 2.04.96 2.387 1.14.347.173.58.26.667.4.087.14.087.813-.233 1.713z" fill="currentColor"/>
+    </svg>
+  </button>
+
+  <!-- Panel -->
+  <div class="wa__panel" id="wa-panel">
+    <div class="wa__header">
+      <div class="wa__header-info">
+        <strong>{i.name}</strong>
+        <span class="wa__status" id="wa-status">{i.replyOnline}</span>
+      </div>
+      <button class="wa__close" id="wa-close" aria-label="Close">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <div class="wa__body">
+      <div class="wa__message">
+        <p>{i.welcome}</p>
+      </div>
+    </div>
+    <a href={whatsappUrl} target="_blank" rel="noopener" class="wa__cta">
+      <svg class="wa__cta-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 1.667A8.3 8.3 0 001.7 9.969a8.24 8.24 0 001.138 4.186L1.667 18.333l4.306-1.131A8.3 8.3 0 0010 18.313 8.3 8.3 0 0018.333 10 8.3 8.3 0 0010 1.667zm4.792 11.7c-.2.563-.992 1.03-1.617 1.167-.425.092-.979.167-2.85-.613-2.392-.996-3.933-3.425-4.054-3.583-.117-.158-.975-1.3-.975-2.48s.617-1.758.838-2c.22-.242.479-.304.637-.304s.317.002.455.008c.146.008.342-.054.533.408.2.48.68 1.658.738 1.78.058.12.096.262.02.42-.075.158-.113.258-.225.396-.113.138-.237.308-.338.413-.112.117-.229.246-.1.483.13.238.575.95 1.238 1.538.85.758 1.567.992 1.788 1.104.22.113.35.096.479-.058.13-.155.554-.646.704-.867.15-.221.3-.184.5-.108.2.075 1.275.6 1.492.713.217.108.362.162.417.25.054.087.054.508-.146 1.07z" fill="currentColor"/>
+      </svg>
+      {i.cta}
+    </a>
+  </div>
+</div>
+
+<style is:global>
+  .wa {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 90;
+    font-family: var(--font-body);
+  }
+
+  /* Bubble */
+  .wa__bubble {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .wa__bubble:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+  }
+
+  .wa__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Pulse animation on first load */
+  .wa__bubble--pulse {
+    animation: waPulse 2s ease-in-out 3;
+  }
+
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+    50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.1); }
+  }
+
+  /* Panel */
+  .wa__panel {
+    position: absolute;
+    bottom: 72px;
+    right: 0;
+    width: 340px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(195, 214, 221, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .wa__panel.is-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  /* Header */
+  .wa__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #25D366;
+    color: #fff;
+  }
+
+  .wa__header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .wa__header-info strong {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .wa__status {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .wa__close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .wa__close:hover {
+    opacity: 1;
+  }
+
+  /* Body */
+  .wa__body {
+    padding: 20px;
+  }
+
+  .wa__message {
+    background: #f0f0f0;
+    border-radius: 0 12px 12px 12px;
+    padding: 12px 16px;
+  }
+
+  .wa__message p {
+    font-size: 0.875rem;
+    color: var(--wc-charcoal);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* CTA */
+  .wa__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 20px 20px;
+    padding: 12px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .wa__cta:hover {
+    background: #20bd5a;
+  }
+
+  .wa__cta-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .wa {
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .wa__bubble {
+      width: 50px;
+      height: 50px;
+    }
+
+    .wa__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .wa__panel {
+      width: calc(100vw - 32px);
+      right: 0;
+      bottom: 66px;
+    }
+  }
+</style>
+
+<script>
+  const bubble = document.getElementById('wa-bubble');
+  const panel = document.getElementById('wa-panel');
+  const closeBtn = document.getElementById('wa-close');
+  const statusEl = document.getElementById('wa-status');
+
+  // Check if already dismissed this session
+  const wasDismissed = sessionStorage.getItem('wa-dismissed');
+
+  // Business hours check (Lisbon timezone)
+  function isBusinessHours() {
+    const now = new Date();
+    const lisbon = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Lisbon' }));
+    const day = lisbon.getDay(); // 0=Sun, 1=Mon...
+    const hour = lisbon.getHours();
+    const min = lisbon.getMinutes();
+    const time = hour + min / 60;
+
+    if (day === 0 || day === 6) return false; // Weekend
+    if (day === 5) return time >= 9 && time < 18; // Friday 9:00-18:00
+    return time >= 9.5 && time < 18.5; // Mon-Thu 9:30-18:30
+  }
+
+  // Set status text
+  if (statusEl) {
+    const online = isBusinessHours();
+    const lang = document.documentElement.lang;
+    if (online) {
+      statusEl.textContent = lang === 'pt' ? 'Responde em poucos minutos' : 'Typically replies within minutes';
+    } else {
+      statusEl.textContent = lang === 'pt' ? 'Responderemos quando estivermos de volta' : "We'll reply when we're back";
+    }
+  }
+
+  // Pulse animation on first visit
+  if (!wasDismissed && bubble) {
+    bubble.classList.add('wa__bubble--pulse');
+  }
+
+  function openPanel() {
+    panel?.classList.add('is-open');
+    bubble?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closePanel() {
+    panel?.classList.remove('is-open');
+    bubble?.setAttribute('aria-expanded', 'false');
+    sessionStorage.setItem('wa-dismissed', 'true');
+  }
+
+  bubble?.addEventListener('click', () => {
+    const isOpen = panel?.classList.contains('is-open');
+    if (isOpen) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  });
+
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closePanel();
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    const widget = document.getElementById('wa-widget');
+    if (panel?.classList.contains('is-open') && !widget?.contains(e.target as Node)) {
+      closePanel();
+    }
+  });
+</script>

@@ -19,6 +19,12 @@ const images = {
   infrared: '/images/redlight.png',
   slmwave: '/images/slmwave.png',
 };
+const tabNames = {
+  slmwave: 'SLM Wave',
+  nanopulse: 'NanoPulse',
+  infrared: 'InfraRed',
+  timewaver: 'TimeWaver',
+};
 ---
 
 <Base title="Services" locale={locale} description="Explore our four wellness modalities: TimeWaver Frequency, NanoPulse, Infrared Therapy, and SLM Wave. Personalized protocols for your well-being.">
@@ -36,7 +42,8 @@ const images = {
     <div class="container service-subnav__inner">
       {treatmentKeys.map((key) => (
         <a href={`#${key}`} class="service-subnav__item" data-target={key}>
-          {i.treatments[key].name}
+          <span class="hide-mobile">{i.treatments[key].name}</span>
+          <span class="hide-desktop">{tabNames[key]}</span>
         </a>
       ))}
     </div>
@@ -153,9 +160,18 @@ const images = {
   }
 
   /* Sticky sub-nav */
+  .page-hero {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .service-subnav.is-stuck {
+    top: 72px;
+  }
+
   .service-subnav {
     position: sticky;
-    top: 72px;
+    top: var(--nav-height, 72px);
     z-index: 50;
     background: rgba(250, 248, 245, 0.92);
     backdrop-filter: blur(16px);
@@ -170,6 +186,14 @@ const images = {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 767px) {
+    .service-subnav__inner {
+      justify-content: center;
+      gap: 20px;
+    }
   }
 
   .service-subnav__inner::-webkit-scrollbar {
@@ -373,6 +397,16 @@ const images = {
 </style>
 
 <script>
+  // Set nav height CSS variable for sticky subnav positioning
+  const navEl = document.getElementById('nav');
+  if (navEl) {
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+  }
+
   // Sticky service nav — highlight active section
   const navItems = document.querySelectorAll('.service-subnav__item');
   const sections = document.querySelectorAll('.treatment-detail');

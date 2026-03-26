@@ -45,11 +45,11 @@ const routes = localeRoutes[locale];
         <div class="footer__contact-list">
           <div class="footer__contact-item">
             <i class="ph ph-phone"></i>
-            <span>{i.contact.phone}</span>
+            <a href={`tel:${i.contact.phone.replace(/\s/g, '')}`}>{i.contact.phone}</a>
           </div>
           <div class="footer__contact-item">
-            <i class="ph ph-device-mobile"></i>
-            <span>{i.contact.phoneMobile}</span>
+            <i class="ph ph-whatsapp-logo"></i>
+            <a href={`https://wa.me/${i.contact.phoneMobile.replace(/[+\s]/g, '')}`}>{i.contact.phoneMobile}</a>
           </div>
           <div class="footer__contact-item">
             <i class="ph ph-envelope-simple"></i>
@@ -58,6 +58,10 @@ const routes = localeRoutes[locale];
           <div class="footer__contact-item">
             <i class="ph ph-map-pin"></i>
             <span>{i.contact.address}<br />{i.contact.addressCity}</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ph ph-clock"></i>
+            <span>{i.contact.hours.monThu}<br />{i.contact.hours.fri}<br />{i.contact.hours.weekend}</span>
           </div>
         </div>
       </div>
@@ -68,7 +72,11 @@ const routes = localeRoutes[locale];
         <p class="footer__newsletter-body">{i.footer.newsletterBody}</p>
         <form class="footer__newsletter-form" action="#" method="POST">
           <input type="email" class="footer__newsletter-input" placeholder={i.footer.newsletterPlaceholder} required />
-          <button type="submit" class="btn btn--accent footer__newsletter-btn">{i.footer.newsletterCta}</button>
+          <label class="footer__consent">
+            <input type="checkbox" required />
+            <span set:html={i.footer.consentText} />
+          </label>
+          <button type="submit" class="btn btn--primary footer__newsletter-btn">{i.footer.newsletterCta}</button>
         </form>
       </div>
     </div>
@@ -238,10 +246,49 @@ const routes = localeRoutes[locale];
     border-color: var(--cpx-accent);
   }
 
+  .footer__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(250, 248, 245, 0.5);
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .footer__consent input[type="checkbox"] {
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--cpx-secondary);
+  }
+
+  .footer__consent a {
+    color: rgba(250, 248, 245, 0.7);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footer__consent a:hover {
+    color: var(--wc-warm-white);
+  }
+
   .footer__newsletter-btn {
     width: fit-content;
     padding: 10px 24px;
     font-size: 0.75rem;
+  }
+
+  /* Logo links mobile spacing */
+  @media (max-width: 767px) {
+    .footer__logo {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .footer__logo-links {
+      font-size: 0.8125rem;
+      gap: 6px;
+    }
   }
 
   /* Bottom */
