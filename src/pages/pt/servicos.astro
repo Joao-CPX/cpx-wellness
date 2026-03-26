@@ -55,9 +55,6 @@ const tabNames = {
           <div class="treatment-detail__layout">
             <div class="treatment-detail__info">
               <div class="treatment-detail__header">
-                <div class="treatment-detail__icon">
-                  <i class={`ph ${icons[key]}`} style="font-size: 3rem; color: var(--cpx-accent);"></i>
-                </div>
                 <div>
                   <h2>{i.treatments[key].name}</h2>
                   <p class="treatment-detail__tagline">{i.treatments[key].tagline}</p>
@@ -73,7 +70,7 @@ const tabNames = {
                   <ul class="treatment-detail__list">
                     {i.treatments[key].applications.map((app: string) => (
                       <li>
-                        <i class="ph ph-check-circle" style="color: var(--wc-sage);"></i>
+                        <i class="ph-light ph-check-circle" style="color: var(--wc-sage);"></i>
                         {app}
                       </li>
                     ))}
@@ -81,7 +78,7 @@ const tabNames = {
                 </div>
                 <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
                   {i.treatments[key].cta}
-                  <i class="ph ph-arrow-right"></i>
+                  <i class="ph-light ph-arrow-right"></i>
                 </a>
               </div>
             </div>
@@ -89,7 +86,7 @@ const tabNames = {
               <img src={images[key]} alt={i.treatments[key].name} class="treatment-detail__img" loading="lazy" />
               {i.treatments[key].sessionInfo && (
                 <p class="treatment-detail__session">
-                  <i class="ph ph-info" style="color: var(--cpx-accent);"></i>
+                  <i class="ph-light ph-info" style="color: var(--cpx-accent);"></i>
                   {i.treatments[key].sessionInfo}
                 </p>
               )}
@@ -109,7 +106,7 @@ const tabNames = {
         </p>
         <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
           {i.treatments.firstAppointmentCta}
-          <i class="ph ph-arrow-right"></i>
+          <i class="ph-light ph-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -140,7 +137,7 @@ const tabNames = {
   .page-hero h1 { margin-bottom: 20px; }
   .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; }
 
-  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: rgba(250, 248, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
+  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: rgba(245, 245, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
   .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
   @media (max-width: 767px) { .service-subnav__inner { justify-content: center; gap: 20px; } }
   .service-subnav__inner::-webkit-scrollbar { display: none; }
@@ -148,7 +145,7 @@ const tabNames = {
   .service-subnav__item:hover { opacity: 0.8; }
   .service-subnav__item.is-active { opacity: 1; color: var(--cpx-secondary); border-bottom-color: var(--cpx-secondary); }
 
-  .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(195, 214, 221, 0.25); }
+  .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }

@@ -54,7 +54,7 @@ const serviceItems = [
       <div class="nav__dropdown" id="services-dropdown">
         <a href={routes.treatments} class="nav__dropdown-trigger">
           {i.nav.treatments}
-          <i class="ph ph-caret-down nav__dropdown-caret"></i>
+          <i class="ph-light ph-caret-down nav__dropdown-caret"></i>
         </a>
         <div class="nav__dropdown-menu" aria-hidden="true">
           {serviceItems.map(({ key, name }) => (
@@ -70,8 +70,8 @@ const serviceItems = [
     <div class="nav__actions">
       <div class="nav__lang-dropdown" id="lang-dropdown">
         <button class="nav__lang-trigger" aria-expanded="false" aria-haspopup="true">
-          <i class="ph ph-globe-simple"></i>
-          <i class="ph ph-caret-down nav__lang-caret hide-mobile"></i>
+          <i class="ph-light ph-globe-simple"></i>
+          <i class="ph-light ph-caret-down nav__lang-caret hide-mobile"></i>
         </button>
         <div class="nav__lang-menu" aria-hidden="true">
           <a href={enPath} class={`nav__lang-option ${locale === 'en' ? 'is-active' : ''}`}>English</a>
@@ -80,7 +80,7 @@ const serviceItems = [
       </div>
       <a href={routes.contact} class="btn btn--primary nav__cta hide-mobile">
         {i.nav.bookNow}
-        <i class="ph ph-arrow-right"></i>
+        <i class="ph-light ph-arrow-right"></i>
       </a>
     </div>
   </div>
@@ -88,7 +88,7 @@ const serviceItems = [
   <!-- Mobile overlay -->
   <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
     <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">
-      <i class="ph ph-x" style="font-size: 1.5rem;"></i>
+      <i class="ph-light ph-x" style="font-size: 1.5rem;"></i>
     </button>
     <nav class="nav__mobile-links">
       <div class="nav__mobile-group">
@@ -103,20 +103,20 @@ const serviceItems = [
       <a href={routes.contact}>{i.nav.contact}</a>
       <a href={routes.contact} class="btn btn--cta nav__mobile-cta">
         {i.nav.bookNow}
-        <i class="ph ph-arrow-right"></i>
+        <i class="ph-light ph-arrow-right"></i>
       </a>
       <div class="nav__mobile-socials">
         <a href="https://www.instagram.com/cellpowerx/" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="ph ph-instagram-logo"></i>
+          <i class="ph-light ph-instagram-logo"></i>
         </a>
         <a href="https://www.facebook.com/ImIntegrativeMedicine/" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="ph ph-facebook-logo"></i>
+          <i class="ph-light ph-facebook-logo"></i>
         </a>
         <a href="https://www.youtube.com/user/IMclinic/videos" target="_blank" rel="noopener" aria-label="YouTube">
-          <i class="ph ph-youtube-logo"></i>
+          <i class="ph-light ph-youtube-logo"></i>
         </a>
         <a href="https://pt.linkedin.com/company/im-integrative-medicine" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="ph ph-linkedin-logo"></i>
+          <i class="ph-light ph-linkedin-logo"></i>
         </a>
       </div>
     </nav>
@@ -308,7 +308,7 @@ const serviceItems = [
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--wc-charcoal);
     transition: color 0.4s ease;
     cursor: pointer;
