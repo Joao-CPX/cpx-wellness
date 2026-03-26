@@ -11,13 +11,15 @@
 ### Navegação Principal (todas as páginas)
 
 ```
-Logo (wordmark)    |    Treatments    About    Contact    [PT/EN toggle]    [ Book Now → ]
+Logo SVG + "Wellness Center"    |    Services (dropdown)    Our Science    About    Contact    [Globe icon → dropdown EN/PT]    [ Book Now → ]
 ```
 
-- **Logo**: wordmark "CellPowerX Wellness" em Mulish Medium uppercase
-- **Book Now**: CTA primário em `--cpx-secondary` (#fb4616), sempre visível
-- **Language toggle**: bandeiras ou código simples (PT / EN)
-- **Mobile**: hamburger menu com overlay full-screen, Book Now sempre visível
+- **Logo**: SVG CellPowerX logo + "Wellness Center" text, gap 0
+- **Services dropdown**: hover reveals 4 services (SLM Wave, NanoPulse, Infrared Therapy, TimeWaver Frequency)
+- **Book Now**: CTA em laranja (#fb4616), sempre visível
+- **Language**: globe icon (Phosphor Light) com dropdown EN/PT
+- **Mobile**: hamburger (left), logo centrado, globe (right). Menu overlay com links left-aligned, Book Now centrado, social icons em baixo
+- **Header**: glassmorphism adaptativo (light/dark conforme secção), sits above hero (not overlapping)
 
 ### Footer (todas as páginas)
 
@@ -195,9 +197,25 @@ Layout: bloco com fundo accent ou card destacado
 
 ---
 
-## Página 3: Tratamentos
+## Página 3: Our Science (`/en/our-science`, `/pt/nossa-ciencia`)
 
-> Objectivo: apresentar os 4 tratamentos com detalhe suficiente para informar e converter.
+> Objectivo: educar sobre a ciência por trás dos serviços - bioelectricidade celular, potencial de membrana, pH.
+
+### Secções:
+1. **Hero** - centrado, heading + body text
+2. **Tesla Quote** - avatar circular (48px) + blockquote ("energy, frequency and vibration")
+3. **Cells & Electricity** - 2 colunas (2/3 texto + 1/3 imagem), explica o corpo como sistema eléctrico
+4. **Membrane Potential** - highlight block (italic), explica potencial de membrana como referência
+5. **Bioelectrical Activity** - 2 colunas com imagem, células saudáveis e potencial de membrana regulado
+6. **pH & Environment** - 2 colunas com imagem, meio ácido vs alcalino
+7. **Disclaimer** - full width, conteúdo educativo e informativo
+8. **How It Begins** - CTA de marcação (centrado)
+
+---
+
+## Página 4: Serviços (`/en/services`, `/pt/servicos`)
+
+> Objectivo: apresentar os 4 serviços com detalhe suficiente para informar e converter.
 
 ### Secção 3.1 — Intro
 

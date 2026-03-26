@@ -11,7 +11,7 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 - **Framework**: Astro (static site generator) — zero JS by default, component-based `.astro` files
 - **Hosting**: Cloudflare Pages — `cpx-wellness.pages.dev` (custom domain pending: `wellnesscenter.cellpowerx.com`)
 - **Repo**: `Joao-CPX/cpx-wellness`
-- **Animations**: GSAP + ScrollTrigger (imported as ES module via npm)
+- **Animations**: GSAP + ScrollTrigger (planned, not yet implemented)
 - **Icons**: Phosphor Icons (via CDN `@phosphor-icons/web`)
 - **Newsletter**: Brevo API via Cloudflare Worker (`cpx-newsletter-api`) → list #19
 - **Languages**: EN (default) + PT — JSON translation files (`/src/i18n/en.json`, `/src/i18n/pt.json`)
@@ -46,12 +46,13 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 
 ## Pages
 
-1. **Homepage** (`/en/`, `/pt/`) — fullwidth hero with image, value props, service cards carousel (mobile), Google Reviews (4.9★), Nuno Nina quote, "How It Begins" CTA
+1. **Homepage** (`/en/`, `/pt/`) — fullwidth hero with image, value props, service cards carousel (mobile), Google Reviews (4.9★), Nuno Nina quote, "How It Begins" CTA, CellPowerX ecosystem banner
 2. **Services** (`/en/services`, `/pt/servicos`) — sticky horizontal sub-nav, 4 service detail sections with images
-3. **About** (`/en/about`, `/pt/sobre`) — history, Nuno Nina profile, stats, approach
-4. **Contact** (`/en/contact`, `/pt/contacto`) — form, contact info, hours, Google Maps embed
-5. **Privacy Policy** (`/en/privacy`, `/pt/privacidade`) — legal content
-6. **Terms** (`/en/terms`, `/pt/termos`) — legal content
+3. **Our Science** (`/en/our-science`, `/pt/nossa-ciencia`) — educational page on cellular bioelectrics, membrane potential, pH environments, Tesla quote
+4. **About** (`/en/about`, `/pt/sobre`) — history, Nuno Nina profile, stats, approach, CellPowerX ecosystem banner
+5. **Contact** (`/en/contact`, `/pt/contacto`) — form, contact info, hours, Google Maps embed
+6. **Privacy Policy** (`/en/privacy`, `/pt/privacidade`) — legal content
+7. **Terms** (`/en/terms`, `/pt/termos`) — legal content
 
 ## Services (order)
 
@@ -95,7 +96,7 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 
 ## Current State
 
-- [x] All 6 pages built (EN + PT)
+- [x] All 7 pages built (EN + PT)
 - [x] Cloudflare Pages deployed
 - [x] Adaptive glassmorphism header (cellpowerx.com aligned)
 - [x] Real CPX logo SVG integrated
@@ -115,7 +116,7 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 - [ ] Google Places API for dynamic reviews
 - [ ] GA4 integration (cookie consent ready)
 - [ ] Contact form backend (CF Worker → email)
-- [ ] Schema.org structured data (LocalBusiness)
+- [x] Schema.org structured data (LocalBusiness)
 - [ ] WhatsApp chat solution
 
 ## Decisions Log
@@ -143,3 +144,9 @@ This is a **sub-brand** of CellPowerX (cellpowerx.com). It shares the parent bra
 | 2026-03-26 | WhatsApp widget created but disabled — needs proper chat solution |
 | 2026-03-26 | Judge.me not viable (Shopify-only since 2026) |
 | 2026-03-26 | Custom domain: wellnesscenter.cellpowerx.com (CNAME pending from IT) |
+| 2026-03-26 | Phosphor Icons switched to Light weight |
+| 2026-03-26 | Social icons in footer + mobile menu (Instagram, Facebook, YouTube) |
+| 2026-03-26 | Schema.org LocalBusiness structured data implemented |
+| 2026-03-26 | "Our Science" page added — cellular bioelectrics educational content |
+| 2026-03-26 | Header sits above hero (not overlapping) — margin-top approach |
+| 2026-03-26 | Em-dashes (—) replaced with hyphens (-) across all content |
