@@ -70,13 +70,14 @@ const routes = localeRoutes[locale];
       <div class="footer__col footer__col--newsletter">
         <h4 class="footer__heading">{i.footer.newsletterHeading}</h4>
         <p class="footer__newsletter-body">{i.footer.newsletterBody}</p>
-        <form class="footer__newsletter-form" action="#" method="POST">
-          <input type="email" class="footer__newsletter-input" placeholder={i.footer.newsletterPlaceholder} required />
+        <form class="footer__newsletter-form" id="newsletter-form">
+          <input type="email" class="footer__newsletter-input" id="newsletter-email" placeholder={i.footer.newsletterPlaceholder} required />
           <label class="footer__consent">
             <input type="checkbox" required />
             <span set:html={i.footer.consentText} />
           </label>
-          <button type="submit" class="btn btn--primary footer__newsletter-btn">{i.footer.newsletterCta}</button>
+          <button type="submit" class="btn btn--cta footer__newsletter-btn" id="newsletter-btn">{i.footer.newsletterCta}</button>
+          <p class="footer__newsletter-msg" id="newsletter-msg"></p>
         </form>
       </div>
     </div>
@@ -160,7 +161,7 @@ const routes = localeRoutes[locale];
     font-weight: var(--fw-heading);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     color: var(--wc-warm-white);
     margin-bottom: 20px;
   }
@@ -291,9 +292,77 @@ const routes = localeRoutes[locale];
     }
   }
 
+  .footer__newsletter-msg {
+    font-size: 0.8125rem;
+    margin-top: 8px;
+    min-height: 1.2em;
+  }
+
+  .footer__newsletter-msg--success {
+    color: #4ade80;
+  }
+
+  .footer__newsletter-msg--error {
+    color: var(--cpx-secondary);
+  }
+
   /* Bottom */
   .footer__bottom p {
     font-size: 0.75rem;
     color: rgba(250, 248, 245, 0.35);
   }
 </style>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const emailInput = document.getElementById('newsletter-email') as HTMLInputElement | null;
+  const btn = document.getElementById('newsletter-btn') as HTMLButtonElement | null;
+  const msg = document.getElementById('newsletter-msg');
+  const lang = document.documentElement.lang;
+
+  const texts = {
+    sending: lang === 'pt' ? 'A enviar...' : 'Sending...',
+    success: lang === 'pt' ? 'Subscrito com sucesso!' : 'Successfully subscribed!',
+    existing: lang === 'pt' ? 'Este email já está subscrito.' : 'This email is already subscribed.',
+    error: lang === 'pt' ? 'Ocorreu um erro. Tente novamente.' : 'Something went wrong. Please try again.',
+    subscribe: lang === 'pt' ? 'Subscrever' : 'Subscribe',
+  };
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!emailInput || !btn || !msg) return;
+
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    btn.disabled = true;
+    btn.textContent = texts.sending;
+    msg.textContent = '';
+    msg.className = 'footer__newsletter-msg';
+
+    try {
+      const res = await fetch('https://cpx-newsletter-api.joao-relego.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        msg.textContent = data.existing ? texts.existing : texts.success;
+        msg.classList.add('footer__newsletter-msg--success');
+        emailInput.value = '';
+      } else {
+        msg.textContent = texts.error;
+        msg.classList.add('footer__newsletter-msg--error');
+      }
+    } catch {
+      msg.textContent = texts.error;
+      msg.classList.add('footer__newsletter-msg--error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = texts.subscribe;
+    }
+  });
+</script>

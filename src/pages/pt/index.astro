@@ -19,7 +19,7 @@ const routes = localeRoutes[locale];
         <h1 class="reveal">{i.hero.heading}</h1>
         <p class="hero__body reveal">{i.hero.body}</p>
         <div class="hero__actions reveal">
-          <a href={routes.contact} class="btn btn--accent">
+          <a href={routes.contact} class="btn hero__btn-primary">
             {i.hero.ctaPrimary}
             <i class="ph ph-arrow-right"></i>
           </a>
@@ -89,6 +89,27 @@ const routes = localeRoutes[locale];
     </div>
   </section>
 
+  <!-- Google Reviews -->
+  <section class="section">
+    <div class="container">
+      <div class="google-reviews reveal">
+        <div class="google-reviews__stars">
+          <i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+        </div>
+        <p class="google-reviews__rating">
+          <strong>4.9</strong> <span>— Google Reviews (15)</span>
+        </p>
+        <a href="https://maps.app.goo.gl/CYtvtkwpFCRzgY76A" target="_blank" rel="noopener" class="google-reviews__link">
+          Deixar uma Review <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Quote -->
   <section class="section section--accent">
     <div class="container text-center">
@@ -107,7 +128,7 @@ const routes = localeRoutes[locale];
       <div class="cta-block cta-block--centered reveal">
         <h2>{i.firstAppointment.heading}</h2>
         <p class="cta-block__body">{i.firstAppointment.body}</p>
-        <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
+        <a href={routes.contact} class="btn btn--cta" style="margin-top: 32px;">
           {i.firstAppointment.cta}
           <i class="ph ph-arrow-right"></i>
         </a>
@@ -126,7 +147,7 @@ const routes = localeRoutes[locale];
   .hero {
     position: relative;
     padding: calc(72px + var(--section-spacing)) 0 var(--section-spacing);
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -140,6 +161,9 @@ const routes = localeRoutes[locale];
     position: absolute; inset: 0;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
   }
+  @media (max-width: 767px) {
+    .hero__overlay { background: rgba(0, 0, 0, 0.5); }
+  }
   .hero__inner { position: relative; z-index: 1; }
   .hero__content {
     display: flex; flex-direction: column;
@@ -149,8 +173,10 @@ const routes = localeRoutes[locale];
   .hero h1 { color: var(--wc-warm-white); }
   .hero__body { font-size: 1.0625rem; max-width: 520px; color: rgba(250, 248, 245, 0.85); }
   .hero__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+  .hero__btn-primary { background: var(--cpx-secondary); color: #ffffff; border: none; }
+  .hero__btn-primary:hover { background: #e03d12; box-shadow: 0 8px 24px rgba(251, 70, 22, 0.3); }
   .hero__btn-secondary { border-color: rgba(250, 248, 245, 0.3); color: var(--wc-warm-white); }
-  .hero__btn-secondary:hover { border-color: var(--wc-warm-white); }
+  .hero__btn-secondary:hover { background: var(--cpx-secondary); color: #ffffff; border-color: var(--cpx-secondary); }
 
   @media (max-width: 767px) {
     .services-carousel {
@@ -183,6 +209,14 @@ const routes = localeRoutes[locale];
     transition: color 0.2s ease;
   }
   .service-card:hover .service-card__link { color: var(--cpx-secondary); }
+
+  .google-reviews { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .google-reviews__stars { display: flex; gap: 2px; font-size: 1.25rem; color: #FBBC04; }
+  .google-reviews__rating { font-size: 1rem; color: var(--wc-charcoal); margin: 0; max-width: none; }
+  .google-reviews__rating strong { font-size: 1.125rem; }
+  .google-reviews__rating span { opacity: 0.5; }
+  .google-reviews__link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; color: var(--cpx-accent); transition: color 0.2s ease; }
+  .google-reviews__link:hover { color: var(--cpx-secondary); }
 
   .quote {
     max-width: 720px;

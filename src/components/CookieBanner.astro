@@ -1,0 +1,376 @@
+---
+interface Props {
+  locale?: string;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const isEN = locale === 'en';
+
+const t = {
+  bannerText: isEN
+    ? 'We use cookies to enhance your experience. Read our'
+    : 'Utilizamos cookies para melhorar a sua experiência. Leia a nossa',
+  privacyLink: isEN ? 'Privacy Policy' : 'Política de Privacidade',
+  privacyHref: isEN ? '/en/privacy' : '/pt/privacidade',
+  acceptAll: isEN ? 'Accept All' : 'Aceitar Todos',
+  rejectAll: isEN ? 'Reject All' : 'Rejeitar Todos',
+  customize: isEN ? 'Customize' : 'Personalizar',
+  savePreferences: isEN ? 'Save Preferences' : 'Guardar Preferências',
+  necessary: isEN ? 'Necessary' : 'Necessários',
+  necessaryDesc: isEN
+    ? 'Required for the site to function properly.'
+    : 'Necessários para o funcionamento do site.',
+  analytics: isEN ? 'Analytics' : 'Analíticos',
+  analyticsDesc: isEN
+    ? 'Help us understand how visitors use the site.'
+    : 'Ajudam-nos a perceber como os visitantes utilizam o site.',
+  marketing: isEN ? 'Marketing' : 'Marketing',
+  marketingDesc: isEN
+    ? 'Used to deliver relevant ads and track campaigns.'
+    : 'Utilizados para apresentar anúncios relevantes e acompanhar campanhas.',
+};
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label={isEN ? 'Cookie consent' : 'Consentimento de cookies'}>
+  <!-- Main banner -->
+  <div class="cookie-banner__main" id="cookie-main">
+    <div class="cookie-banner__row">
+      <p class="cookie-banner__text">
+        {t.bannerText} <a href={t.privacyHref} class="cookie-banner__link">{t.privacyLink}</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="cookie-btn cookie-btn--ghost" id="cookie-reject">{t.rejectAll}</button>
+        <button class="cookie-btn cookie-btn--ghost" id="cookie-customize">{t.customize}</button>
+        <button class="cookie-btn cookie-btn--fill" id="cookie-accept">{t.acceptAll}</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customize panel -->
+  <div class="cookie-banner__panel" id="cookie-panel" hidden>
+    <div class="cookie-banner__categories">
+      <div class="cookie-category">
+        <div class="cookie-category__info">
+          <span class="cookie-category__name">{t.necessary}</span>
+          <span class="cookie-category__desc">{t.necessaryDesc}</span>
+        </div>
+        <label class="cookie-toggle cookie-toggle--disabled">
+          <input type="checkbox" checked disabled />
+          <span class="cookie-toggle__slider"></span>
+        </label>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-category__info">
+          <span class="cookie-category__name">{t.analytics}</span>
+          <span class="cookie-category__desc">{t.analyticsDesc}</span>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookie-analytics" />
+          <span class="cookie-toggle__slider"></span>
+        </label>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-category__info">
+          <span class="cookie-category__name">{t.marketing}</span>
+          <span class="cookie-category__desc">{t.marketingDesc}</span>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookie-marketing" />
+          <span class="cookie-toggle__slider"></span>
+        </label>
+      </div>
+    </div>
+    <div class="cookie-banner__panel-actions">
+      <button class="cookie-btn cookie-btn--ghost" id="cookie-back">&larr;</button>
+      <button class="cookie-btn cookie-btn--fill" id="cookie-save">{t.savePreferences}</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 95;
+    pointer-events: none;
+    transform: translateY(110%);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cookie-banner.is-visible {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .cookie-banner__main,
+  .cookie-banner__panel {
+    max-width: 680px;
+    margin: 0 auto 16px;
+    background: var(--cpx-light-bg, #f5f5f5);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-block, 18px);
+    padding: 16px 24px;
+    color: var(--wc-charcoal, #2d2d2d);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .cookie-banner__row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cookie-banner__text {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+
+  .cookie-banner__link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: var(--wc-charcoal, #2d2d2d);
+    transition: color 0.2s;
+  }
+
+  .cookie-banner__link:hover {
+    color: var(--cpx-secondary, #fb4616);
+  }
+
+  .cookie-banner__actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Pill buttons */
+  .cookie-btn {
+    font-family: var(--font-heading, 'Mulish', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .cookie-btn--fill {
+    background: var(--cpx-dark-bg, #1d1d1f);
+    color: #fff;
+  }
+
+  .cookie-btn--fill:hover {
+    background: var(--cpx-secondary, #fb4616);
+    transform: translateY(-1px);
+  }
+
+  .cookie-btn--ghost {
+    background: transparent;
+    color: var(--wc-charcoal, #2d2d2d);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .cookie-btn--ghost:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Panel */
+  .cookie-banner__panel[hidden] {
+    display: none;
+  }
+
+  .cookie-banner__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .cookie-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+  }
+
+  .cookie-category__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .cookie-category__name {
+    font-family: var(--font-heading, 'Mulish', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  .cookie-category__desc {
+    font-size: 0.6875rem;
+    opacity: 0.5;
+    line-height: 1.4;
+  }
+
+  /* Toggle */
+  .cookie-toggle {
+    position: relative;
+    flex-shrink: 0;
+    width: 40px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  .cookie-toggle--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .cookie-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .cookie-toggle__slider {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 22px;
+    transition: background 0.25s;
+  }
+
+  .cookie-toggle__slider::before {
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.25s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  .cookie-toggle input:checked + .cookie-toggle__slider {
+    background: var(--cpx-dark-bg, #1d1d1f);
+  }
+
+  .cookie-toggle input:checked + .cookie-toggle__slider::before {
+    transform: translateX(18px);
+  }
+
+  .cookie-banner__panel-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .cookie-banner__main,
+    .cookie-banner__panel {
+      margin: 0 12px 12px;
+      padding: 14px 18px;
+    }
+
+    .cookie-banner__row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .cookie-banner__text {
+      text-align: center;
+    }
+
+    .cookie-banner__actions {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'cpx-cookie-consent';
+
+  function getConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveConsent(prefs: { necessary: boolean; analytics: boolean; marketing: boolean }) {
+    const data = { ...prefs, timestamp: new Date().toISOString() };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: data }));
+  }
+
+  function init() {
+    const banner = document.getElementById('cookie-banner');
+    const mainView = document.getElementById('cookie-main');
+    const panelView = document.getElementById('cookie-panel');
+    const analyticsToggle = document.getElementById('cookie-analytics') as HTMLInputElement | null;
+    const marketingToggle = document.getElementById('cookie-marketing') as HTMLInputElement | null;
+
+    if (!banner || !mainView || !panelView) return;
+
+    if (getConsent()) return;
+
+    requestAnimationFrame(() => {
+      banner.classList.add('is-visible');
+    });
+
+    function hideBanner() {
+      banner.classList.remove('is-visible');
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      saveConsent({ necessary: true, analytics: true, marketing: true });
+      hideBanner();
+    });
+
+    document.getElementById('cookie-reject')?.addEventListener('click', () => {
+      saveConsent({ necessary: true, analytics: false, marketing: false });
+      hideBanner();
+    });
+
+    document.getElementById('cookie-customize')?.addEventListener('click', () => {
+      mainView.hidden = true;
+      panelView.hidden = false;
+    });
+
+    document.getElementById('cookie-back')?.addEventListener('click', () => {
+      panelView.hidden = true;
+      mainView.hidden = false;
+    });
+
+    document.getElementById('cookie-save')?.addEventListener('click', () => {
+      saveConsent({
+        necessary: true,
+        analytics: analyticsToggle?.checked ?? false,
+        marketing: marketingToggle?.checked ?? false,
+      });
+      hideBanner();
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
