@@ -11,27 +11,22 @@ const routes = localeRoutes[locale];
 
   <!-- Hero -->
   <section class="hero">
+    <img src="/images/hero.webp" alt="Nuno Nina a trabalhar com o TimeWaver no CellPowerX Wellness Center" class="hero__bg" loading="eager" />
+    <div class="hero__overlay"></div>
     <div class="container hero__inner">
       <div class="hero__content">
         <span class="label reveal">{i.hero.label}</span>
         <h1 class="reveal">{i.hero.heading}</h1>
         <p class="hero__body reveal">{i.hero.body}</p>
         <div class="hero__actions reveal">
-          <a href={routes.contact} class="btn btn--primary">
+          <a href={routes.contact} class="btn btn--accent">
             {i.hero.ctaPrimary}
             <i class="ph ph-arrow-right"></i>
           </a>
-          <a href={routes.treatments} class="btn btn--secondary">
+          <a href={routes.treatments} class="btn btn--secondary hero__btn-secondary">
             {i.hero.ctaSecondary}
             <i class="ph ph-arrow-right"></i>
           </a>
-        </div>
-      </div>
-      <div class="hero__visual reveal">
-        <div class="img-frame hero__image">
-          <div class="hero__placeholder">
-            <i class="ph ph-flower-lotus" style="font-size: 4rem; color: var(--cpx-accent);"></i>
-          </div>
         </div>
       </div>
     </div>
@@ -74,21 +69,19 @@ const routes = localeRoutes[locale];
       </h2>
       <div class="grid-4" data-stagger>
         {[
-          { key: 'timewaver', icon: 'ph-wave-sine' },
-          { key: 'nanopulse', icon: 'ph-magnet-straight' },
-          { key: 'infrared', icon: 'ph-sun-dim' },
-          { key: 'slmwave', icon: 'ph-lighthouse' },
-        ].map(({ key, icon }) => (
-          <a href={`${routes.treatments}#${key}`} class="treatment-card card">
-            <div class="card__icon">
-              <i class={`ph ${icon}`} style="font-size: 2.5rem;"></i>
+          { key: 'slmwave', img: '/images/slmwave.png', pos: 'center center' },
+          { key: 'nanopulse', img: '/images/nanopulse.png', pos: 'left center' },
+          { key: 'infrared', img: '/images/redlight.png', pos: 'center center' },
+          { key: 'timewaver', img: '/images/timewaver.png', pos: 'right center' },
+        ].map(({ key, img, pos }) => (
+          <a href={`${routes.treatments}#${key}`} class="service-card">
+            <div class="service-card__img-wrap">
+              <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
             </div>
-            <h4>{i.treatmentsPreview[key].name}</h4>
-            <p>{i.treatmentsPreview[key].tagline}</p>
-            <span class="treatment-card__link">
-              {i.treatmentsPreview.learnMore}
-              <i class="ph ph-arrow-right"></i>
-            </span>
+            <div class="service-card__text">
+              <h4>{i.treatmentsPreview[key].name}</h4>
+              <p>{i.treatmentsPreview[key].tagline}</p>
+            </div>
           </a>
         ))}
       </div>
@@ -108,9 +101,9 @@ const routes = localeRoutes[locale];
   </section>
 
   <!-- First Appointment CTA -->
-  <section class="section section--dark">
+  <section class="section">
     <div class="container">
-      <div class="cta-block reveal">
+      <div class="cta-block cta-block--centered reveal">
         <h2>{i.firstAppointment.heading}</h2>
         <p class="cta-block__body">{i.firstAppointment.body}</p>
         <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
@@ -125,96 +118,46 @@ const routes = localeRoutes[locale];
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="section section--warm">
-    <div class="container text-center">
-      <div class="newsletter reveal">
-        <h2>{i.newsletter.heading}</h2>
-        <p class="mx-auto">{i.newsletter.body}</p>
-        <form class="newsletter__form" action="#" method="POST">
-          <input type="email" class="input" placeholder={i.newsletter.placeholder} required />
-          <button type="submit" class="btn btn--secondary">{i.newsletter.cta}</button>
-        </form>
-      </div>
-    </div>
-  </section>
 
 </Base>
 
 <style>
   .hero {
+    position: relative;
     padding: calc(72px + var(--section-spacing)) 0 var(--section-spacing);
-    background: linear-gradient(160deg, var(--wc-warm-white), var(--wc-mist));
-  }
-
-  .hero__inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--block-spacing);
+    min-height: 70vh;
+    display: flex;
     align-items: center;
+    overflow: hidden;
   }
-
-  @media (min-width: 768px) {
-    .hero__inner {
-      grid-template-columns: 1fr 1fr;
-    }
+  .hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
   }
-
+  .hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+  }
+  .hero__inner { position: relative; z-index: 1; }
   .hero__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--element-spacing);
+    display: flex; flex-direction: column;
+    gap: var(--element-spacing); max-width: 640px;
   }
+  .hero .label { color: var(--cpx-accent); }
+  .hero h1 { color: var(--wc-warm-white); }
+  .hero__body { font-size: 1.0625rem; max-width: 520px; color: rgba(250, 248, 245, 0.85); }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+  .hero__btn-secondary { border-color: rgba(250, 248, 245, 0.3); color: var(--wc-warm-white); }
+  .hero__btn-secondary:hover { border-color: var(--wc-warm-white); }
 
-  .hero__body {
-    font-size: 1.0625rem;
-    max-width: 520px;
-  }
-
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 8px;
-  }
-
-  .hero__image {
-    aspect-ratio: 4/3;
-    background: linear-gradient(135deg, rgba(195, 214, 221, 0.3), rgba(232, 224, 212, 0.3));
-  }
-
-  .hero__placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .treatment-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-  }
-
-  .treatment-card__link {
-    margin-top: auto;
-    padding-top: 20px;
-    font-family: var(--font-heading);
-    font-weight: var(--fw-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.6875rem;
-    color: var(--cpx-accent);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color var(--duration-fast) ease;
-  }
-
-  .treatment-card:hover .treatment-card__link {
-    color: var(--cpx-secondary);
-  }
+  .service-card { display: flex; flex-direction: column; text-decoration: none; }
+  .service-card__img-wrap { border-radius: var(--radius-block); overflow: hidden; aspect-ratio: 3/4; background: var(--wc-mist); }
+  .service-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .service-card:hover .service-card__img { transform: scale(1.03); }
+  .service-card__text { padding-top: 16px; }
+  .service-card__text h4 { margin-bottom: 6px; }
+  .service-card__text p { font-size: 0.875rem; color: var(--wc-charcoal); opacity: 0.6; line-height: 1.5; }
 
   .quote {
     max-width: 720px;
@@ -239,14 +182,14 @@ const routes = localeRoutes[locale];
     font-size: 0.75rem;
   }
 
-  .cta-block {
-    max-width: 640px;
-  }
+  .cta-block { max-width: 640px; }
+  .cta-block--centered { text-align: center; margin: 0 auto; }
+  .cta-block--centered p { margin-left: auto; margin-right: auto; }
+  .cta-block--centered .cta-block__location { justify-content: center; }
 
   .cta-block__body {
     font-size: 1.0625rem;
     margin-top: 16px;
-    color: rgba(250, 248, 245, 0.8);
     max-width: none;
   }
 
@@ -256,7 +199,7 @@ const routes = localeRoutes[locale];
     gap: 8px;
     margin-top: 24px;
     font-size: 0.875rem;
-    color: rgba(250, 248, 245, 0.5);
+    color: var(--wc-sage);
   }
 
   .cta-block__location i {
@@ -274,6 +217,17 @@ const routes = localeRoutes[locale];
   }
 
   .newsletter__form .input { flex: 1; }
+
+  .newsletter__input {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(195, 214, 221, 0.25);
+    color: var(--wc-warm-white);
+  }
+  .newsletter__input::placeholder { color: rgba(250, 248, 245, 0.35); }
+  .newsletter__input:focus {
+    border-color: var(--cpx-accent);
+    background: rgba(255, 255, 255, 0.12);
+  }
 
   @media (max-width: 480px) {
     .newsletter__form { flex-direction: column; }

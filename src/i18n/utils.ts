@@ -25,13 +25,17 @@ export const localeRoutes: Record<string, Record<string, string>> = {
   en: {
     home: '/en/',
     about: '/en/about',
-    treatments: '/en/treatments',
+    treatments: '/en/services',
     contact: '/en/contact',
+    privacy: '/en/privacy',
+    terms: '/en/terms',
   },
   pt: {
     home: '/pt/',
     about: '/pt/sobre',
-    treatments: '/pt/tratamentos',
+    treatments: '/pt/servicos',
     contact: '/pt/contacto',
+    privacy: '/pt/privacidade',
+    terms: '/pt/termos',
   },
 };

@@ -12,115 +12,178 @@ const routes = localeRoutes[locale];
 
 <footer class="footer">
   <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href={routes.home} class="footer__logo">CellPowerX <span>Wellness</span></a>
-      </div>
-
-      <nav class="footer__nav">
-        <a href={routes.treatments}>{i.nav.treatments}</a>
-        <a href={routes.about}>{i.nav.about}</a>
-        <a href={routes.contact}>{i.nav.contact}</a>
-        <a href="#">{i.footer.privacy}</a>
-        <a href="#">{i.footer.terms}</a>
-      </nav>
-    </div>
-
-    <div class="footer__contact">
-      <div class="footer__contact-item">
-        <i class="ph ph-phone"></i>
-        <span>{i.contact.phone} · {i.contact.phoneMobile}</span>
-      </div>
-      <div class="footer__contact-item">
-        <i class="ph ph-envelope-simple"></i>
-        <a href={`mailto:${i.contact.email}`}>{i.contact.email}</a>
-      </div>
-      <div class="footer__contact-item">
-        <i class="ph ph-map-pin"></i>
-        <span>{i.contact.address} — {i.contact.addressCity}</span>
+    <!-- Logo row -->
+    <div class="footer__logo-row">
+      <div class="footer__logo">
+        <img src="/images/cpx-logo.svg" alt="CellPowerX" class="footer__logo-img" />
+        <span class="footer__logo-links">
+          <a href={routes.home}>Wellness Center</a>
+          <span class="footer__logo-divider">|</span>
+          <a href="https://www.cellpowerx.com" target="_blank" rel="noopener">Wellness Devices</a>
+        </span>
       </div>
     </div>
 
+    <!-- 3-column grid -->
+    <div class="footer__grid">
+      <!-- Column 1: Links -->
+      <div class="footer__col">
+        <h4 class="footer__heading">{i.footer.linksHeading}</h4>
+        <nav class="footer__links">
+          <a href={routes.treatments}>{i.nav.treatments}</a>
+          <a href={routes.about}>{i.nav.about}</a>
+          <a href={routes.contact}>{i.nav.contact}</a>
+          <a href={routes.privacy}>{i.footer.privacy}</a>
+          <a href={routes.terms}>{i.footer.terms}</a>
+          <a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" target="_blank" rel="noopener">{i.footer.complaintsBook}</a>
+        </nav>
+      </div>
+
+      <!-- Column 2: Contact -->
+      <div class="footer__col">
+        <h4 class="footer__heading">{i.footer.contactHeading}</h4>
+        <div class="footer__contact-list">
+          <div class="footer__contact-item">
+            <i class="ph ph-phone"></i>
+            <span>{i.contact.phone}</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ph ph-device-mobile"></i>
+            <span>{i.contact.phoneMobile}</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ph ph-envelope-simple"></i>
+            <a href={`mailto:${i.contact.email}`}>{i.contact.email}</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ph ph-map-pin"></i>
+            <span>{i.contact.address}<br />{i.contact.addressCity}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Newsletter -->
+      <div class="footer__col footer__col--newsletter">
+        <h4 class="footer__heading">{i.footer.newsletterHeading}</h4>
+        <p class="footer__newsletter-body">{i.footer.newsletterBody}</p>
+        <form class="footer__newsletter-form" action="#" method="POST">
+          <input type="email" class="footer__newsletter-input" placeholder={i.footer.newsletterPlaceholder} required />
+          <button type="submit" class="btn btn--accent footer__newsletter-btn">{i.footer.newsletterCta}</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom -->
     <div class="footer__bottom">
       <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}</p>
     </div>
   </div>
 </footer>
 
-<style>
+<style is:global>
   .footer {
     background: var(--cpx-dark-bg);
     color: rgba(250, 248, 245, 0.7);
     padding: clamp(48px, 6vw, 80px) 0 clamp(24px, 3vw, 40px);
   }
 
-  .footer__top {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  /* Logo row */
+  .footer__logo-row {
     margin-bottom: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(195, 214, 221, 0.12);
   }
 
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer__logo-img {
+    height: 28px;
+    width: auto;
+    filter: invert(1);
+  }
+
+  .footer__logo-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .footer__logo-links a {
+    color: var(--wc-warm-white);
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer__logo-links a:hover {
+    opacity: 1;
+  }
+
+  .footer__logo-divider {
+    color: var(--wc-warm-white);
+    opacity: 0.25;
+  }
+
+  /* 3-column grid */
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(195, 214, 221, 0.08);
+  }
+
   @media (min-width: 768px) {
-    .footer__top {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
+    .footer__grid {
+      grid-template-columns: 1fr 1fr 1.5fr;
     }
   }
 
-  .footer__logo {
+  .footer__heading {
     font-family: var(--font-heading);
     font-weight: var(--fw-heading);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.9375rem;
-    color: var(--wc-warm-white);
-  }
-
-  .footer__logo span {
-    color: var(--cpx-accent);
-  }
-
-  .footer__nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 32px;
-  }
-
-  .footer__nav a {
-    font-family: var(--font-heading);
-    font-weight: var(--fw-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     font-size: 0.6875rem;
-    color: rgba(250, 248, 245, 0.5);
-    transition: color var(--duration-fast) ease;
-  }
-
-  .footer__nav a:hover {
     color: var(--wc-warm-white);
+    margin-bottom: 20px;
   }
 
-  .footer__contact {
+  /* Links column */
+  .footer__links {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 40px;
   }
 
-  @media (min-width: 768px) {
-    .footer__contact {
-      flex-direction: row;
-      gap: 32px;
-    }
+  .footer__links a {
+    font-size: 0.875rem;
+    color: rgba(250, 248, 245, 0.5);
+    transition: color 0.2s ease;
+  }
+
+  .footer__links a:hover {
+    color: var(--wc-warm-white);
+  }
+
+  /* Contact column */
+  .footer__contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .footer__contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     font-size: 0.875rem;
   }
@@ -128,17 +191,60 @@ const routes = localeRoutes[locale];
   .footer__contact-item i {
     color: var(--cpx-accent);
     font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
   }
 
   .footer__contact-item a:hover {
     color: var(--wc-warm-white);
   }
 
-  .footer__bottom {
-    padding-top: 24px;
-    border-top: 1px solid rgba(195, 214, 221, 0.08);
+  /* Newsletter column */
+  .footer__col--newsletter {
+    text-align: center;
   }
 
+  .footer__newsletter-body {
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+    max-width: none;
+  }
+
+  .footer__newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer__newsletter-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(195, 214, 221, 0.2);
+    border-radius: var(--radius-input);
+    color: var(--wc-warm-white);
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .footer__newsletter-input::placeholder {
+    color: rgba(250, 248, 245, 0.3);
+  }
+
+  .footer__newsletter-input:focus {
+    border-color: var(--cpx-accent);
+  }
+
+  .footer__newsletter-btn {
+    width: fit-content;
+    padding: 10px 24px;
+    font-size: 0.75rem;
+  }
+
+  /* Bottom */
   .footer__bottom p {
     font-size: 0.75rem;
     color: rgba(250, 248, 245, 0.35);

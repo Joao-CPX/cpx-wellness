@@ -1,0 +1,213 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, localeRoutes } from '../../i18n/utils';
+
+const locale = 'pt';
+const i = t(locale);
+const routes = localeRoutes[locale];
+
+const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver'] as const;
+const icons = {
+  timewaver: 'ph-wave-sine',
+  nanopulse: 'ph-magnet-straight',
+  infrared: 'ph-sun-dim',
+  slmwave: 'ph-lighthouse',
+};
+const images = {
+  timewaver: '/images/timewaver.png',
+  nanopulse: '/images/nanopulse.png',
+  infrared: '/images/redlight.png',
+  slmwave: '/images/slmwave.png',
+};
+---
+
+<Base title="Serviços" locale={locale} description="Explore as nossas quatro modalidades: TimeWaver Frequency, NanoPulse, Terapia de Infravermelhos e SLM Wave. Protocolos personalizados para o seu bem-estar.">
+
+  <section class="page-hero section">
+    <div class="container">
+      <h1 class="reveal">{i.treatments.heading}</h1>
+      <p class="page-hero__body reveal">{i.treatments.intro}</p>
+    </div>
+  </section>
+
+  <!-- Sticky sub-nav -->
+  <div class="service-subnav" id="service-subnav">
+    <div class="container service-subnav__inner">
+      {treatmentKeys.map((key) => (
+        <a href={`#${key}`} class="service-subnav__item" data-target={key}>
+          {i.treatments[key].name}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {treatmentKeys.map((key, index) => (
+    <section id={key} class="section">
+      <div class="container">
+        <div class="treatment-detail reveal">
+          <div class="treatment-detail__layout">
+            <div class="treatment-detail__info">
+              <div class="treatment-detail__header">
+                <div class="treatment-detail__icon">
+                  <i class={`ph ${icons[key]}`} style="font-size: 3rem; color: var(--cpx-accent);"></i>
+                </div>
+                <div>
+                  <h2>{i.treatments[key].name}</h2>
+                  <p class="treatment-detail__tagline">{i.treatments[key].tagline}</p>
+                </div>
+              </div>
+              <div class="treatment-detail__content">
+                <div class="treatment-detail__section">
+                  <h3>Como Funciona</h3>
+                  <p>{i.treatments[key].howItWorks}</p>
+                </div>
+                <div class="treatment-detail__section">
+                  <h3>{i.treatments[key].applicationsTitle}</h3>
+                  <ul class="treatment-detail__list">
+                    {i.treatments[key].applications.map((app: string) => (
+                      <li>
+                        <i class="ph ph-check-circle" style="color: var(--wc-sage);"></i>
+                        {app}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
+                  {i.treatments[key].cta}
+                  <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            <div class="treatment-detail__visual">
+              <img src={images[key]} alt={i.treatments[key].name} class="treatment-detail__img" loading="lazy" />
+              {i.treatments[key].sessionInfo && (
+                <p class="treatment-detail__session">
+                  <i class="ph ph-info" style="color: var(--cpx-accent);"></i>
+                  {i.treatments[key].sessionInfo}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-block cta-block--centered reveal">
+        <h2>{i.treatments.firstAppointmentHeading}</h2>
+        <p style="margin-top: 16px; max-width: 620px;">
+          {i.treatments.firstAppointmentBody}
+        </p>
+        <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
+          {i.treatments.firstAppointmentCta}
+          <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(24px, 3vw, 40px) 0;">
+    <div class="container">
+      <div class="disclaimers">
+        {treatmentKeys.map((key) => (
+          i.treatments[key].disclaimer && (
+            <p class="disclaimer">
+              <strong>{i.treatments[key].name}:</strong> {i.treatments[key].disclaimer}
+            </p>
+          )
+        ))}
+        <p class="disclaimer" style="margin-top: 16px;">{i.treatments.globalDisclaimer}</p>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    padding-top: calc(72px + var(--section-spacing));
+  }
+  .page-hero { text-align: center; }
+  .page-hero h1 { margin-bottom: 20px; }
+  .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+  .service-subnav { position: sticky; top: 72px; z-index: 50; background: rgba(250, 248, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
+  .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .service-subnav__inner::-webkit-scrollbar { display: none; }
+  .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: var(--wc-charcoal); opacity: 0.5; padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .service-subnav__item:hover { opacity: 0.8; }
+  .service-subnav__item.is-active { opacity: 1; color: var(--cpx-secondary); border-bottom-color: var(--cpx-secondary); }
+
+  .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(195, 214, 221, 0.25); }
+  .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
+  @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
+  .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
+  .treatment-detail__img { width: 100%; border-radius: var(--radius-block); object-fit: cover; }
+  .treatment-detail__session { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; color: var(--wc-sage); line-height: 1.6; }
+  .treatment-detail__cta { margin-top: 24px; width: fit-content; }
+  .cta-block--centered { text-align: center; max-width: 640px; margin: 0 auto; }
+  .cta-block--centered p { margin-left: auto; margin-right: auto; }
+  .disclaimers .disclaimer + .disclaimer { margin-top: 8px; }
+  .treatment-detail__header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: var(--block-spacing);
+  }
+  .treatment-detail__icon {
+    flex-shrink: 0; width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(195, 214, 221, 0.15); border-radius: 16px;
+  }
+  .treatment-detail__tagline {
+    font-size: 1.0625rem; margin-top: 4px; max-width: none;
+    color: rgba(58, 58, 70, 0.7);
+  }
+  .treatment-detail__content { display: flex; flex-direction: column; gap: 28px; }
+  .treatment-detail__section h3 { font-size: 0.875rem; margin-bottom: 12px; }
+  .treatment-detail__section p { font-size: 0.9375rem; line-height: 1.8; max-width: none; }
+  .treatment-detail__session {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 16px 20px; background: rgba(195, 214, 221, 0.12);
+    border-radius: var(--radius-input); font-size: 0.9375rem; max-width: none;
+  }
+  .treatment-detail__session i { margin-top: 3px; flex-shrink: 0; }
+  .treatment-detail__list { display: flex; flex-direction: column; gap: 10px; }
+  .treatment-detail__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9375rem; line-height: 1.6;
+  }
+  .treatment-detail__list li i { margin-top: 3px; flex-shrink: 0; }
+  .treatment-detail__disclaimer {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 16px 20px; background: rgba(232, 224, 212, 0.4);
+    border-radius: var(--radius-input); font-size: 0.8125rem;
+    color: rgba(58, 58, 70, 0.7);
+  }
+  .treatment-detail__disclaimer i { margin-top: 2px; flex-shrink: 0; color: var(--wc-sage); }
+  .treatment-detail__disclaimer p { max-width: none; }
+
+  .cta-block { max-width: 640px; }
+  .disclaimer {
+    font-size: 0.75rem; color: rgba(58, 58, 70, 0.5);
+    line-height: 1.6; max-width: none;
+  }
+</style>
+
+<script>
+  const navItems = document.querySelectorAll('.service-subnav__item');
+  const sections = document.querySelectorAll('.treatment-detail');
+  if (navItems.length && sections.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.closest('section')?.id;
+          navItems.forEach((item) => {
+            item.classList.toggle('is-active', item.getAttribute('data-target') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

@@ -77,11 +77,17 @@ const faqs = [
               <p>{i.contact.hoursNote}</p>
             </div>
           </div>
-          <div class="map-placeholder img-frame">
-            <div class="map-placeholder__inner">
-              <i class="ph ph-map-trifold" style="font-size: 3rem; color: var(--cpx-accent);"></i>
-              <span>Google Maps</span>
-            </div>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.1234!2d-9.1456!3d38.7305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933870e000001%3A0x1!2sAv.+Fontes+Pereira+de+Melo+21%2C+Lisboa!5e0!3m2!1spt-PT!2spt!4v1"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização CellPowerX Wellness Center">
+            </iframe>
           </div>
         </div>
       </div>
@@ -112,7 +118,6 @@ const faqs = [
 <style>
   .page-hero {
     padding-top: calc(72px + var(--section-spacing));
-    background: linear-gradient(160deg, var(--wc-warm-white), var(--wc-mist));
   }
 
   .contact-grid {
@@ -147,17 +152,8 @@ const faqs = [
   .contact-info__hours h4 { margin-bottom: 8px; }
   .contact-info__hours p { font-size: 0.875rem; color: rgba(58, 58, 70, 0.6); }
 
-  .map-placeholder {
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, rgba(195, 214, 221, 0.3), rgba(232, 224, 212, 0.3));
-  }
-  .map-placeholder__inner {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 12px; font-family: var(--font-heading); font-weight: var(--fw-heading);
-    text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.6875rem;
-    color: rgba(58, 58, 70, 0.3);
-  }
+  .map-embed { aspect-ratio: 16/9; border-radius: var(--radius-block); overflow: hidden; }
+  .map-embed iframe { width: 100%; height: 100%; }
 
   .faq-list { max-width: 720px; display: flex; flex-direction: column; }
   .faq-item { border-bottom: 1px solid rgba(195, 214, 221, 0.3); }

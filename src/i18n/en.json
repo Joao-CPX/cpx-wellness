@@ -1,6 +1,6 @@
 {
   "nav": {
-    "treatments": "Treatments",
+    "treatments": "Services",
     "about": "About",
     "contact": "Contact",
     "bookNow": "Book Now"
@@ -10,7 +10,7 @@
     "heading": "Where Cellular Science Meets Restorative Care",
     "body": "Two decades of experience. 70,000+ client journeys. The original center where Nuno Nina's frequency-based protocols were born — now open to you.",
     "ctaPrimary": "Book Your First Session",
-    "ctaSecondary": "Explore Our Treatments"
+    "ctaSecondary": "Explore Our Services"
   },
   "valueProps": {
     "card1Title": "Personalized Protocols",
@@ -21,7 +21,7 @@
     "card3Text": "Our practitioners have worked alongside Nuno Nina for over a decade, trained in the methods and protocols developed at this very center."
   },
   "treatmentsPreview": {
-    "heading": "Our Treatments",
+    "heading": "Our Services",
     "learnMore": "Learn more",
     "timewaver": {
       "name": "TimeWaver Frequency",
@@ -74,14 +74,14 @@
     "founderRole": "Founder & Scientific Director",
     "founderBio": "With a background spanning Mathematics, Systems Engineering, and Biochemistry, Nuno Nina has spent over two decades investigating the intersection of frequencies, bioelectrical systems, and human well-being. His research led to the development of the Gold Frequencies protocol and contributed to the TimeWaver Frequency System and the Healy system — technologies now used by practitioners worldwide. More recently, his work has focused on water as a medium for bioelectrical coherence, resulting in CellPower Water®. The Wellness Center in Lisbon remains the epicenter of his ongoing research.",
     "approachHeading": "Our Approach",
-    "approachBody": "We work at the informational and bioelectrical level — supporting the body's natural capacity for balance and coherence. Our protocols don't treat symptoms in isolation; they address the underlying bioelectrical environment, creating conditions for the body to self-regulate and restore. Every session is guided by data, refined by experience, and tailored to you.",
+    "approachBody": "We work at the informational and bioelectrical level — supporting the body's natural capacity for balance and coherence. Our protocols address the underlying bioelectrical environment, creating conditions for the body to self-regulate and restore. Every session is guided by data, refined by experience, and tailored to you.",
     "ecosystemHeading": "The CellPowerX Ecosystem",
     "ecosystemBody": "Our Wellness Center is more than a clinic — it is the living laboratory where the CellPowerX philosophy comes to life. The protocols developed here inform everything CellPowerX creates, from the ACTYVA device to our supplement lines. When you visit, you experience the source.",
     "ecosystemCta": "Visit cellpowerx.com"
   },
   "treatments": {
-    "heading": "Our Treatments",
-    "intro": "Four distinct modalities, one integrated approach. Each treatment can be experienced individually or combined into a personalized protocol designed for your specific needs.",
+    "heading": "Our Services",
+    "intro": "Four distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
     "timewaver": {
       "name": "TimeWaver Frequency",
       "tagline": "Frequency-based support for balance, coherence and cellular well-being",
@@ -104,7 +104,7 @@
       "applications": [
         "Relaxation, energetic balance, and a general sense of comfort and vitality"
       ],
-      "disclaimer": "Not recommended for individuals with pacemakers, during pregnancy, or with metallic prosthesis in the treatment area.",
+      "disclaimer": "Not recommended for individuals with pacemakers, during pregnancy, or with metallic prosthesis in the session area.",
       "cta": "Book a NanoPulse Session"
     },
     "infrared": {
@@ -130,7 +130,7 @@
     "firstAppointmentHeading": "How It Begins",
     "firstAppointmentBody": "Your first visit (approximately 1h30) includes a bioelectrical analysis performed at the center to identify your body's electrical levels and areas of focus, followed by an initial TimeWaver Frequency session. From there, we design your personalized protocol.",
     "firstAppointmentCta": "Book Your First Appointment",
-    "globalDisclaimer": "All treatments described are wellness-oriented and do not constitute medical advice, diagnosis, or treatment. The TimeWaver Frequency System and related technologies are wellness devices designed to support balance and well-being within an informational and bioelectrical framework."
+    "globalDisclaimer": "All services described are wellness-oriented and do not constitute medical advice, diagnosis, or medical intervention. The TimeWaver Frequency System and related technologies are wellness devices designed to support balance and well-being within an informational and bioelectrical framework."
   },
   "contact": {
     "heading": "Book Your Visit",
@@ -160,18 +160,25 @@
       "q1": "What happens in the first appointment?",
       "a1": "Your first visit (approximately 1h30) includes a comprehensive bioelectrical analysis to understand your body's current state, followed by a personalized TimeWaver Frequency session. This data informs your ongoing protocol.",
       "q2": "How long is a typical session?",
-      "a2": "Sessions vary by treatment: TimeWaver sessions typically last 45–60 minutes, NanoPulse 3–20 minutes, and Infrared and SLM Wave sessions are tailored to your needs.",
-      "q3": "Are the treatments safe?",
-      "a3": "All our treatments are non-invasive and generally well tolerated. Specific contraindications exist for certain treatments — your practitioner will review these with you during your first visit.",
-      "q4": "Can treatments be combined?",
+      "a2": "Sessions vary by modality: TimeWaver sessions typically last 45–60 minutes, NanoPulse 3–20 minutes, and Infrared and SLM Wave sessions are tailored to your needs.",
+      "q3": "Are the services safe?",
+      "a3": "All our services are non-invasive and generally well tolerated. Specific contraindications exist for certain modalities — your practitioner will review these with you during your first visit.",
+      "q4": "Can services be combined?",
       "a4": "Yes. Many clients benefit from a combined protocol that integrates multiple modalities. Your practitioner will design the optimal combination based on your bioelectrical analysis.",
       "q5": "Do you offer packages?",
-      "a5": "We offer personalized treatment plans. Please contact us to discuss options tailored to your needs and goals."
+      "a5": "We offer personalized wellness plans. Please contact us to discuss options tailored to your needs and goals."
     }
   },
   "footer": {
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "complaintsBook": "Complaints Book",
+    "linksHeading": "Links",
+    "contactHeading": "Contact",
+    "newsletterHeading": "Stay Connected",
+    "newsletterBody": "Wellness insights, research updates, and exclusive invitations.",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterCta": "Subscribe"
   }
 }

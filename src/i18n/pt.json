@@ -1,6 +1,6 @@
 {
   "nav": {
-    "treatments": "Tratamentos",
+    "treatments": "Serviços",
     "about": "Sobre",
     "contact": "Contacto",
     "bookNow": "Marcar"
@@ -10,7 +10,7 @@
     "heading": "Onde a Ciência Celular Encontra o Cuidado Restaurador",
     "body": "Duas décadas de experiência. Mais de 70.000 percursos de clientes. O centro original onde os protocolos de frequência de Nuno Nina nasceram — agora aberto para si.",
     "ctaPrimary": "Marque a Sua Primeira Sessão",
-    "ctaSecondary": "Explore os Nossos Tratamentos"
+    "ctaSecondary": "Explore os Nossos Serviços"
   },
   "valueProps": {
     "card1Title": "Protocolos Personalizados",
@@ -21,7 +21,7 @@
     "card3Text": "Os nossos profissionais trabalham ao lado de Nuno Nina há mais de uma década, formados nos métodos e protocolos desenvolvidos neste mesmo centro."
   },
   "treatmentsPreview": {
-    "heading": "Os Nossos Tratamentos",
+    "heading": "Os Nossos Serviços",
     "learnMore": "Saber mais",
     "timewaver": {
       "name": "TimeWaver Frequency",
@@ -74,14 +74,14 @@
     "founderRole": "Fundador e Director Científico",
     "founderBio": "Com formação em Matemática, Engenharia de Sistemas e Bioquímica, Nuno Nina dedicou mais de duas décadas à investigação da intersecção entre frequências, sistemas bioeléctricos e bem-estar humano. A sua investigação conduziu ao desenvolvimento do protocolo Gold Frequencies e contribuiu para o TimeWaver Frequency System e o sistema Healy — tecnologias hoje utilizadas por profissionais em todo o mundo. Mais recentemente, o seu trabalho tem-se focado na água como meio de coerência bioeléctrica, resultando na CellPower Water®. O Wellness Center em Lisboa continua a ser o epicentro da sua investigação.",
     "approachHeading": "A Nossa Abordagem",
-    "approachBody": "Trabalhamos ao nível informacional e bioeléctrico — apoiando a capacidade natural do corpo para o equilíbrio e a coerência. Os nossos protocolos não tratam sintomas isoladamente; abordam o ambiente bioeléctrico subjacente, criando condições para o corpo se autorregular e restaurar. Cada sessão é guiada por dados, refinada pela experiência e adaptada a si.",
+    "approachBody": "Trabalhamos ao nível informacional e bioeléctrico — apoiando a capacidade natural do corpo para o equilíbrio e a coerência. Os nossos protocolos abordam o ambiente bioeléctrico subjacente, criando condições para o corpo se autorregular e restaurar. Cada sessão é guiada por dados, refinada pela experiência e adaptada a si.",
     "ecosystemHeading": "O Ecossistema CellPowerX",
     "ecosystemBody": "O nosso Wellness Center é mais do que uma clínica — é o laboratório vivo onde a filosofia CellPowerX ganha vida. Os protocolos aqui desenvolvidos informam tudo o que a CellPowerX cria, desde o dispositivo ACTYVA às nossas linhas de suplementos. Quando nos visita, experiencia a origem.",
     "ecosystemCta": "Visitar cellpowerx.com"
   },
   "treatments": {
-    "heading": "Os Nossos Tratamentos",
-    "intro": "Quatro modalidades distintas, uma abordagem integrada. Cada tratamento pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
+    "heading": "Os Nossos Serviços",
+    "intro": "Quatro modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
     "timewaver": {
       "name": "TimeWaver Frequency",
       "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar celular",
@@ -104,7 +104,7 @@
       "applications": [
         "Relaxamento, equilíbrio energético e sensação geral de conforto e vitalidade"
       ],
-      "disclaimer": "Não recomendado para indivíduos com pacemakers, durante a gravidez ou com próteses metálicas na área de tratamento.",
+      "disclaimer": "Não recomendado para indivíduos com pacemakers, durante a gravidez ou com próteses metálicas na área da sessão.",
       "cta": "Marcar Sessão NanoPulse"
     },
     "infrared": {
@@ -130,7 +130,7 @@
     "firstAppointmentHeading": "Como Tudo Começa",
     "firstAppointmentBody": "A sua primeira visita (aproximadamente 1h30) inclui uma análise bioeléctrica realizada no centro para identificar os níveis eléctricos do seu corpo e áreas de foco, seguida de uma sessão inicial de TimeWaver Frequency. A partir daí, desenhamos o seu protocolo personalizado.",
     "firstAppointmentCta": "Marque a Sua Primeira Consulta",
-    "globalDisclaimer": "Todos os tratamentos descritos são orientados para o bem-estar e não constituem aconselhamento médico, diagnóstico ou tratamento. O TimeWaver Frequency System e tecnologias relacionadas são dispositivos de bem-estar concebidos para apoiar o equilíbrio e o bem-estar num quadro informacional e bioeléctrico."
+    "globalDisclaimer": "Todos os serviços descritos são orientados para o bem-estar e não constituem aconselhamento médico, diagnóstico ou intervenção médica. O TimeWaver Frequency System e tecnologias relacionadas são dispositivos de bem-estar concebidos para apoiar o equilíbrio e o bem-estar num quadro informacional e bioeléctrico."
   },
   "contact": {
     "heading": "Marque a Sua Visita",
@@ -160,18 +160,25 @@
       "q1": "O que acontece na primeira consulta?",
       "a1": "A sua primeira visita (aproximadamente 1h30) inclui uma análise bioeléctrica abrangente para compreender o estado actual do seu corpo, seguida de uma sessão personalizada de TimeWaver Frequency. Estes dados informam o seu protocolo contínuo.",
       "q2": "Quanto tempo dura uma sessão típica?",
-      "a2": "As sessões variam por tratamento: sessões TimeWaver duram tipicamente 45–60 minutos, NanoPulse 3–20 minutos, e as sessões de Infravermelhos e SLM Wave são adaptadas às suas necessidades.",
-      "q3": "Os tratamentos são seguros?",
-      "a3": "Todos os nossos tratamentos são não invasivos e geralmente bem tolerados. Existem contra-indicações específicas para certos tratamentos — o seu profissional irá revê-las consigo durante a primeira visita.",
-      "q4": "Os tratamentos podem ser combinados?",
+      "a2": "As sessões variam por modalidade: sessões TimeWaver duram tipicamente 45–60 minutos, NanoPulse 3–20 minutos, e as sessões de Infravermelhos e SLM Wave são adaptadas às suas necessidades.",
+      "q3": "Os serviços são seguros?",
+      "a3": "Todos os nossos serviços são não invasivos e geralmente bem tolerados. Existem contra-indicações específicas para certas modalidades — o seu profissional irá revê-las consigo durante a primeira visita.",
+      "q4": "Os serviços podem ser combinados?",
       "a4": "Sim. Muitos clientes beneficiam de um protocolo combinado que integra múltiplas modalidades. O seu profissional desenhará a combinação ideal com base na sua análise bioeléctrica.",
       "q5": "Oferecem pacotes?",
-      "a5": "Oferecemos planos de tratamento personalizados. Contacte-nos para discutir opções adaptadas às suas necessidades e objectivos."
+      "a5": "Oferecemos planos de bem-estar personalizados. Contacte-nos para discutir opções adaptadas às suas necessidades e objectivos."
     }
   },
   "footer": {
     "rights": "Todos os direitos reservados.",
     "privacy": "Política de Privacidade",
-    "terms": "Termos"
+    "terms": "Termos",
+    "complaintsBook": "Livro de Reclamações",
+    "linksHeading": "Links",
+    "contactHeading": "Contacto",
+    "newsletterHeading": "Mantenha-se Ligado",
+    "newsletterBody": "Insights de bem-estar, novidades e convites exclusivos.",
+    "newsletterPlaceholder": "O seu email",
+    "newsletterCta": "Subscrever"
   }
 }

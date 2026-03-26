@@ -7,7 +7,7 @@
   --cpx-accent:       #c3d6dd;
   --cpx-secondary:    #fb4616;
   --cpx-light-bg:     #f2f2f2;
-  --cpx-dark-bg:      #282832;
+  --cpx-dark-bg:      #1d1d1f;
 
   /* === Wellness Center Extensions === */
   --wc-sand:          #e8e0d4;
@@ -23,7 +23,7 @@
   --opacity-visible:  0.45;
 
   /* === Spacing === */
-  --grid-max-width:   1200px;
+  --grid-max-width:   1440px;
   --grid-padding:     clamp(24px, 5vw, 80px);
   --grid-gap:         clamp(16px, 3vw, 40px);
   --section-spacing:  clamp(80px, 10vh, 160px);
@@ -50,7 +50,7 @@
   --fw-heading:       500;
   --fw-body:          300;
   --fw-body-medium:   400;
-  --tracking-heading: 0.08em;
+  --tracking-heading: 0.02em;
   --tracking-body:    0.01em;
   --lh-body:          1.75;
   --max-prose-width:  620px;
@@ -116,10 +116,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--wc-charcoal);
 }
 
-h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
-h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
-h3 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
-h4 { font-size: clamp(1rem, 1.5vw, 1.125rem); }
+h1 { font-size: clamp(1.625rem, 3.2vw, 2.5rem); }
+h2 { font-size: clamp(1.3125rem, 2.35vw, 1.875rem); }
+h3 { font-size: clamp(1.03125rem, 1.65vw, 1.3125rem); }
+h4 { font-size: clamp(0.90625rem, 1.25vw, 1.03125rem); }
 
 p {
   max-width: var(--max-prose-width);
@@ -131,7 +131,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.75rem;
-  color: var(--cpx-accent);
+  color: var(--cpx-secondary);
 }
 
 .label--dark {
@@ -241,6 +241,17 @@ p {
 .btn--primary {
   background: var(--cpx-secondary);
   color: #ffffff;
+}
+
+.btn--accent {
+  background: var(--cpx-accent);
+  color: var(--cpx-dark-bg);
+}
+
+.btn--accent:hover {
+  background: #a8c4ce;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(195, 214, 221, 0.35);
 }
 
 .btn--primary:hover {
