@@ -60,8 +60,21 @@ const routes = localeRoutes[locale];
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <div class="cta-block cta-block--centered reveal">
+        <h2>{i.firstAppointment.heading}</h2>
+        <p style="margin-top: 16px;">{i.firstAppointment.body}</p>
+        <a href={routes.contact} class="btn btn--cta" style="margin-top: 32px;">
+          {i.firstAppointment.cta}
+          <i class="ph-light ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="cpx-banner reveal">
-    <img src="https://www.cellpowerx.com/cdn/shop/files/Partnership_banner_2800x1000_3c9de5a7-dc26-4f6a-96dc-711ac72229a3.webp?v=1767978956&width=2800" alt="CellPowerX Ecosystem" class="cpx-banner__img" loading="lazy" />
+    <img src="https://www.cellpowerx.com/cdn/shop/files/Wellness_is_evolving_3200x1600_baec34e8-3d1e-4ed4-b8e1-636cd2ec8610.webp?v=1767977609&width=3000" alt="CellPowerX Ecosystem" class="cpx-banner__img" loading="lazy" />
     <div class="cpx-banner__overlay"></div>
     <div class="cpx-banner__content">
       <h2>{i.about.ecosystemHeading}</h2>
@@ -70,19 +83,6 @@ const routes = localeRoutes[locale];
         {i.about.ecosystemCta}
         <i class="ph-light ph-arrow-up-right"></i>
       </a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="cta-block cta-block--centered reveal">
-        <h2>{i.firstAppointment.heading}</h2>
-        <p style="margin-top: 16px;">{i.firstAppointment.body}</p>
-        <a href={routes.contact} class="btn btn--primary" style="margin-top: 32px;">
-          {i.firstAppointment.cta}
-          <i class="ph-light ph-arrow-right"></i>
-        </a>
-      </div>
     </div>
   </section>
 
