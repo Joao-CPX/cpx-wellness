@@ -84,7 +84,23 @@ const routes = localeRoutes[locale];
 
     <!-- Bottom -->
     <div class="footer__bottom">
-      <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}</p>
+      <div class="footer__bottom-row">
+        <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/cellpowerx/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="ph ph-instagram-logo"></i>
+          </a>
+          <a href="https://www.facebook.com/ImIntegrativeMedicine/" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="ph ph-facebook-logo"></i>
+          </a>
+          <a href="https://www.youtube.com/user/IMclinic/videos" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="ph ph-youtube-logo"></i>
+          </a>
+          <a href="https://pt.linkedin.com/company/im-integrative-medicine" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="ph ph-linkedin-logo"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
@@ -307,9 +323,38 @@ const routes = localeRoutes[locale];
   }
 
   /* Bottom */
+  .footer__bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .footer__bottom p {
     font-size: 0.75rem;
     color: rgba(250, 248, 245, 0.35);
+  }
+
+  .footer__socials {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer__socials a {
+    font-size: 1.5rem;
+    color: rgba(250, 248, 245, 0.35);
+    transition: color 0.2s ease;
+  }
+
+  .footer__socials a:hover {
+    color: var(--wc-warm-white);
+  }
+
+  @media (max-width: 767px) {
+    .footer__bottom-row {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
   }
 </style>
 

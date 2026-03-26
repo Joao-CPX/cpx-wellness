@@ -101,10 +101,24 @@ const serviceItems = [
       </div>
       <a href={routes.about}>{i.nav.about}</a>
       <a href={routes.contact}>{i.nav.contact}</a>
-      <a href={routes.contact} class="btn btn--primary" style="margin-top: 24px;">
+      <a href={routes.contact} class="btn btn--cta nav__mobile-cta">
         {i.nav.bookNow}
         <i class="ph ph-arrow-right"></i>
       </a>
+      <div class="nav__mobile-socials">
+        <a href="https://www.instagram.com/cellpowerx/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="https://www.facebook.com/ImIntegrativeMedicine/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+        <a href="https://www.youtube.com/user/IMclinic/videos" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="ph ph-youtube-logo"></i>
+        </a>
+        <a href="https://pt.linkedin.com/company/im-integrative-medicine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="ph ph-linkedin-logo"></i>
+        </a>
+      </div>
     </nav>
   </div>
 </header>
@@ -425,12 +439,10 @@ const serviceItems = [
     width: 100vw;
     height: 100vh;
     z-index: 99;
-    background: #faf8f5;
+    background: var(--wc-warm-white);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
+    padding: 80px 32px 40px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s var(--ease-soft);
@@ -452,8 +464,9 @@ const serviceItems = [
   .nav__mobile-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 28px;
+    flex: 1;
   }
 
   .nav__mobile-links > a,
@@ -464,21 +477,45 @@ const serviceItems = [
     color: var(--wc-charcoal);
   }
 
-  .nav__mobile-links > .btn--primary {
-    color: #ffffff;
+  .nav__mobile-cta {
+    align-self: center;
+    font-size: 0.6875rem !important;
+    padding: 12px 36px !important;
+    color: #ffffff !important;
+    letter-spacing: 0.08em;
+    min-height: 0 !important;
+    margin-top: 48px;
+  }
+
+  .nav__mobile-socials {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    align-self: center;
+  }
+
+  .nav__mobile-socials a {
+    font-size: 1.75rem;
+    color: var(--wc-charcoal);
+    transition: color 0.2s ease;
+  }
+
+  .nav__mobile-socials a:hover {
+    color: var(--cpx-secondary);
   }
 
   .nav__mobile-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
   }
 
   .nav__mobile-sub {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
   }
 

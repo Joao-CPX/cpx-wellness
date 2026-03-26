@@ -41,6 +41,67 @@ const { title, description = 'CellPowerX Wellness Center — Lisbon\'s pioneerin
   <meta property="og:locale" content={locale === 'pt' ? 'pt_PT' : 'en_US'} />
 
   {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "CellPowerX Wellness Center",
+    "alternateName": "Integrative Medicine Lda",
+    "url": "https://wellnesscenter.cellpowerx.com",
+    "logo": "https://wellnesscenter.cellpowerx.com/images/cpx-logo.svg",
+    "image": "https://wellnesscenter.cellpowerx.com/images/hero.webp",
+    "description": locale === 'pt'
+      ? "Centro de bem-estar pioneiro em Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências. Fundado em 2009."
+      : "Lisbon's pioneering wellness center dedicated to bioelectrical and frequency-based approaches to well-being. Founded in 2009.",
+    "telephone": "+351211929218",
+    "email": "geral@int-medicine.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Fontes Pereira de Melo, 21, 8º",
+      "addressLocality": "Lisbon",
+      "postalCode": "1050-116",
+      "addressCountry": "PT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.7297,
+      "longitude": -9.1476
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "09:30",
+        "closes": "18:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "15",
+      "bestRating": "5"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Nuno Nina"
+    },
+    "foundingDate": "2009",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.cellpowerx.com",
+      "https://www.instagram.com/cellpowerx/",
+      "https://www.facebook.com/ImIntegrativeMedicine/",
+      "https://www.youtube.com/user/IMclinic/videos",
+      "https://pt.linkedin.com/company/im-integrative-medicine"
+    ]
+  })} />
 </head>
 <body>
   <Nav locale={locale} />
