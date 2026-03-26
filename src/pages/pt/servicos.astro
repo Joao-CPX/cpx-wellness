@@ -133,7 +133,7 @@ const tabNames = {
   .page-hero {
     padding-top: calc(72px + var(--section-spacing));
   }
-  .page-hero { text-align: center; padding-bottom: 0; }
+  .page-hero { text-align: center; padding-bottom: var(--section-spacing); }
   .page-hero h1 { margin-bottom: 20px; }
   .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; }
 
@@ -146,6 +146,8 @@ const tabNames = {
   .service-subnav__item.is-active { opacity: 1; color: var(--cpx-secondary); border-bottom-color: var(--cpx-secondary); }
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  #slmwave { padding-top: 0; }
+  #slmwave .treatment-detail { border-top: none; }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }

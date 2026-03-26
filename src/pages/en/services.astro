@@ -158,8 +158,7 @@ const tabNames = {
 
   /* Sticky sub-nav */
   .page-hero {
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding-bottom: var(--section-spacing);
   }
 
   .service-subnav.is-stuck {
@@ -224,6 +223,15 @@ const tabNames = {
   .treatment-detail {
     padding-top: 48px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* First service — tight to tabs */
+  #slmwave {
+    padding-top: 0;
+  }
+
+  #slmwave .treatment-detail {
+    border-top: none;
   }
 
   .treatment-detail__layout {

@@ -163,7 +163,7 @@ const serviceItems = [
   .nav__logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0;
   }
 
   .nav__logo-img {
@@ -182,13 +182,11 @@ const serviceItems = [
     font-size: 1rem;
     letter-spacing: 0.02em;
     color: var(--wc-charcoal);
-    opacity: 0.5;
-    transition: color 0.4s ease, opacity 0.4s ease;
+    transition: color 0.4s ease;
   }
 
   .nav--dark .nav__logo-text {
     color: var(--wc-warm-white);
-    opacity: 0.5;
   }
 
   /* === Nav links === */
@@ -574,7 +572,6 @@ const serviceItems = [
       font-size: 0.8125rem;
       letter-spacing: 0.02em;
       color: var(--wc-charcoal);
-      opacity: 0.5;
       margin-top: -6px;
       transition: color 0.4s ease;
     }
