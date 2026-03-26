@@ -1,6 +1,7 @@
 {
   "nav": {
     "treatments": "Serviços",
+    "ourScience": "A Nossa Ciência",
     "about": "Sobre",
     "contact": "Contacto",
     "bookNow": "Marcar"
@@ -78,6 +79,29 @@
     "ecosystemHeading": "O Ecossistema CellPowerX",
     "ecosystemBody": "O nosso Wellness Center é mais do que uma clínica — é o laboratório vivo onde a filosofia CellPowerX ganha vida. Os protocolos aqui desenvolvidos informam tudo o que a CellPowerX cria, desde o dispositivo ACTYVA às nossas linhas de suplementos. Quando nos visita, experiencia a origem.",
     "ecosystemCta": "Visitar cellpowerx.com"
+  },
+  "ourScience": {
+    "label": "A Ciência Por Trás da Nossa Abordagem",
+    "heading": "Compreender a Bioelectricidade Celular",
+    "intro": "No CellPowerX Wellness Center, os nossos serviços são fundamentados no estudo da actividade bioeléctrica — um campo da biofísica que explora como os sinais eléctricos influenciam a organização celular, a comunicação e o bem-estar geral.",
+    "teslaQuote": "Se queres encontrar os segredos do Universo, pensa em termos de energia, frequência e vibração.",
+    "teslaAuthor": "Nikola Tesla",
+    "cellsHeading": "Células, Electricidade e Organização Biológica",
+    "cellsBody": "O corpo humano é, na sua essência, um sistema eléctrico. Cada átomo, ião e partícula carregada desempenha um papel na manutenção do equilíbrio delicado que sustenta a vida. Desde o batimento cardíaco até ao disparo dos neurónios, os sinais eléctricos coordenam virtualmente todos os processos biológicos.",
+    "cellsBody2": "A nível celular, o movimento de iões — como sódio, potássio, cálcio e cloreto — através das membranas celulares gera potenciais eléctricos. Estes potenciais não são meros subprodutos da actividade celular; são parte integrante de como as células comunicam, crescem, se diferenciam e respondem ao seu ambiente.",
+    "membraneHeading": "Potencial de Membrana",
+    "membraneBody": "A distribuição de iões através da membrana de uma célula cria uma diferença eléctrica mensurável conhecida como potencial de membrana. Este parâmetro é central para compreender como as células funcionam — influencia a sinalização, o transporte de nutrientes e a coordenação de processos biológicos complexos.",
+    "membraneHighlight": "Na investigação biofísica, o potencial de membrana é amplamente estudado como parâmetro de referência para compreender como as células se adaptam e respondem a influências internas e externas.",
+    "membraneBody2": "Células saudáveis e em bom funcionamento estão tipicamente associadas a um potencial de membrana estável e bem regulado, que suporta uma actividade celular eficiente. Quando este equilíbrio é perturbado, as células podem ter dificuldade em manter as suas funções normais.",
+    "phHeading": "pH e o Ambiente Extracelular",
+    "phBody": "O ambiente que rodeia as células — o espaço extracelular — desempenha um papel crucial no suporte à saúde celular. O nível de pH deste ambiente afecta a disponibilidade iónica, a actividade enzimática e a coerência celular.",
+    "phBody2": "Um ambiente ácido pode reduzir a disponibilidade iónica e afectar a forma como as células interagem com o seu meio envolvente. Em contraste, um ambiente com tendência alcalina tende a suportar maior mobilidade iónica e um funcionamento celular mais coerente.",
+    "phBody3": "É por isso que muitas abordagens de bem-estar enfatizam a importância de manter um ambiente interno equilibrado — não como tratamento, mas como base para apoiar os processos naturais do corpo.",
+    "disclaimerHeading": "Aviso Educacional",
+    "disclaimer": "Este conteúdo é fornecido apenas para fins educativos e informativos. Não constitui aconselhamento médico, diagnóstico ou tratamento. Os conceitos descritos reflectem áreas de investigação em curso na biofísica e biologia celular. Consulte sempre profissionais de saúde qualificados para orientação médica.",
+    "ctaHeading": "Experimente Por Si",
+    "ctaBody": "Os nossos serviços aplicam estes princípios através de tecnologias não invasivas concebidas para apoiar o equilíbrio bioeléctrico natural do seu corpo.",
+    "ctaCta": "Marque a Sua Primeira Sessão"
   },
   "treatments": {
     "heading": "Os Nossos Serviços",
