@@ -1,5 +1,5 @@
 /* ============================================
-   CellPowerX Wellness Center — Design Tokens & Base
+   CellPowerX Wellness Center - Design Tokens & Base
    ============================================ */
 
 :root {
@@ -398,7 +398,7 @@ textarea.input {
    ============================================ */
 
 /* Reveal: GSAP sets initial opacity/transform via JS.
-   This class is only a marker — no CSS hiding.
+   This class is only a marker - no CSS hiding.
    Content is visible by default for accessibility & no-JS. */
 
 /* ============================================
