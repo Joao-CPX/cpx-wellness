@@ -331,15 +331,30 @@ const t = {
 
     if (!banner || !mainView || !panelView) return;
 
-    if (getConsent()) return;
-
-    requestAnimationFrame(() => {
+    function showBanner() {
+      // Load current prefs into toggles
+      const current = getConsent();
+      if (current && analyticsToggle) analyticsToggle.checked = current.analytics;
+      if (current && marketingToggle) marketingToggle.checked = current.marketing;
+      panelView.hidden = true;
+      mainView.hidden = false;
       banner.classList.add('is-visible');
-    });
+    }
 
     function hideBanner() {
       banner.classList.remove('is-visible');
     }
+
+    // Show on first visit
+    if (!getConsent()) {
+      requestAnimationFrame(showBanner);
+    }
+
+    // Reopen from footer link
+    document.getElementById('cookie-preferences-link')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      showBanner();
+    });
 
     document.getElementById('cookie-accept')?.addEventListener('click', () => {
       saveConsent({ necessary: true, analytics: true, marketing: true });
