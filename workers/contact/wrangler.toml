@@ -1,0 +1,7 @@
+name = "cpx-contact-api"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+NOTIFY_EMAIL = "geral@int-medicine.com"
+BREVO_LIST_ID = "19"

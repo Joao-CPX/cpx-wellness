@@ -128,11 +128,11 @@
     "timewaver": {
       "name": "Electrotherapy",
       "tagline": "Frequency-based support for balance, coherence and well-being",
-      "howItWorks": "Electrotherapy uses precise frequencies and low-intensity electrical signals within an informational framework designed to support cellular organisation and bioelectrical balance. It operates at the informational and bioelectrical level, focusing on supporting coherence within intra- and extracellular environments.",
+      "howItWorks": "Electrotherapy uses precise frequencies and low-intensity electrical signals within an informational framework designed to support bioinformational organisation and bioelectrical balance. It operates at the informational and bioelectrical level, focusing on supporting coherence within info-cellular environments.",
       "applicationsTitle": "Applications",
       "applications": [
-        "Physical comfort and functional balance (muscular tension, joint discomfort, general fatigue)",
-        "Mental and emotional well-being (stress management, relaxation, focus)",
+        "Physical comfort and biofunctional balance",
+        "Bioenergetic well-being",
         "Long-term balance and preventive wellness support"
       ],
                   "cta": "Book an Electrotherapy Session"
@@ -160,10 +160,10 @@
     "slmwave": {
       "name": "SLM Wave",
       "tagline": "Non-invasive light frequencies for body harmonization",
-      "howItWorks": "SLM Wave uses specific 532nm light frequencies to provide energetic stimulation, supporting natural body harmonization and enhancing the aesthetic appearance of the silhouette. A premium, painless experience.",
+      "howItWorks": "SLM Wave uses specific light frequencies to provide energetic stimulation, supporting natural body harmonization. A premium, painless experience.",
       "applicationsTitle": "Applications",
       "applications": [
-        "Body harmonization, silhouette refinement, aesthetic well-being"
+        "Body harmonization"
       ],
       "cta": "Book an SLM Wave Session"
     },

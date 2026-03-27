@@ -128,11 +128,11 @@
     "timewaver": {
       "name": "Electroterapia",
       "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar",
-      "howItWorks": "A electroterapia utiliza frequências precisas e sinais eléctricos de baixa intensidade num quadro informacional concebido para apoiar a organização celular e o equilíbrio bioeléctrico. Opera ao nível informacional e bioeléctrico, focando-se em apoiar a coerência nos ambientes intra e extracelulares.",
+      "howItWorks": "A electroterapia utiliza frequências precisas e sinais eléctricos de baixa intensidade num quadro informacional concebido para apoiar a organização bioinformacional e o equilíbrio bioeléctrico. Opera ao nível informacional e bioeléctrico, focando-se em apoiar a coerência nos ambientes info-celulares.",
       "applicationsTitle": "Aplicações",
       "applications": [
-        "Conforto físico e equilíbrio funcional (tensão muscular, desconforto articular, fadiga geral)",
-        "Bem-estar mental e emocional (gestão do stress, relaxamento, foco)",
+        "Conforto físico e equilíbrio biofuncional",
+        "Bem-estar bioenergético",
         "Equilíbrio a longo prazo e suporte preventivo de bem-estar"
       ],
                   "cta": "Marcar Sessão de Electroterapia"
@@ -160,10 +160,10 @@
     "slmwave": {
       "name": "SLM Wave",
       "tagline": "Frequências de luz não invasivas para harmonização corporal",
-      "howItWorks": "O SLM Wave utiliza frequências de luz específicas de 532nm para fornecer estimulação energética, apoiando a harmonização corporal natural e melhorando a aparência estética da silhueta. Uma experiência premium e indolor.",
+      "howItWorks": "O SLM Wave utiliza frequências de luz específicas para fornecer estimulação energética, apoiando a harmonização corporal natural. Uma experiência premium e indolor.",
       "applicationsTitle": "Aplicações",
       "applications": [
-        "Harmonização corporal, refinamento da silhueta, bem-estar estético"
+        "Harmonização corporal"
       ],
       "cta": "Marcar Sessão SLM Wave"
     },

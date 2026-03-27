@@ -41,10 +41,15 @@ const faqs = [
               <label for="message" class="form-label">{i.contact.form.message}</label>
               <textarea id="message" name="message" class="input" placeholder={i.contact.form.messagePlaceholder}></textarea>
             </div>
+            <label class="consent-check">
+              <input type="checkbox" name="consent" required />
+              <span>Li e entendi a <a href="/pt/privacidade">Política de Privacidade e de Cookies</a> e aceito receber comunicações comerciais personalizadas da CellPowerX através de e-mail.</span>
+            </label>
             <button type="submit" class="btn btn--primary">
               {i.contact.form.submit}
               <i class="ph-light ph-paper-plane-tilt"></i>
             </button>
+            <p class="form-status" style="display:none;"></p>
           </form>
         </div>
 
@@ -175,4 +180,62 @@ const faqs = [
   .faq-item__answer p {
     font-size: 0.9375rem; line-height: 1.7; color: rgba(58, 58, 70, 0.8); max-width: none;
   }
+
+  .consent-check {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.75rem; line-height: 1.5;
+    color: rgba(58, 58, 70, 0.6); cursor: pointer;
+  }
+  .consent-check input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; }
+  .consent-check a { text-decoration: underline; color: inherit; }
+  .consent-check a:hover { color: var(--wc-charcoal); }
+  .form-status { font-size: 0.875rem; margin-top: 8px; }
+  .form-status--success { color: #2d8a4e; }
+  .form-status--error { color: #c53030; }
 </style>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const status = form.querySelector('.form-status');
+      const data = new FormData(form);
+
+      btn.disabled = true;
+      btn.textContent = 'A enviar...';
+      status.style.display = 'none';
+
+      try {
+        const res = await fetch('https://cpx-contact-api.joao-relego.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.get('name'),
+            email: data.get('email'),
+            phone: data.get('phone') || '',
+            message: data.get('message') || '',
+            consent: data.get('consent') === 'on'
+          })
+        });
+
+        if (res.ok) {
+          status.textContent = 'Mensagem enviada com sucesso. Entraremos em contacto brevemente.';
+          status.className = 'form-status form-status--success';
+          status.style.display = 'block';
+          form.reset();
+        } else {
+          throw new Error('Failed');
+        }
+      } catch {
+        status.textContent = 'Ocorreu um erro. Tente novamente ou envie-nos um email diretamente.';
+        status.className = 'form-status form-status--error';
+        status.style.display = 'block';
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = 'Enviar Mensagem <i class="ph-light ph-paper-plane-tilt"></i>';
+    });
+  }
+</script>
