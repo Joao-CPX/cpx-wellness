@@ -8,16 +8,16 @@
   },
   "hero": {
     "label": "Centro de Bem-Estar Pioneiro em Lisboa - Desde 2009",
-    "heading": "Onde a Ciência Celular Encontra o Cuidado Restaurador",
+    "heading": "Mais do que bem-estar, um novo paradigma de cuidado",
     "body": "Duas décadas de experiência. Mais de 70.000 clientes. O centro original onde os protocolos de frequência de Nuno Nina nasceram - agora aberto para si.",
     "ctaPrimary": "Marque a Sua Primeira Sessão",
     "ctaSecondary": "Explore os Nossos Serviços"
   },
   "valueProps": {
     "card1Title": "Protocolos Personalizados",
-    "card1Text": "Cada percurso começa com uma análise bioeléctrica abrangente. Sem soluções genéricas - apenas protocolos desenhados para a sua biologia única.",
+    "card1Text": "Cada percurso começa com um scan bioeléctrico abrangente. Sem soluções genéricas - apenas protocolos desenhados para a sua biologia única.",
     "card2Title": "Tecnologia Pioneira",
-    "card2Text": "Sede do TimeWaver Frequency System, NanoPulse, terapia de infravermelhos e SLM Wave - tecnologias refinadas ao longo de duas décadas de prática clínica.",
+    "card2Text": "Centro da electroterapia, NanoPulse, terapia de infravermelhos e SLM Wave - tecnologias refinadas ao longo de duas décadas de prática clínica.",
     "card3Title": "Equipa Especializada",
     "card3Text": "Os nossos profissionais trabalham ao lado de Nuno Nina há mais de uma década, formados nos métodos e protocolos desenvolvidos neste mesmo centro."
   },
@@ -25,8 +25,8 @@
     "heading": "Os Nossos Serviços",
     "learnMore": "Saber mais",
     "timewaver": {
-      "name": "TimeWaver Frequency",
-      "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar celular."
+      "name": "Electroterapia",
+      "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar."
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -38,7 +38,7 @@
     },
     "slmwave": {
       "name": "SLM Wave",
-      "tagline": "Frequências de luz não invasivas para harmonização corporal e refinamento da silhueta."
+      "tagline": "Frequências de luz não invasivas para harmonização corporal."
     }
   },
   "quote": {
@@ -48,7 +48,7 @@
   },
   "firstAppointment": {
     "heading": "O Seu Percurso Começa Aqui",
-    "body": "A sua primeira consulta (1h30) inclui uma análise bioeléctrica abrangente para mapear o estado actual do seu corpo, seguida de uma sessão personalizada de TimeWaver Frequency.",
+    "body": "A sua primeira visita (aproximadamente 1h30) inclui um scan bioelétrico realizado no centro para identificar os níveis eléctricos do seu corpo e áreas de foco, seguida de uma sessão inicial de electroterapia.",
     "cta": "Marque a Sua Primeira Consulta",
     "location": "Av. Fontes Pereira de Melo, 21, 8º - Lisboa",
     "locationDetail": "Entre o Saldanha e o Marquês de Pombal"
@@ -73,7 +73,7 @@
     },
     "founderName": "Nuno Nina",
     "founderRole": "Fundador e Director Científico",
-    "founderBio": "Com formação em Matemática, Engenharia de Sistemas e Bioquímica, Nuno Nina dedicou mais de duas décadas à investigação da intersecção entre frequências, sistemas bioeléctricos e bem-estar humano. A sua investigação conduziu ao desenvolvimento do protocolo Gold Frequencies e contribuiu para o TimeWaver Frequency System e o sistema Healy - tecnologias hoje utilizadas por profissionais em todo o mundo. Mais recentemente, o seu trabalho tem-se focado na água como meio de coerência bioeléctrica, resultando na CellPower Water®. O Wellness Center em Lisboa continua a ser o epicentro da sua investigação.",
+    "founderBio": "Com formação em Matemática, Engenharia de Sistemas e Bioquímica, Nuno Nina dedicou mais de duas décadas à investigação da intersecção entre frequências, sistemas bioeléctricos e bem-estar humano. A sua investigação conduziu ao desenvolvimento do protocolo Gold Frequencies e contribuiu para sistemas de electroterapia e o sistema Healy - tecnologias hoje utilizadas por profissionais em todo o mundo. Mais recentemente, o seu trabalho tem-se focado na água como meio de coerência bioeléctrica, resultando na CellPower Water®. O Wellness Center em Lisboa continua a ser o epicentro da sua investigação.",
     "approachHeading": "A Nossa Abordagem",
     "approachBody": "Trabalhamos ao nível informacional e bioeléctrico - apoiando a capacidade natural do corpo para o equilíbrio e a coerência. Os nossos protocolos abordam o ambiente bioeléctrico subjacente, criando condições para o corpo se autorregular e restaurar. Cada sessão é guiada por dados, refinada pela experiência e adaptada a si.",
     "ecosystemHeading": "O Ecossistema CellPowerX",
@@ -107,18 +107,16 @@
     "heading": "Os Nossos Serviços",
     "intro": "Quatro modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
     "timewaver": {
-      "name": "TimeWaver Frequency",
-      "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar celular",
-      "howItWorks": "O TimeWaver utiliza frequências precisas e sinais eléctricos de baixa intensidade num quadro informacional concebido para apoiar a organização celular e o equilíbrio bioeléctrico. Opera ao nível informacional e bioeléctrico, focando-se em apoiar a coerência nos ambientes intra e extracelulares.",
+      "name": "Electroterapia",
+      "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar",
+      "howItWorks": "A electroterapia utiliza frequências precisas e sinais eléctricos de baixa intensidade num quadro informacional concebido para apoiar a organização celular e o equilíbrio bioeléctrico. Opera ao nível informacional e bioeléctrico, focando-se em apoiar a coerência nos ambientes intra e extracelulares.",
       "applicationsTitle": "Aplicações",
       "applications": [
         "Conforto físico e equilíbrio funcional (tensão muscular, desconforto articular, fadiga geral)",
         "Bem-estar mental e emocional (gestão do stress, relaxamento, foco)",
         "Equilíbrio a longo prazo e suporte preventivo de bem-estar"
       ],
-      "sessionInfo": "Disponível como sessões presenciais ou via TimeWaver Home - uma versão portátil pré-configurada pela nossa equipa para uso domiciliário.",
-      "disclaimer": "Não recomendado para indivíduos com pacemakers, durante a gravidez ou em casos envolvendo dispositivos electrónicos implantados, transplantes ou epilepsia.",
-      "cta": "Marcar Sessão TimeWaver"
+                  "cta": "Marcar Sessão de Electroterapia"
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -128,8 +126,7 @@
       "applications": [
         "Relaxamento, equilíbrio energético e sensação geral de conforto e vitalidade"
       ],
-      "disclaimer": "Não recomendado para indivíduos com pacemakers, durante a gravidez ou com próteses metálicas na área da sessão.",
-      "cta": "Marcar Sessão NanoPulse"
+            "cta": "Marcar Sessão NanoPulse"
     },
     "infrared": {
       "name": "Terapia de Infravermelhos",
@@ -152,9 +149,9 @@
       "cta": "Marcar Sessão SLM Wave"
     },
     "firstAppointmentHeading": "Como Tudo Começa",
-    "firstAppointmentBody": "A sua primeira visita (aproximadamente 1h30) inclui uma análise bioeléctrica realizada no centro para identificar os níveis eléctricos do seu corpo e áreas de foco, seguida de uma sessão inicial de TimeWaver Frequency. A partir daí, desenhamos o seu protocolo personalizado.",
+    "firstAppointmentBody": "A sua primeira visita (aproximadamente 1h30) inclui um scan bioelétrico realizado no centro para identificar os níveis eléctricos do seu corpo e áreas de foco, seguida de uma sessão inicial de electroterapia. A partir daí, desenhamos o seu protocolo personalizado.",
     "firstAppointmentCta": "Marque a Sua Primeira Consulta",
-    "globalDisclaimer": "Todos os serviços descritos são orientados para o bem-estar e não constituem aconselhamento médico, diagnóstico ou intervenção médica. O TimeWaver Frequency System e tecnologias relacionadas são dispositivos de bem-estar concebidos para apoiar o equilíbrio e o bem-estar num quadro informacional e bioeléctrico."
+    "globalDisclaimer": "Todos os serviços descritos são orientados para o bem-estar e não constituem aconselhamento médico, diagnóstico ou intervenção médica. As tecnologias utilizadas são dispositivos de bem-estar concebidos para apoiar o equilíbrio e o bem-estar num quadro informacional e bioeléctrico."
   },
   "contact": {
     "heading": "Marque a Sua Visita",
@@ -186,9 +183,9 @@
     "faq": {
       "heading": "Perguntas Frequentes",
       "q1": "O que acontece na primeira consulta?",
-      "a1": "A sua primeira visita (aproximadamente 1h30) inclui uma análise bioeléctrica abrangente para compreender o estado actual do seu corpo, seguida de uma sessão personalizada de TimeWaver Frequency. Estes dados informam o seu protocolo contínuo.",
+      "a1": "A sua primeira visita (aproximadamente 1h30) inclui um scan bioelétrico realizado no centro para identificar os níveis eléctricos do seu corpo e áreas de foco, seguida de uma sessão inicial de electroterapia. Estes dados informam o seu protocolo contínuo.",
       "q2": "Quanto tempo dura uma sessão típica?",
-      "a2": "As sessões variam por modalidade: sessões TimeWaver duram tipicamente 45–60 minutos, NanoPulse 3–20 minutos, e as sessões de Infravermelhos e SLM Wave são adaptadas às suas necessidades.",
+      "a2": "As sessões variam por modalidade: sessões de electroterapia duram tipicamente 45–60 minutos, NanoPulse 3–20 minutos, e as sessões de Infravermelhos e SLM Wave são adaptadas às suas necessidades.",
       "q3": "Os serviços são seguros?",
       "a3": "Todos os nossos serviços são não invasivos e geralmente bem tolerados. Existem contra-indicações específicas para certas modalidades - o seu profissional irá revê-las consigo durante a primeira visita.",
       "q4": "Os serviços podem ser combinados?",

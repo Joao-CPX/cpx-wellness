@@ -8,16 +8,16 @@
   },
   "hero": {
     "label": "Lisbon's Pioneering Wellness Center - Since 2009",
-    "heading": "Where Cellular Science Meets Restorative Care",
+    "heading": "More than wellness, a new paradigm of care",
     "body": "Two decades of experience. 70,000+ client journeys. The original center where Nuno Nina's frequency-based protocols were born - now open to you.",
     "ctaPrimary": "Book Your First Session",
     "ctaSecondary": "Explore Our Services"
   },
   "valueProps": {
     "card1Title": "Personalized Protocols",
-    "card1Text": "Every journey begins with a comprehensive bioelectrical analysis. No generic solutions - only protocols designed for your unique biology.",
+    "card1Text": "Every journey begins with a comprehensive bioelectrical scan. No generic solutions - only protocols designed for your unique biology.",
     "card2Title": "Pioneering Technology",
-    "card2Text": "Home to the TimeWaver Frequency System, NanoPulse, Infrared therapy, and SLM Wave - technologies refined over two decades of clinical practice.",
+    "card2Text": "Home to Electrotherapy, NanoPulse, Infrared therapy, and SLM Wave - technologies refined over two decades of clinical practice.",
     "card3Title": "Expert Team",
     "card3Text": "Our practitioners have worked alongside Nuno Nina for over a decade, trained in the methods and protocols developed at this very center."
   },
@@ -25,8 +25,8 @@
     "heading": "Our Services",
     "learnMore": "Learn more",
     "timewaver": {
-      "name": "TimeWaver Frequency",
-      "tagline": "Frequency-based support for balance, coherence and cellular well-being."
+      "name": "Electrotherapy",
+      "tagline": "Frequency-based support for balance, coherence and well-being."
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -38,7 +38,7 @@
     },
     "slmwave": {
       "name": "SLM Wave",
-      "tagline": "Non-invasive light frequencies for body harmonization and silhouette refinement."
+      "tagline": "Non-invasive light frequencies for body harmonization."
     }
   },
   "quote": {
@@ -48,7 +48,7 @@
   },
   "firstAppointment": {
     "heading": "Your Journey Begins Here",
-    "body": "Your first appointment (1h30) includes a comprehensive bioelectrical analysis to map your body's current state, followed by a personalized TimeWaver Frequency session.",
+    "body": "Your first visit (approximately 1h30) includes a bioelectrical scan performed at the center to identify your body's electrical levels and areas of focus, followed by an initial electrotherapy session.",
     "cta": "Book Your First Appointment",
     "location": "Av. Fontes Pereira de Melo, 21, 8º - Lisbon",
     "locationDetail": "Between Saldanha & Marquês de Pombal"
@@ -73,7 +73,7 @@
     },
     "founderName": "Nuno Nina",
     "founderRole": "Founder & Scientific Director",
-    "founderBio": "With a background spanning Mathematics, Systems Engineering, and Biochemistry, Nuno Nina has spent over two decades investigating the intersection of frequencies, bioelectrical systems, and human well-being. His research led to the development of the Gold Frequencies protocol and contributed to the TimeWaver Frequency System and the Healy system - technologies now used by practitioners worldwide. More recently, his work has focused on water as a medium for bioelectrical coherence, resulting in CellPower Water®. The Wellness Center in Lisbon remains the epicenter of his ongoing research.",
+    "founderBio": "With a background spanning Mathematics, Systems Engineering, and Biochemistry, Nuno Nina has spent over two decades investigating the intersection of frequencies, bioelectrical systems, and human well-being. His research led to the development of the Gold Frequencies protocol and contributed to electrotherapy systems and the Healy system - technologies now used by practitioners worldwide. More recently, his work has focused on water as a medium for bioelectrical coherence, resulting in CellPower Water®. The Wellness Center in Lisbon remains the epicenter of his ongoing research.",
     "approachHeading": "Our Approach",
     "approachBody": "We work at the informational and bioelectrical level - supporting the body's natural capacity for balance and coherence. Our protocols address the underlying bioelectrical environment, creating conditions for the body to self-regulate and restore. Every session is guided by data, refined by experience, and tailored to you.",
     "ecosystemHeading": "The CellPowerX Ecosystem",
@@ -107,18 +107,16 @@
     "heading": "Our Services",
     "intro": "Four distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
     "timewaver": {
-      "name": "TimeWaver Frequency",
-      "tagline": "Frequency-based support for balance, coherence and cellular well-being",
-      "howItWorks": "TimeWaver uses precise frequencies and low-intensity electrical signals within an informational framework designed to support cellular organisation and bioelectrical balance. It operates at the informational and bioelectrical level, focusing on supporting coherence within intra- and extracellular environments.",
+      "name": "Electrotherapy",
+      "tagline": "Frequency-based support for balance, coherence and well-being",
+      "howItWorks": "Electrotherapy uses precise frequencies and low-intensity electrical signals within an informational framework designed to support cellular organisation and bioelectrical balance. It operates at the informational and bioelectrical level, focusing on supporting coherence within intra- and extracellular environments.",
       "applicationsTitle": "Applications",
       "applications": [
         "Physical comfort and functional balance (muscular tension, joint discomfort, general fatigue)",
         "Mental and emotional well-being (stress management, relaxation, focus)",
         "Long-term balance and preventive wellness support"
       ],
-      "sessionInfo": "Available as in-clinic sessions or via TimeWaver Home - a portable version pre-configured by our team for home use.",
-      "disclaimer": "Not recommended for individuals with pacemakers, during pregnancy, or in cases involving implanted electronic devices, transplants or epilepsy.",
-      "cta": "Book a TimeWaver Session"
+                  "cta": "Book an Electrotherapy Session"
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -128,8 +126,7 @@
       "applications": [
         "Relaxation, energetic balance, and a general sense of comfort and vitality"
       ],
-      "disclaimer": "Not recommended for individuals with pacemakers, during pregnancy, or with metallic prosthesis in the session area.",
-      "cta": "Book a NanoPulse Session"
+            "cta": "Book a NanoPulse Session"
     },
     "infrared": {
       "name": "Infrared Therapy",
@@ -152,9 +149,9 @@
       "cta": "Book an SLM Wave Session"
     },
     "firstAppointmentHeading": "How It Begins",
-    "firstAppointmentBody": "Your first visit (approximately 1h30) includes a bioelectrical analysis performed at the center to identify your body's electrical levels and areas of focus, followed by an initial TimeWaver Frequency session. From there, we design your personalized protocol.",
+    "firstAppointmentBody": "Your first visit (approximately 1h30) includes a bioelectrical scan performed at the center to identify your body's electrical levels and areas of focus, followed by an initial electrotherapy session. From there, we design your personalized protocol.",
     "firstAppointmentCta": "Book Your First Appointment",
-    "globalDisclaimer": "All services described are wellness-oriented and do not constitute medical advice, diagnosis, or medical intervention. The TimeWaver Frequency System and related technologies are wellness devices designed to support balance and well-being within an informational and bioelectrical framework."
+    "globalDisclaimer": "All services described are wellness-oriented and do not constitute medical advice, diagnosis, or medical intervention. The technologies used are wellness devices designed to support balance and well-being within an informational and bioelectrical framework."
   },
   "contact": {
     "heading": "Book Your Visit",
@@ -186,9 +183,9 @@
     "faq": {
       "heading": "Frequently Asked Questions",
       "q1": "What happens in the first appointment?",
-      "a1": "Your first visit (approximately 1h30) includes a comprehensive bioelectrical analysis to understand your body's current state, followed by a personalized TimeWaver Frequency session. This data informs your ongoing protocol.",
+      "a1": "Your first visit (approximately 1h30) includes a bioelectrical scan performed at the center to identify your body's electrical levels and areas of focus, followed by an initial electrotherapy session. This data informs your ongoing protocol.",
       "q2": "How long is a typical session?",
-      "a2": "Sessions vary by modality: TimeWaver sessions typically last 45–60 minutes, NanoPulse 3–20 minutes, and Infrared and SLM Wave sessions are tailored to your needs.",
+      "a2": "Sessions vary by modality: Electrotherapy sessions typically last 45–60 minutes, NanoPulse 3–20 minutes, and Infrared and SLM Wave sessions are tailored to your needs.",
       "q3": "Are the services safe?",
       "a3": "All our services are non-invasive and generally well tolerated. Specific contraindications exist for certain modalities - your practitioner will review these with you during your first visit.",
       "q4": "Can services be combined?",
