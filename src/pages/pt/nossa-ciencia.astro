@@ -41,32 +41,90 @@ const routes = localeRoutes[locale];
           <p>{i.ourScience.cellsBody2}</p>
         </div>
         <div class="science-row__img">
-          <img src="/images/natural-cycles-of-electrical-variation.jpg" alt="Natural cycles of electrical variation" loading="lazy" />
+          <img src="/images/natural-cycles-of-electrical-variation.jpg" alt="Ciclos naturais de variação eléctrica" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Membrane Potential -->
+  <!-- Ions & Membrane Potential -->
   <section class="section section--accent">
     <div class="container">
       <div class="science-row science-row--reverse reveal">
         <div class="science-row__text">
-          <h2>{i.ourScience.membraneHeading}</h2>
-          <p>{i.ourScience.membraneBody}</p>
-          <div class="science-highlight section-block">
-            <p>{i.ourScience.membraneHighlight}</p>
-          </div>
-          <p>{i.ourScience.membraneBody2}</p>
+          <h2>{i.ourScience.ionsHeading}</h2>
+          <p>{i.ourScience.ionsBody}</p>
+          <p>{i.ourScience.ionsBody2}</p>
         </div>
         <div class="science-row__img">
-          <img src="/images/Cellular-bioelectrical-activity.jpg" alt="Cellular bioelectrical activity" loading="lazy" />
+          <img src="/images/Cellular-bioelectrical-activity.jpg" alt="Actividade bioelétrica celular" loading="lazy" />
+        </div>
+      </div>
+      <div class="science-disclaimer reveal" style="margin-top: var(--block-spacing);">
+        <p>{i.ourScience.disclaimerNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membrane Potential as Reference -->
+  <section class="section">
+    <div class="container">
+      <div class="science-block reveal">
+        <h2>{i.ourScience.membraneHeading}</h2>
+        <p>{i.ourScience.membraneBody}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Role of Internal Environment -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="science-block reveal">
+        <h2>{i.ourScience.internalHeading}</h2>
+        <p>{i.ourScience.internalBody}</p>
+        <p>{i.ourScience.internalBody2}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cellular Bioelectrical Activity -->
+  <section class="section">
+    <div class="container">
+      <div class="science-row reveal">
+        <div class="science-row__text">
+          <h2>{i.ourScience.activityHeading}</h2>
+          <p>{i.ourScience.activityBody}</p>
+          <p>{i.ourScience.activityBody2}</p>
+        </div>
+        <div class="science-row__img">
+          <img src="/images/Cellular-bioelectrical-activity.jpg" alt="Actividade bioelétrica celular e potencial de membrana" loading="lazy" />
+        </div>
+      </div>
+      <div class="science-highlight reveal" style="margin-top: var(--block-spacing);">
+        <p>"{i.ourScience.keyStatement}"</p>
+      </div>
+      <p class="reveal" style="margin-top: 24px; font-size: 1.0625rem; line-height: 1.6;">{i.ourScience.keyStatementBody}</p>
+    </div>
+  </section>
+
+  <!-- Natural Cellular Cycles -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="science-row science-row--reverse reveal">
+        <div class="science-row__text">
+          <h2>{i.ourScience.cyclesHeading}</h2>
+          <p>{i.ourScience.cyclesBody}</p>
+          <p>{i.ourScience.cyclesBody2}</p>
+          <p>{i.ourScience.cyclesBody3}</p>
+        </div>
+        <div class="science-row__img">
+          <img src="/images/natural-cycles-of-electrical-variation.jpg" alt="Ciclos naturais de variação eléctrica" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- pH & Environment -->
+  <!-- pH: Acid vs Alkaline -->
   <section class="section">
     <div class="container">
       <div class="science-row reveal">
@@ -77,18 +135,8 @@ const routes = localeRoutes[locale];
           <p>{i.ourScience.phBody3}</p>
         </div>
         <div class="science-row__img">
-          <img src="/images/Acid-Medium-vs.-Alkaline-Medium.jpg" alt="Acid Medium vs. Alkaline Medium" loading="lazy" />
+          <img src="/images/Acid-Medium-vs.-Alkaline-Medium.jpg" alt="Meio Ácido vs. Meio Alcalino" loading="lazy" />
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Disclaimer -->
-  <section class="section section--accent">
-    <div class="container">
-      <div class="science-disclaimer reveal">
-        <h3>{i.ourScience.disclaimerHeading}</h3>
-        <p>{i.ourScience.disclaimer}</p>
       </div>
     </div>
   </section>
@@ -201,6 +249,11 @@ const routes = localeRoutes[locale];
   }
   .science-disclaimer h3 { margin-bottom: 12px; font-size: 0.875rem; }
   .science-disclaimer p { font-size: 0.875rem; line-height: 1.6; opacity: 0.6; max-width: none; }
+
+  .science-block { max-width: 800px; }
+  .science-block h2 { margin-bottom: 24px; }
+  .science-block p { font-size: 1.0625rem; line-height: 1.6; margin-bottom: 16px; }
+  .science-block p:last-child { margin-bottom: 0; }
 
   .cta-block--centered { text-align: center; }
   .cta-block--centered p { margin-left: auto; margin-right: auto; }
