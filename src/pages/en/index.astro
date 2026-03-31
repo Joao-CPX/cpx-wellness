@@ -15,7 +15,6 @@ const routes = localeRoutes[locale];
     <div class="hero__overlay"></div>
     <div class="container hero__inner">
       <div class="hero__content">
-        <span class="label reveal">{i.hero.label}</span>
         <h1 class="reveal">{i.hero.heading}</h1>
         <p class="hero__body reveal">{i.hero.body}</p>
         <p class="hero__former reveal">{i.hero.formerName}</p>
@@ -60,8 +59,8 @@ const routes = localeRoutes[locale];
   <section class="section section--accent">
     <div class="container">
       <div class="welcome-block reveal">
+        <span class="label welcome-block__label">Experience the Impossible</span>
         <h2 class="welcome-block__heading">Welcome to CellPowerX Wellness Center</h2>
-        <p class="welcome-block__lead">Experience the Impossible at Our Wellness Center.</p>
         <p>Nestled in the vibrant heart of Lisbon, between Saldanha and Marquês de Pombal, our Wellness Center offers a gateway to revolutionary well-being. With cutting-edge electrotherapy technology at your fingertips, embrace the myriad benefits that this modern approach to wellness provides.</p>
         <p>Our dedicated team, with over a decade of experience working alongside Nuno Nina, is expertly trained in his renowned methods and protocols. We are not just a Wellness Center; we are a wellness community, eager to support your wellness journey.</p>
         <p>Visit us today and discover a new standard in personalized care. We are excited to welcome you!</p>
@@ -175,17 +174,14 @@ const routes = localeRoutes[locale];
     text-align: center;
   }
 
+  .welcome-block__label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
   .welcome-block__heading {
     margin-bottom: 28px;
     max-width: none;
-  }
-
-  .welcome-block__lead {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--cpx-accent);
-    max-width: none;
-    margin-bottom: 20px;
   }
 
   .welcome-block p {
