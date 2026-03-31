@@ -29,14 +29,6 @@ const tabNames = {
 
 <Base title="Services" locale={locale} description="Explore our four wellness modalities: Electrotherapy, NanoPulse, Infrared Therapy, and SLM Wave. Personalized protocols for your well-being.">
 
-  <!-- Intro -->
-  <section class="page-hero section">
-    <div class="container">
-      <h1 class="reveal">{i.treatments.heading}</h1>
-      <p class="page-hero__body reveal">{i.treatments.intro}</p>
-    </div>
-  </section>
-
   <!-- Sticky sub-nav -->
   <div class="service-subnav" id="service-subnav">
     <div class="container service-subnav__inner">
@@ -49,7 +41,13 @@ const tabNames = {
     </div>
   </div>
 
-  <!-- Treatment Details -->
+  <section class="page-hero section">
+    <div class="container">
+      <h1 class="reveal">{i.treatments.heading}</h1>
+      <p class="page-hero__body reveal">{i.treatments.intro}</p>
+    </div>
+  </section>
+
   {treatmentKeys.map((key, index) => (
     <section id={key} class="section">
       <div class="container">
@@ -62,13 +60,11 @@ const tabNames = {
                   <p class="treatment-detail__tagline">{i.treatments[key].tagline}</p>
                 </div>
               </div>
-
               <div class="treatment-detail__content">
                 <div class="treatment-detail__section">
                   <h3>How It Works</h3>
                   <p>{i.treatments[key].howItWorks}</p>
                 </div>
-
                 <div class="treatment-detail__section">
                   <h3>{i.treatments[key].applicationsTitle}</h3>
                   <ul class="treatment-detail__list">
@@ -80,11 +76,17 @@ const tabNames = {
                     ))}
                   </ul>
                 </div>
-
-                <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
-                  {i.treatments[key].cta}
-                  <i class="ph-light ph-arrow-right"></i>
-                </a>
+                <div class="treatment-detail__actions">
+                  <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
+                    {i.treatments[key].cta}
+                    <i class="ph-light ph-arrow-right"></i>
+                  </a>
+                  {key !== 'slmwave' && (
+                    <button class="btn btn--outline treatment-detail__more" data-service={key}>
+                      Learn More <i class="ph-light ph-plus"></i>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
             <div class="treatment-detail__visual">
@@ -102,7 +104,6 @@ const tabNames = {
     </section>
   ))}
 
-  <!-- First Appointment -->
   <section class="section">
     <div class="container">
       <div class="cta-block cta-block--centered reveal">
@@ -118,7 +119,6 @@ const tabNames = {
     </div>
   </section>
 
-  <!-- Disclaimers -->
   <section style="padding: clamp(24px, 3vw, 40px) 0;">
     <div class="container">
       <div class="disclaimers">
@@ -134,275 +134,265 @@ const tabNames = {
     </div>
   </section>
 
+  <!-- Service Modal -->
+  <div class="service-modal" id="service-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="service-modal__backdrop" id="modal-backdrop"></div>
+    <div class="service-modal__panel">
+      <div class="service-modal__header">
+        <h3 class="service-modal__title" id="modal-title"></h3>
+        <button class="service-modal__close" id="modal-close" aria-label="Close">
+          <i class="ph-light ph-x"></i>
+        </button>
+      </div>
+      <div class="service-modal__body" id="modal-body"></div>
+      <div class="service-modal__footer">
+        <a href={routes.contact} class="btn btn--cta">
+          Book a Session <i class="ph-light ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </Base>
 
 <style>
-  .page-hero {
-    padding-top: calc(72px + var(--section-spacing));
+  .page-hero { text-align: center; padding-bottom: var(--section-spacing); }
+  .page-hero h1 { margin-bottom: 16px; }
+  .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(58,58,70,0.65); }
+
+  .service-subnav { margin-top: var(--nav-height, 72px); position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
+  @media (max-width: 767px) { .service-subnav__inner { justify-content: center; gap: 20px; } }
+  .service-subnav__inner::-webkit-scrollbar { display: none; }
+  .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: rgba(255,255,255,0.5); padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .service-subnav__item:hover { color: rgba(255,255,255,0.8); }
+  .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
+
+  .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  #slmwave { padding-top: 0; }
+  #slmwave .treatment-detail { border-top: none; }
+  .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
+  @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
+  .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
+  .treatment-detail__img { width: 100%; border-radius: var(--radius-block); object-fit: cover; }
+  .treatment-detail__session { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; color: var(--wc-sage); line-height: 1.6; }
+  .treatment-detail__cta { width: fit-content; }
+  .cta-block--centered { text-align: center; max-width: 640px; margin: 0 auto; }
+  .cta-block--centered p { margin-left: auto; margin-right: auto; }
+  .disclaimers .disclaimer + .disclaimer { margin-top: 8px; }
+  .treatment-detail__header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: var(--block-spacing);
+  }
+  .treatment-detail__icon {
+    flex-shrink: 0; width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.05); border-radius: 16px;
+  }
+  .treatment-detail__tagline {
+    font-size: 1.0625rem; margin-top: 4px; max-width: none;
+    color: rgba(58, 58, 70, 0.7);
+  }
+  .treatment-detail__content { display: flex; flex-direction: column; gap: 28px; }
+  .treatment-detail__section h3 { font-size: 0.875rem; margin-bottom: 12px; }
+  .treatment-detail__section p { font-size: 0.9375rem; line-height: 1.8; max-width: none; }
+  .treatment-detail__session {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 16px 20px; background: rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-input); font-size: 0.9375rem; max-width: none;
+  }
+  .treatment-detail__session i { margin-top: 3px; flex-shrink: 0; }
+  .treatment-detail__list { display: flex; flex-direction: column; gap: 10px; }
+  .treatment-detail__list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9375rem; line-height: 1.6;
+  }
+  .treatment-detail__list li i { margin-top: 3px; flex-shrink: 0; }
+  .treatment-detail__disclaimer {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 16px 20px; background: rgba(232, 224, 212, 0.4);
+    border-radius: var(--radius-input); font-size: 0.8125rem;
+    color: rgba(58, 58, 70, 0.7);
+  }
+  .treatment-detail__disclaimer i { margin-top: 2px; flex-shrink: 0; color: var(--wc-sage); }
+  .treatment-detail__disclaimer p { max-width: none; }
+
+  .cta-block { max-width: 640px; }
+  .disclaimer {
+    font-size: 0.75rem; color: rgba(58, 58, 70, 0.5);
+    line-height: 1.6; max-width: none;
   }
 
-  .page-hero h1 {
-    margin-bottom: 20px;
+  .treatment-detail__actions {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
   }
 
-  .page-hero {
-    text-align: center;
+  .treatment-detail__actions .btn {
+    margin-top: 0;
   }
 
-  .page-hero__body {
-    font-size: 1.0625rem;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
+  .btn--outline {
+    background: transparent;
+    color: var(--wc-charcoal);
+    border: 1px solid var(--wc-charcoal);
   }
 
-  /* Sticky sub-nav */
-  .page-hero {
-    padding-bottom: var(--section-spacing);
+  .btn--outline:hover {
+    background: var(--wc-charcoal);
+    color: #ffffff;
   }
 
-  .service-subnav.is-stuck {
-    top: 72px;
+  /* === Service Modal === */
+  .service-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  .service-subnav {
+  .service-modal.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .service-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .service-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    background: var(--wc-warm-white);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s var(--ease-soft);
+  }
+
+  .service-modal.is-open .service-modal__panel {
+    transform: translateX(0);
+  }
+
+  .service-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     position: sticky;
-    top: var(--nav-height, 72px);
-    z-index: 50;
-    background: rgba(245, 245, 245, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    top: 0;
+    background: var(--wc-warm-white);
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .service-modal__title {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    font-size: 1rem;
+    letter-spacing: var(--tracking-heading);
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+    max-width: none;
+  }
+
+  .service-modal__close {
+    font-size: 1.25rem;
+    color: var(--wc-charcoal);
+    padding: 8px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .service-modal__close:hover { color: var(--cpx-accent); }
+
+  .service-modal__body {
+    flex: 1;
+    padding: 32px 40px;
+    overflow-y: auto;
+  }
+
+  :global(.service-modal__section) {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  .service-subnav__inner {
+  :global(.service-modal__section:last-child) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  :global(.service-modal__section h4) {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cpx-secondary);
+    margin-bottom: 14px;
+    max-width: none;
+  }
+
+  :global(.service-modal__section p) {
+    max-width: none;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  :global(.service-modal__section ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 0 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  :global(.service-modal__section ul li) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+  }
+
+  :global(.service-modal__section ul li::before) {
+    content: '—';
+    color: var(--cpx-secondary);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .service-modal__footer {
+    padding: 24px 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
   }
 
   @media (max-width: 767px) {
-    .service-subnav__inner {
-      justify-content: center;
-      gap: 20px;
-    }
-  }
-
-  .service-subnav__inner::-webkit-scrollbar {
-    display: none;
-  }
-
-  .service-subnav__item {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    color: var(--wc-charcoal);
-    opacity: 0.5;
-    padding: 16px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.25s ease;
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .service-subnav__item:hover {
-    opacity: 0.8;
-  }
-
-  .service-subnav__item.is-active {
-    opacity: 1;
-    color: var(--cpx-accent);
-    border-bottom-color: var(--cpx-accent);
-  }
-
-  /* Detail sections */
-  .treatment-detail {
-    padding-top: 48px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  /* First service - tight to tabs */
-  #slmwave {
-    padding-top: 0;
-  }
-
-  #slmwave .treatment-detail {
-    border-top: none;
-  }
-
-  .treatment-detail__layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--block-spacing);
-    align-items: center;
-  }
-
-  @media (min-width: 768px) {
-    .treatment-detail__layout {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .treatment-detail__visual {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .treatment-detail__img {
-    width: 100%;
-    border-radius: var(--radius-block);
-    object-fit: cover;
-  }
-
-  .treatment-detail__session {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: var(--wc-sage);
-    line-height: 1.6;
-  }
-
-  .treatment-detail__cta {
-    margin-top: 24px;
-    width: fit-content;
-  }
-
-  .cta-block--centered {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .cta-block--centered p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .disclaimers .disclaimer + .disclaimer {
-    margin-top: 8px;
-  }
-
-  .treatment-detail__header {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: var(--block-spacing);
-  }
-
-  .treatment-detail__icon {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 16px;
-  }
-
-  .treatment-detail__tagline {
-    font-size: 1.0625rem;
-    margin-top: 4px;
-    max-width: none;
-    color: rgba(58, 58, 70, 0.7);
-  }
-
-  .treatment-detail__content {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .treatment-detail__section h3 {
-    font-size: 0.875rem;
-    margin-bottom: 12px;
-    color: var(--wc-charcoal);
-  }
-
-  .treatment-detail__section p {
-    font-size: 0.9375rem;
-    line-height: 1.8;
-    max-width: none;
-  }
-
-  .treatment-detail__session {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.04);
-    border-radius: var(--radius-input);
-    font-size: 0.9375rem;
-    max-width: none;
-  }
-
-  .treatment-detail__session i {
-    margin-top: 3px;
-    flex-shrink: 0;
-  }
-
-  .treatment-detail__list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .treatment-detail__list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  .treatment-detail__list li i {
-    margin-top: 3px;
-    flex-shrink: 0;
-  }
-
-  .treatment-detail__disclaimer {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 16px 20px;
-    background: rgba(232, 224, 212, 0.4);
-    border-radius: var(--radius-input);
-    font-size: 0.8125rem;
-    color: rgba(58, 58, 70, 0.7);
-  }
-
-  .treatment-detail__disclaimer i {
-    margin-top: 2px;
-    flex-shrink: 0;
-    color: var(--wc-sage);
-  }
-
-  .treatment-detail__disclaimer p {
-    max-width: none;
-  }
-
-  /* CTA Block */
-  .cta-block {
-    max-width: 640px;
-  }
-
-  /* Disclaimer */
-  .disclaimer {
-    font-size: 0.75rem;
-    color: rgba(58, 58, 70, 0.5);
-    line-height: 1.6;
-    max-width: none;
+    .service-modal__panel { max-width: 100%; }
+    .service-modal__header,
+    .service-modal__body,
+    .service-modal__footer { padding-left: 24px; padding-right: 24px; }
   }
 </style>
 
 <script>
-  // Set nav height CSS variable for sticky subnav positioning
   const navEl = document.getElementById('nav');
   if (navEl) {
     const setNavHeight = () => {
@@ -412,10 +402,8 @@ const tabNames = {
     window.addEventListener('resize', setNavHeight);
   }
 
-  // Sticky service nav - highlight active section
   const navItems = document.querySelectorAll('.service-subnav__item');
   const sections = document.querySelectorAll('.treatment-detail');
-
   if (navItems.length && sections.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -427,7 +415,96 @@ const tabNames = {
         }
       });
     }, { rootMargin: '-30% 0px -60% 0px' });
-
     sections.forEach((section) => observer.observe(section));
   }
+
+  // === Service Modal ===
+  const serviceData = {
+    nanopulse: {
+      title: "NanoPulse",
+      sections: [
+        {
+          heading: "What is it?",
+          text: "This is a non-invasive system designed exclusively for the application of pulsed magnetic fields with the aim of promoting well-being and energetic balance. This equipment is not a medical device and does not replace the assessment, diagnosis or treatment of any healthcare professional. Each session can last between 3 to 20 minutes and the intensity of application is managed by the therapist based on client feedback."
+        },
+        {
+          heading: "What are the applications?",
+          text: "The system is used in wellness-oriented contexts, with the aim of promoting relaxation, energetic balance and a general sense of comfort. Its application focuses on non-clinical use, in sessions aimed at promoting well-being and a balanced bioenergetic experience."
+        },
+        {
+          heading: "How does it work?",
+          text: "The equipment generates low-frequency pulsed magnetic fields that interact with the body at an energetic and bioelectric level. These fields are applied through specific accessories and controlled parameters, creating a non-invasive experience generally associated with comfort, relaxation and a sense of vitality. The system operates without mechanical contact or invasive procedures."
+        },
+        {
+          heading: "Contraindications",
+          items: ["Pacemaker", "Pregnant women", "Use over a body area with a metal prosthesis"]
+        }
+      ]
+    },
+    infrared: {
+      title: "Infrared Therapy",
+      sections: [
+        {
+          heading: "How does it work?",
+          text: "Infrared (IR) radiation is a form of non-ionising radiation, invisible to the naked eye, that produces a slight warming effect on the body surface. Infrared sauna environments use controlled IR energy to create a comfortable thermal experience, generally associated with relaxation and physical well-being. This type of exposure is non-invasive, involves no direct contact and is generally well tolerated when used appropriately."
+        },
+        {
+          heading: "Applications",
+          text: "Can be used for relaxation, physical comfort and an enhanced sense of lightness and general well-being."
+        }
+      ]
+    },
+    timewaver: {
+      title: "Electrotherapy",
+      sections: [
+        {
+          heading: "How does it work?",
+          text: "Electrotherapy uses precise frequencies and low-intensity electrical signals within an informational framework designed to support cellular organisation and bioelectrical balance. The system focuses on supporting coherence within intra- and extracellular environments and favours conditions associated with balanced ionic distribution and effective cellular communication. This information is provided for educational and wellness purposes only and does not constitute medical advice or treatment."
+        },
+        {
+          heading: "What cases can it be applied to?",
+          text: "This approach acts at the cellular and bioelectrical level, allowing its application across a wide range of situations, both as ongoing support and as a preventive wellness strategy. It is commonly used in contexts related to physical comfort and functional balance (such as muscle tension, joint discomfort or general fatigue), as well as mental and emotional contexts, including stress management, relaxation, concentration and general well-being."
+        },
+        {
+          heading: "Contraindications",
+          items: ["Pacemaker", "Pregnancy", "Implanted electronic devices", "Transplants", "Epilepsy"]
+        }
+      ]
+    }
+  };
+
+  const modal = document.getElementById('service-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+  const modalClose = document.getElementById('modal-close');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+
+  function openModal(serviceKey) {
+    const data = serviceData[serviceKey];
+    if (!data) return;
+    modalTitle.textContent = data.title;
+    modalBody.innerHTML = data.sections.map(section => {
+      const content = section.items
+        ? `<ul>${section.items.map(item => `<li>${item}</li>`).join('')}</ul>`
+        : `<p>${section.text}</p>`;
+      return `<div class="service-modal__section"><h4>${section.heading}</h4>${content}</div>`;
+    }).join('');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-service]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.service));
+  });
+
+  modalClose?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
