@@ -15,9 +15,9 @@ const routes = localeRoutes[locale];
     <div class="hero__overlay"></div>
     <div class="container hero__inner">
       <div class="hero__content">
-        <span class="label reveal">{i.hero.label}</span>
         <h1 class="reveal">{i.hero.heading}</h1>
         <p class="hero__body reveal">{i.hero.body}</p>
+        <p class="hero__former reveal">{i.hero.formerName}</p>
         <div class="hero__actions reveal">
           <a href={routes.contact} class="btn hero__btn-primary">
             {i.hero.ctaPrimary}
@@ -30,33 +30,40 @@ const routes = localeRoutes[locale];
         </div>
       </div>
     </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <i class="ph-fill ph-star hero__stat-star"></i>
+        <div class="hero__stat-text">
+          <strong>4.9/5</strong>
+          <span>Google Reviews</span>
+        </div>
+      </div>
+      <div class="hero__stat">
+        <i class="ph-light ph-users"></i>
+        <div class="hero__stat-text">
+          <strong>70.000+</strong>
+          <span>Clientes</span>
+        </div>
+      </div>
+      <div class="hero__stat">
+        <i class="ph-light ph-calendar-blank"></i>
+        <div class="hero__stat-text">
+          <strong>Desde 2009</strong>
+          <span>Pioneiros em Electroterapia</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Value Props -->
+  <!-- Welcome -->
   <section class="section section--accent">
     <div class="container">
-      <div class="grid-3" data-stagger>
-        <div class="card">
-          <div class="card__icon">
-            <i class="ph-light ph-dna" style="font-size: 2.5rem;"></i>
-          </div>
-          <h3>{i.valueProps.card1Title}</h3>
-          <p>{i.valueProps.card1Text}</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <i class="ph-light ph-circuitry" style="font-size: 2.5rem;"></i>
-          </div>
-          <h3>{i.valueProps.card2Title}</h3>
-          <p>{i.valueProps.card2Text}</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <i class="ph-light ph-users-three" style="font-size: 2.5rem;"></i>
-          </div>
-          <h3>{i.valueProps.card3Title}</h3>
-          <p>{i.valueProps.card3Text}</p>
-        </div>
+      <div class="welcome-block reveal">
+        <span class="label welcome-block__label">Experiencie o Impossível</span>
+        <h2 class="welcome-block__heading">Bem-vindo ao Wellness Center da CellPowerX</h2>
+        <p>Situado no coração vibrante de Lisboa, entre Saldanha e Marquês de Pombal, o nosso CellPowerX Wellness Center (anteriormente conhecido como Integrative Medicine) oferece acesso a um bem-estar revolucionário. Com tecnologia de eletroterapia de ponta ao seu alcance, usufrua dos inúmeros benefícios que esta abordagem moderna ao bem-estar proporciona.</p>
+        <p>A nossa equipa dedicada, com mais de uma década de experiência a trabalhar com Nuno Nina, está expertamente treinada nos seus métodos e protocolos reconhecidos. Não somos apenas um Wellness Center; somos uma comunidade de bem-estar, ansiosos por apoiar a sua jornada de saúde.</p>
+        <p>Visite-nos hoje e descubra um novo padrão de cuidado personalizado.</p>
       </div>
     </div>
   </section>
@@ -69,19 +76,20 @@ const routes = localeRoutes[locale];
       </h2>
       <div class="grid-4 services-carousel" data-stagger>
         {[
-          { key: 'slmwave', img: '/images/slmwave.png', pos: 'center center' },
-          { key: 'nanopulse', img: '/images/nanopulse.png', pos: 'left center' },
-          { key: 'infrared', img: '/images/redlight.png', pos: 'center center' },
-          { key: 'timewaver', img: '/images/timewaver.png', pos: 'right center' },
+          { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
+          { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
+          { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
+          { key: 'timewaver', img: '/images/timewaver.webp', pos: 'right center' },
         ].map(({ key, img, pos }) => (
           <a href={`${routes.treatments}#${key}`} class="service-card">
             <div class="service-card__img-wrap">
               <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
-            </div>
-            <div class="service-card__text">
-              <h4>{i.treatmentsPreview[key].name}</h4>
-              <p>{i.treatmentsPreview[key].tagline}</p>
-              <span class="service-card__link">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
+              <div class="service-card__overlay"></div>
+              <div class="service-card__content">
+                <p class="service-card__tagline">{i.treatmentsPreview[key].tagline}</p>
+                <h4 class="service-card__title">{i.treatmentsPreview[key].name}</h4>
+                <span class="service-card__btn">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
+              </div>
             </div>
           </a>
         ))}
@@ -89,23 +97,25 @@ const routes = localeRoutes[locale];
     </div>
   </section>
 
-  <!-- Google Reviews -->
-  <section class="section">
+  <!-- Value Props -->
+  <section class="section vp-section">
     <div class="container">
-      <div class="google-reviews reveal">
-        <div class="google-reviews__stars">
-          <i class="ph-fill ph-star"></i>
-          <i class="ph-fill ph-star"></i>
-          <i class="ph-fill ph-star"></i>
-          <i class="ph-fill ph-star"></i>
-          <i class="ph-fill ph-star"></i>
+      <div class="vp-grid" data-stagger>
+        <div class="vp">
+          <i class="ph-light ph-dna vp__icon"></i>
+          <h3 class="vp__title">{i.valueProps.card1Title}</h3>
+          <p class="vp__text">{i.valueProps.card1Text}</p>
         </div>
-        <p class="google-reviews__rating">
-          <strong>4.9</strong> <span>- Google Reviews (15)</span>
-        </p>
-        <a href="https://maps.app.goo.gl/CYtvtkwpFCRzgY76A" target="_blank" rel="noopener" class="google-reviews__link">
-          Deixar uma Review <i class="ph-light ph-arrow-right"></i>
-        </a>
+        <div class="vp">
+          <i class="ph-light ph-circuitry vp__icon"></i>
+          <h3 class="vp__title">{i.valueProps.card2Title}</h3>
+          <p class="vp__text">{i.valueProps.card2Text}</p>
+        </div>
+        <div class="vp">
+          <i class="ph-light ph-users-three vp__icon"></i>
+          <h3 class="vp__title">{i.valueProps.card3Title}</h3>
+          <p class="vp__text">{i.valueProps.card3Text}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -158,6 +168,100 @@ const routes = localeRoutes[locale];
 </Base>
 
 <style>
+  /* Welcome block */
+  .welcome-block {
+    text-align: center;
+  }
+
+  .welcome-block__label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .welcome-block__heading {
+    margin-bottom: 28px;
+    max-width: none;
+  }
+
+  .welcome-block__lead {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--cpx-accent);
+    max-width: none;
+    margin-bottom: 20px;
+  }
+
+  .welcome-block p {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    line-height: 1.75;
+  }
+
+  .welcome-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .hero__stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px var(--grid-padding);
+    background: none;
+  }
+
+  .hero__stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .hero__stat i {
+    font-size: 1.25rem;
+    color: rgba(250, 248, 245, 0.7);
+  }
+
+  .hero__stat-star {
+    color: #FBBC04 !important;
+  }
+
+  .hero__stat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .hero__stat-text strong {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--wc-warm-white);
+  }
+
+  .hero__stat-text span {
+    font-size: 0.6875rem;
+    color: rgba(250, 248, 245, 0.5);
+    max-width: none;
+  }
+
+  @media (max-width: 767px) {
+    .hero__stats { display: none; }
+  }
+
+  .hero h1 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .hero {
     position: relative;
     padding: var(--section-spacing) 0;
@@ -178,6 +282,7 @@ const routes = localeRoutes[locale];
     background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
   }
   @media (max-width: 767px) {
+    .hero { margin-top: 53px; }
     .hero__overlay { background: rgba(0, 0, 0, 0.5); }
   }
   .hero__inner { position: relative; z-index: 1; }
@@ -185,14 +290,15 @@ const routes = localeRoutes[locale];
     display: flex; flex-direction: column;
     gap: var(--element-spacing); max-width: 640px;
   }
-  .hero .label { color: var(--cpx-accent); }
+  .hero .label { color: #ffffff; }
   .hero h1 { color: var(--wc-warm-white); }
   .hero__body { font-size: 1.0625rem; line-height: 1.5; max-width: 520px; color: rgba(250, 248, 245, 0.85); }
+  .hero__former { font-size: 0.8125rem; font-style: italic; color: rgba(250, 248, 245, 0.5); margin-top: 8px; }
   .hero__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
   .hero__btn-primary { background: var(--cpx-secondary); color: #ffffff; border: none; }
   .hero__btn-primary:hover { background: #e03d12; box-shadow: 0 8px 24px rgba(251, 70, 22, 0.3); }
-  .hero__btn-secondary { border-color: rgba(250, 248, 245, 0.3); color: var(--wc-warm-white); }
-  .hero__btn-secondary:hover { background: var(--cpx-secondary); color: #ffffff; border-color: var(--cpx-secondary); }
+  .hero__btn-secondary { background: transparent; border-color: rgba(250, 248, 245, 0.3); color: var(--wc-warm-white); }
+  .hero__btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(250, 248, 245, 0.6); color: #ffffff; }
 
   @media (max-width: 767px) {
     .services-carousel {
@@ -213,26 +319,140 @@ const routes = localeRoutes[locale];
   }
 
   .service-card { display: flex; flex-direction: column; text-decoration: none; }
-  .service-card__img-wrap { border-radius: var(--radius-block); overflow: hidden; aspect-ratio: 3/4; background: var(--wc-mist); }
-  .service-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-  .service-card:hover .service-card__img { transform: scale(1.03); }
-  .service-card__text { padding-top: 16px; }
-  .service-card__text h4 { margin-bottom: 6px; }
-  .service-card__text p { font-size: 0.875rem; color: var(--wc-charcoal); opacity: 0.6; line-height: 1.5; }
-  .service-card__link {
-    display: inline-flex; align-items: center; gap: 4px;
-    margin-top: 10px; font-size: 0.8125rem; color: var(--cpx-accent);
-    transition: color 0.2s ease;
-  }
-  .service-card:hover .service-card__link { color: var(--cpx-secondary); }
 
-  .google-reviews { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
-  .google-reviews__stars { display: flex; gap: 2px; font-size: 1.25rem; color: #FBBC04; }
-  .google-reviews__rating { font-size: 1rem; color: var(--wc-charcoal); margin: 0; max-width: none; }
-  .google-reviews__rating strong { font-size: 1.125rem; }
-  .google-reviews__rating span { opacity: 0.5; }
-  .google-reviews__link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; color: var(--cpx-accent); transition: color 0.2s ease; }
-  .google-reviews__link:hover { color: var(--cpx-secondary); }
+  .service-card__img-wrap {
+    position: relative;
+    border-radius: var(--radius-block);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--wc-mist);
+  }
+
+  .service-card__img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-card__img { transform: scale(1.05); }
+
+  .service-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background 0.4s ease;
+  }
+
+  .service-card:hover .service-card__overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .service-card__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 24px;
+    gap: 10px;
+  }
+
+  .service-card__tagline {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+    max-width: none;
+    margin: 0;
+  }
+
+  .service-card__title {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-heading);
+    color: #ffffff;
+    margin: 0;
+    text-align: left;
+  }
+
+  .service-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    padding: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-button);
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .service-card:hover .service-card__btn {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+  }
+
+
+  /* Value Props */
+  .vp-section {
+    background: var(--cpx-dark-bg);
+  }
+
+  .vp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .vp {
+    padding: 0 48px 0 0;
+    padding-top: 0;
+  }
+
+  .vp + .vp {
+    padding-left: 48px;
+    padding-right: 48px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .vp:last-child {
+    padding-right: 0;
+  }
+
+  .vp__icon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .vp__title {
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    margin-bottom: 12px;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    color: #ffffff;
+  }
+
+  .vp__text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: none;
+  }
+
+  @media (max-width: 767px) {
+    .vp-grid { grid-template-columns: 1fr; gap: 40px; }
+    .vp { padding: 24px 0 0 0 !important; border-left: none !important; border-top: 1px solid rgba(255,255,255,0.15); }
+    .vp:first-child { border-top: none; padding-top: 0 !important; }
+  }
 
   .quote {
     max-width: 720px;
@@ -302,7 +522,7 @@ const routes = localeRoutes[locale];
 
   .newsletter__input {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(195, 214, 221, 0.25);
+    border-color: rgba(255, 255, 255, 0.15);
     color: var(--wc-warm-white);
   }
   .newsletter__input::placeholder { color: rgba(250, 248, 245, 0.35); }

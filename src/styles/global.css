@@ -4,15 +4,17 @@
 
 :root {
   /* === Inherited from CellPowerX === */
-  --cpx-accent:       #999999;
+  --cpx-accent:       #fb4616;
+  --cpx-accent-mid:   #fb4616;
+  --cpx-accent-light: #c3d6dd;
   --cpx-secondary:    #fb4616;
-  --cpx-light-bg:     #f5f5f5;
+  --cpx-light-bg:     #f2f2f2;
   --cpx-dark-bg:      #1d1d1f;
 
   /* === Wellness Center Extensions === */
   --wc-sand:          #e8e4df;
   --wc-sage:          #a0a0a0;
-  --wc-warm-white:    #fafafa;
+  --wc-warm-white:    #f2f2f2;
   --wc-charcoal:      #2d2d2d;
   --wc-mist:          #e0e0e0;
 
@@ -52,7 +54,7 @@
   --fw-body-medium:   400;
   --tracking-heading: 0.02em;
   --tracking-body:    0.01em;
-  --lh-body:          1.6;
+  --lh-body:          1.5;
   --max-prose-width:  620px;
 }
 
@@ -116,13 +118,14 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--wc-charcoal);
 }
 
-h1 { font-size: clamp(1.625rem, 3.2vw, 2.5rem); }
-h2 { font-size: clamp(1.3125rem, 2.35vw, 1.875rem); }
+h1 { font-size: clamp(1.625rem, 3.2vw, 2.5rem); max-width: 900px; text-align: center; margin-left: auto; margin-right: auto; }
+h2 { font-size: clamp(1.3125rem, 2.35vw, 1.875rem); max-width: 900px; text-align: center; margin-left: auto; margin-right: auto; }
 h3 { font-size: clamp(1.03125rem, 1.65vw, 1.3125rem); }
 h4 { font-size: clamp(0.90625rem, 1.25vw, 1.03125rem); }
 
 p {
   max-width: var(--max-prose-width);
+  font-size: 0.9375rem;
 }
 
 .label {
@@ -131,7 +134,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.75rem;
-  color: var(--cpx-secondary);
+  color: var(--cpx-accent);
 }
 
 .label--dark {
@@ -154,11 +157,7 @@ p {
 }
 
 .section--accent {
-  background: linear-gradient(
-    160deg,
-    rgba(195, 214, 221, 0.15),
-    rgba(195, 214, 221, 0.06)
-  );
+  background: var(--wc-warm-white);
 }
 
 .section--warm {
@@ -298,7 +297,7 @@ p {
 
 .btn--dark {
   color: var(--wc-warm-white);
-  border-color: rgba(195, 214, 221, 0.4);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .btn--dark:hover {
@@ -314,7 +313,7 @@ p {
   background: #ffffff;
   border-radius: var(--radius-block);
   padding: clamp(28px, 4vw, 48px);
-  border: 1px solid rgba(195, 214, 221, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 20px rgba(40, 40, 50, 0.04);
   transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
@@ -360,7 +359,7 @@ p {
 .input:focus {
   outline: none;
   border-color: var(--cpx-accent);
-  box-shadow: 0 0 0 4px rgba(195, 214, 221, 0.25);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
 }
 
 .input::placeholder {

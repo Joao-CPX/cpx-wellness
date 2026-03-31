@@ -29,13 +29,6 @@ const tabNames = {
 
 <Base title="Serviços" locale={locale} description="Explore as nossas quatro modalidades: Electroterapia, NanoPulse, Terapia de Infravermelhos e SLM Wave. Protocolos personalizados para o seu bem-estar.">
 
-  <section class="page-hero section">
-    <div class="container">
-      <h1 class="reveal">{i.treatments.heading}</h1>
-      <p class="page-hero__body reveal">{i.treatments.intro}</p>
-    </div>
-  </section>
-
   <!-- Sticky sub-nav -->
   <div class="service-subnav" id="service-subnav">
     <div class="container service-subnav__inner">
@@ -47,6 +40,13 @@ const tabNames = {
       ))}
     </div>
   </div>
+
+  <section class="page-hero section">
+    <div class="container">
+      <h1 class="reveal">{i.treatments.heading}</h1>
+      <p class="page-hero__body reveal">{i.treatments.intro}</p>
+    </div>
+  </section>
 
   {treatmentKeys.map((key, index) => (
     <section id={key} class="section">
@@ -76,10 +76,17 @@ const tabNames = {
                     ))}
                   </ul>
                 </div>
-                <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
-                  {i.treatments[key].cta}
-                  <i class="ph-light ph-arrow-right"></i>
-                </a>
+                <div class="treatment-detail__actions">
+                  <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
+                    {i.treatments[key].cta}
+                    <i class="ph-light ph-arrow-right"></i>
+                  </a>
+                  {key !== 'slmwave' && (
+                    <button class="btn btn--outline treatment-detail__more" data-service={key}>
+                      Saber Mais <i class="ph-light ph-plus"></i>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
             <div class="treatment-detail__visual">
@@ -127,23 +134,40 @@ const tabNames = {
     </div>
   </section>
 
+  <!-- Service Modal -->
+  <div class="service-modal" id="service-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="service-modal__backdrop" id="modal-backdrop"></div>
+    <div class="service-modal__panel">
+      <div class="service-modal__header">
+        <h3 class="service-modal__title" id="modal-title"></h3>
+        <button class="service-modal__close" id="modal-close" aria-label="Fechar">
+          <i class="ph-light ph-x"></i>
+        </button>
+      </div>
+      <div class="service-modal__body" id="modal-body"></div>
+      <div class="service-modal__footer">
+        <a href={routes.contact} class="btn btn--cta">
+          Marcar Sessão <i class="ph-light ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </Base>
 
 <style>
-  .page-hero {
-    padding-top: calc(72px + var(--section-spacing));
-  }
   .page-hero { text-align: center; padding-bottom: var(--section-spacing); }
-  .page-hero h1 { margin-bottom: 20px; }
-  .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .page-hero h1 { margin-bottom: 16px; }
+  .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(58,58,70,0.65); }
 
-  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: rgba(245, 245, 245, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(195, 214, 221, 0.15); }
+  .service-subnav { margin-top: var(--nav-height, 72px); position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
   .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
   @media (max-width: 767px) { .service-subnav__inner { justify-content: center; gap: 20px; } }
   .service-subnav__inner::-webkit-scrollbar { display: none; }
-  .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: var(--wc-charcoal); opacity: 0.5; padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-  .service-subnav__item:hover { opacity: 0.8; }
-  .service-subnav__item.is-active { opacity: 1; color: var(--cpx-secondary); border-bottom-color: var(--cpx-secondary); }
+  .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: rgba(255,255,255,0.5); padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .service-subnav__item:hover { color: rgba(255,255,255,0.8); }
+  .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
+
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
   #slmwave { padding-top: 0; }
@@ -153,7 +177,7 @@ const tabNames = {
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
   .treatment-detail__img { width: 100%; border-radius: var(--radius-block); object-fit: cover; }
   .treatment-detail__session { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; color: var(--wc-sage); line-height: 1.6; }
-  .treatment-detail__cta { margin-top: 24px; width: fit-content; }
+  .treatment-detail__cta { width: fit-content; }
   .cta-block--centered { text-align: center; max-width: 640px; margin: 0 auto; }
   .cta-block--centered p { margin-left: auto; margin-right: auto; }
   .disclaimers .disclaimer + .disclaimer { margin-top: 8px; }
@@ -164,7 +188,7 @@ const tabNames = {
   .treatment-detail__icon {
     flex-shrink: 0; width: 64px; height: 64px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(195, 214, 221, 0.15); border-radius: 16px;
+    background: rgba(0, 0, 0, 0.05); border-radius: 16px;
   }
   .treatment-detail__tagline {
     font-size: 1.0625rem; margin-top: 4px; max-width: none;
@@ -175,7 +199,7 @@ const tabNames = {
   .treatment-detail__section p { font-size: 0.9375rem; line-height: 1.8; max-width: none; }
   .treatment-detail__session {
     display: flex; align-items: flex-start; gap: 10px;
-    padding: 16px 20px; background: rgba(195, 214, 221, 0.12);
+    padding: 16px 20px; background: rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-input); font-size: 0.9375rem; max-width: none;
   }
   .treatment-detail__session i { margin-top: 3px; flex-shrink: 0; }
@@ -198,6 +222,174 @@ const tabNames = {
   .disclaimer {
     font-size: 0.75rem; color: rgba(58, 58, 70, 0.5);
     line-height: 1.6; max-width: none;
+  }
+
+  .treatment-detail__actions {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .treatment-detail__actions .btn {
+    margin-top: 0;
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--wc-charcoal);
+    border: 1px solid var(--wc-charcoal);
+  }
+
+  .btn--outline:hover {
+    background: var(--wc-charcoal);
+    color: #ffffff;
+  }
+
+  /* === Service Modal === */
+  .service-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-modal.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .service-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .service-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    background: var(--wc-warm-white);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s var(--ease-soft);
+  }
+
+  .service-modal.is-open .service-modal__panel {
+    transform: translateX(0);
+  }
+
+  .service-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    background: var(--wc-warm-white);
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .service-modal__title {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-heading);
+    font-size: 1rem;
+    letter-spacing: var(--tracking-heading);
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+    max-width: none;
+  }
+
+  .service-modal__close {
+    font-size: 1.25rem;
+    color: var(--wc-charcoal);
+    padding: 8px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .service-modal__close:hover { color: var(--cpx-accent); }
+
+  .service-modal__body {
+    flex: 1;
+    padding: 32px 40px;
+    overflow-y: auto;
+  }
+
+  :global(.service-modal__section) {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  :global(.service-modal__section:last-child) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  :global(.service-modal__section h4) {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cpx-secondary);
+    margin-bottom: 14px;
+    max-width: none;
+  }
+
+  :global(.service-modal__section p) {
+    max-width: none;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  :global(.service-modal__section ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  :global(.service-modal__section ul li) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+  }
+
+  :global(.service-modal__section ul li::before) {
+    content: '—';
+    color: var(--cpx-secondary);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .service-modal__footer {
+    padding: 24px 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    .service-modal__panel { max-width: 100%; }
+    .service-modal__header,
+    .service-modal__body,
+    .service-modal__footer { padding-left: 24px; padding-right: 24px; }
   }
 </style>
 
@@ -226,4 +418,103 @@ const tabNames = {
     }, { rootMargin: '-30% 0px -60% 0px' });
     sections.forEach((section) => observer.observe(section));
   }
+
+  // === Service Modal ===
+  const serviceData = {
+    slmwave: {
+      title: "SLM Wave",
+      sections: [
+        {
+          heading: "Como actua?",
+          text: "O SLM Wave utiliza frequências de luz específicas para fornecer estimulação energética, apoiando a harmonização corporal natural. Uma experiência premium e indolor."
+        }
+      ]
+    },
+    nanopulse: {
+      title: "NanoPulse",
+      sections: [
+        {
+          heading: "O que é?",
+          text: "Trata-se de um sistema não invasivo concebido exclusivamente para a aplicação de campos magnéticos pulsados com o objetivo de promover o bem-estar e o equilíbrio energético. Este equipamento não é um dispositivo médico e não substitui a avaliação, o diagnóstico ou o tratamento de qualquer profissional de saúde. Cada sessão pode demorar entre 3 a 20 minutos e a intensidade de aplicação é gerida pelo terapeuta com base no feedback do utente."
+        },
+        {
+          heading: "Quais as aplicações?",
+          text: "O sistema é utilizado em contextos orientados para o bem-estar, com o objetivo de promover o relaxamento, o equilíbrio energético e uma sensação geral de conforto. A sua aplicação centra-se na utilização não clínica, em sessões destinadas a promover o bem-estar e uma experiência bioenergética equilibrada."
+        },
+        {
+          heading: "Como actua?",
+          text: "O equipamento gera campos magnéticos pulsados de baixa frequência que interagem com o corpo a nível energético e bioelétrico. Estes campos são aplicados através de acessórios específicos e parâmetros controlados, criando uma experiência não invasiva geralmente associada a conforto, relaxamento e sensação de vitalidade. O sistema opera sem contacto mecânico ou procedimentos invasivos."
+        },
+        {
+          heading: "Contra-indicações",
+          items: ["Pacemaker", "Grávidas", "Utilizar sobre uma zona do corpo com prótese metálica"]
+        }
+      ]
+    },
+    infrared: {
+      title: "Infrared",
+      sections: [
+        {
+          heading: "Como actua?",
+          text: "A radiação infravermelha (IV) é uma forma de radiação não ionizante, invisível a olho nu, que produz um ligeiro efeito de aquecimento na superfície do corpo. Os ambientes de sauna de infravermelhos utilizam energia IV controlada para criar uma experiência térmica confortável, geralmente associada ao relaxamento e ao bem-estar físico. Este tipo de exposição não é invasivo, não envolve contacto direto e é geralmente bem tolerado quando utilizado adequadamente."
+        },
+        {
+          heading: "Aplicações",
+          text: "Pode ser utilizado para relaxamento, conforto físico e uma maior sensação de leveza e bem-estar geral."
+        }
+      ]
+    },
+    timewaver: {
+      title: "Electroterapia",
+      sections: [
+        {
+          heading: "Como actua?",
+          text: "A electroterapia utiliza frequências precisas e sinais elétricos de baixa intensidade dentro de uma estrutura informacional concebida para apoiar a organização celular e o equilíbrio bioelétrico. O sistema foca-se no suporte à coerência dentro dos ambientes intra e extracelulares e favorece condições associadas a uma distribuição iónica equilibrada e a uma comunicação celular eficaz. Esta informação é fornecida apenas para fins educativos e de bem-estar e não constitui aconselhamento ou tratamento médico."
+        },
+        {
+          heading: "Em que casos pode ser aplicado?",
+          text: "Esta abordagem atua a nível celular e bioelétrico, o que permite a sua aplicação numa vasta gama de situações, tanto como suporte contínuo como estratégia preventiva de bem-estar. É comummente utilizado em contextos relacionados com o conforto físico e o equilíbrio funcional (como tensão muscular, desconforto articular ou fadiga geral), bem como em contextos mentais e emocionais, incluindo a gestão do stress, relaxamento, concentração e bem-estar geral."
+        },
+        {
+          heading: "Contra-indicações",
+          items: ["Pacemaker", "Gravidez", "Dispositivos eletrónicos implantados", "Transplantes", "Epilepsia"]
+        }
+      ]
+    }
+  };
+
+  const modal = document.getElementById('service-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+  const modalClose = document.getElementById('modal-close');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+
+  function openModal(serviceKey) {
+    const data = serviceData[serviceKey];
+    if (!data) return;
+    modalTitle.textContent = data.title;
+    modalBody.innerHTML = data.sections.map(section => {
+      const content = section.items
+        ? `<ul>${section.items.map(item => `<li>${item}</li>`).join('')}</ul>`
+        : `<p>${section.text}</p>`;
+      return `<div class="service-modal__section"><h4>${section.heading}</h4>${content}</div>`;
+    }).join('');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-service]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.service));
+  });
+
+  modalClose?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
