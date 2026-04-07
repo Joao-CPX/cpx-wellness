@@ -34,13 +34,22 @@ const tabNames = {
 
   <!-- Sticky sub-nav -->
   <div class="service-subnav" id="service-subnav">
-    <div class="container service-subnav__inner">
+    <!-- Desktop tabs -->
+    <div class="container service-subnav__inner service-subnav__tabs">
       {treatmentKeys.map((key) => (
         <a href={`#${key}`} class="service-subnav__item" data-target={key}>
-          <span class="hide-mobile">{i.treatments[key].name}</span>
-          <span class="hide-desktop">{tabNames[key]}</span>
+          {i.treatments[key].name}
         </a>
       ))}
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="service-subnav__dropdown-wrap">
+      <select class="service-subnav__select" id="service-subnav-select" aria-label="Navegar para serviço">
+        {treatmentKeys.map((key) => (
+          <option value={key}>{tabNames[key]}</option>
+        ))}
+      </select>
+      <i class="ph-light ph-caret-down service-subnav__select-icon" aria-hidden="true"></i>
     </div>
   </div>
 
@@ -177,12 +186,29 @@ const tabNames = {
   .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.80); }
 
   .service-subnav { margin-top: var(--nav-height, 72px); position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
-  .service-subnav__inner { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
-  @media (max-width: 767px) { .service-subnav__inner { justify-content: center; gap: 20px; } }
-  .service-subnav__inner::-webkit-scrollbar { display: none; }
+
+  /* Desktop tabs */
+  .service-subnav__tabs { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
+  .service-subnav__tabs::-webkit-scrollbar { display: none; }
   .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: rgba(255,255,255,0.5); padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
   .service-subnav__item:hover { color: rgba(255,255,255,0.8); }
   .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
+
+  /* Mobile dropdown */
+  .service-subnav__dropdown-wrap { display: none; position: relative; padding: 0 20px; }
+  .service-subnav__select {
+    width: 100%; appearance: none; -webkit-appearance: none;
+    background: transparent; border: none; outline: none;
+    color: #ffffff; font-family: var(--font-body); font-size: 0.875rem;
+    padding: 16px 40px 16px 4px; cursor: pointer;
+  }
+  .service-subnav__select option { background: var(--cpx-dark-bg); color: #ffffff; }
+  .service-subnav__select-icon { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.5); font-size: 1rem; pointer-events: none; }
+
+  @media (max-width: 767px) {
+    .service-subnav__tabs { display: none; }
+    .service-subnav__dropdown-wrap { display: block; }
+  }
 
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
@@ -461,7 +487,17 @@ const tabNames = {
   }
 
   const navItems = document.querySelectorAll('.service-subnav__item');
+  const selectEl = document.getElementById('service-subnav-select') as HTMLSelectElement | null;
   const sections = document.querySelectorAll('.treatment-detail');
+
+  // Dropdown: navigate on change
+  if (selectEl) {
+    selectEl.addEventListener('change', () => {
+      const target = document.getElementById(selectEl.value);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   if (navItems.length && sections.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -470,6 +506,8 @@ const tabNames = {
           navItems.forEach((item) => {
             item.classList.toggle('is-active', item.getAttribute('data-target') === id);
           });
+          // Sync dropdown
+          if (selectEl && id) selectEl.value = id;
         }
       });
     }, { rootMargin: '-30% 0px -60% 0px' });
