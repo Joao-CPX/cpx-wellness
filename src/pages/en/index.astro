@@ -74,25 +74,36 @@ const routes = localeRoutes[locale];
       <h2 class="text-center reveal" style="margin-bottom: var(--block-spacing);">
         {i.treatmentsPreview.heading}
       </h2>
-      <div class="grid-4 services-carousel" data-stagger>
-        {[
-          { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
-          { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
-          { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
-          { key: 'timewaver', img: '/images/timewaver.webp', pos: 'right center' },
-        ].map(({ key, img, pos }) => (
-          <a href={`${routes.treatments}#${key}`} class="service-card">
-            <div class="service-card__img-wrap">
-              <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
-              <div class="service-card__overlay"></div>
-              <div class="service-card__content">
-                <p class="service-card__tagline">{i.treatmentsPreview[key].tagline}</p>
-                <h4 class="service-card__title">{i.treatmentsPreview[key].name}</h4>
-                <span class="service-card__btn">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
+      <div class="services-slider-wrap">
+        <div class="services-slider" id="services-slider">
+          {[
+            { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
+            { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
+            { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
+            { key: 'timewaver', img: '/images/timewaver.webp', pos: 'right center' },
+            { key: 'btascan', img: '/images/BTA.webp', pos: 'center center' },
+          ].map(({ key, img, pos }) => (
+            <a href={`${routes.treatments}#${key}`} class="service-card">
+              <div class="service-card__img-wrap">
+                <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                  <p class="service-card__tagline">{i.treatmentsPreview[key].tagline}</p>
+                  <h4 class="service-card__title">{i.treatmentsPreview[key].name}</h4>
+                  <span class="service-card__btn">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
+                </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </a>
+          ))}
+        </div>
+        <div class="services-slider-nav">
+          <button class="services-slider-btn" id="slider-prev" aria-label="Previous" disabled>
+            <i class="ph-light ph-arrow-left"></i>
+          </button>
+          <button class="services-slider-btn" id="slider-next" aria-label="Next">
+            <i class="ph-light ph-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -356,33 +367,66 @@ const routes = localeRoutes[locale];
     color: #ffffff;
   }
 
-  /* Services carousel - horizontal scroll on mobile */
-  @media (max-width: 767px) {
-    .services-carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      gap: 16px;
-      padding-bottom: 8px;
-      margin-left: -20px;
-      margin-right: -20px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+  /* Services slider */
+  .services-slider-wrap { position: relative; }
 
-    .services-carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    .services-carousel .service-card {
-      flex: 0 0 72%;
-      scroll-snap-align: start;
-    }
+  .services-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin-left: calc(-1 * var(--grid-padding, 20px));
+    margin-right: calc(-1 * var(--grid-padding, 20px));
+    padding-left: var(--grid-padding, 20px);
+    padding-right: var(--grid-padding, 20px);
   }
 
-  /* Service Cards (Apple style) */
+  .services-slider::-webkit-scrollbar { display: none; }
+
+  .services-slider .service-card {
+    flex: 0 0 calc(25% - 15px);
+    scroll-snap-align: start;
+  }
+
+  @media (max-width: 1024px) {
+    .services-slider .service-card { flex: 0 0 calc(33.333% - 14px); }
+  }
+
+  @media (max-width: 767px) {
+    .services-slider .service-card { flex: 0 0 76%; }
+  }
+
+  .services-slider-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .services-slider-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.125rem;
+    color: var(--wc-charcoal);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .services-slider-btn:hover:not(:disabled) {
+    background: var(--wc-charcoal);
+    color: #ffffff;
+    border-color: var(--wc-charcoal);
+  }
+
+  .services-slider-btn:disabled { opacity: 0.25; cursor: default; }
+
+  /* Service Cards */
   .service-card { display: flex; flex-direction: column; text-decoration: none; }
 
   .service-card__img-wrap {
@@ -669,3 +713,27 @@ const routes = localeRoutes[locale];
     }
   }
 </style>
+
+<script>
+  const slider = document.getElementById('services-slider');
+  const prevBtn = document.getElementById('slider-prev') as HTMLButtonElement | null;
+  const nextBtn = document.getElementById('slider-next') as HTMLButtonElement | null;
+
+  if (slider && prevBtn && nextBtn) {
+    const getStep = () => {
+      const card = slider.querySelector('.service-card') as HTMLElement | null;
+      return card ? card.offsetWidth + 20 : 280;
+    };
+
+    prevBtn.addEventListener('click', () => slider.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => slider.scrollBy({ left: getStep(), behavior: 'smooth' }));
+
+    const update = () => {
+      prevBtn.disabled = slider.scrollLeft <= 4;
+      nextBtn.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 4;
+    };
+
+    slider.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
