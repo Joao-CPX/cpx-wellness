@@ -34,6 +34,7 @@ const tabNames = {
 
   <section class="page-hero section">
     <div class="container">
+      <span class="label reveal">{i.treatments.label}</span>
       <h1 class="reveal">{i.treatments.heading}</h1>
       <p class="page-hero__body reveal">{i.treatments.intro}</p>
     </div>
@@ -171,10 +172,12 @@ const tabNames = {
   .page-hero {
     text-align: center;
     background: var(--cpx-dark-bg);
+    padding-top: calc(72px + var(--section-spacing));
     padding-bottom: var(--section-spacing);
   }
-  .page-hero h1 { margin-bottom: 16px; color: #fff; }
-  .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.70); }
+  .page-hero .label { color: var(--cpx-accent); }
+  .page-hero h1 { margin-top: 12px; margin-bottom: 24px; color: #fff; }
+  .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.70); }
 
   .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
 

@@ -128,6 +128,7 @@
     "ctaCta": "Marque a Sua Primeira Sessão"
   },
   "treatments": {
+    "label": "Protocolos Personalizados",
     "heading": "Os Nossos Serviços",
     "intro": "Cinco modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
     "btascan": {

@@ -128,6 +128,7 @@
     "ctaCta": "Book Your First Session"
   },
   "treatments": {
+    "label": "Personalised Protocols",
     "heading": "Our Services",
     "intro": "Five distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
     "btascan": {
