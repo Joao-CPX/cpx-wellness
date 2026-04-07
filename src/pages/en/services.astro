@@ -272,15 +272,18 @@ const tabNames = {
     margin-top: 0;
   }
 
-  .btn--outline {
-    background: transparent;
-    color: var(--wc-charcoal);
-    border: 1px solid var(--wc-charcoal);
+  .treatment-detail__actions .btn--secondary,
+  .treatment-detail__actions .btn--outline {
+    background: var(--wc-charcoal);
+    color: var(--cpx-accent);
+    border-color: var(--wc-charcoal);
   }
 
-  .btn--outline:hover {
-    background: var(--wc-charcoal);
-    color: #ffffff;
+  .treatment-detail__actions .btn--secondary:hover,
+  .treatment-detail__actions .btn--outline:hover {
+    background: var(--cpx-dark-bg);
+    color: var(--cpx-accent);
+    border-color: var(--cpx-dark-bg);
   }
 
   /* === Service Modal === */
