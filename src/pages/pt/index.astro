@@ -323,8 +323,8 @@ const routes = localeRoutes[locale];
     scrollbar-width: none;
     padding-bottom: 4px;
     /* Align with container: grid-padding on narrow, + centering offset on wide */
-    padding-left: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding));
-    padding-right: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding));
+    padding-left: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
+    padding-right: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
   }
 
   .services-slider::-webkit-scrollbar { display: none; }
