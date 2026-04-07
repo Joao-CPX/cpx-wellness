@@ -71,7 +71,8 @@ const routes = localeRoutes[locale];
   <!-- Treatments Preview -->
   <section class="section services-section">
     <div class="container">
-      <h2 class="text-center reveal" style="margin-bottom: var(--block-spacing);">
+      <span class="label services-label reveal">{i.treatments.label}</span>
+      <h2 class="services-heading text-center reveal">
         {i.treatmentsPreview.heading}
       </h2>
     </div>
@@ -369,6 +370,8 @@ const routes = localeRoutes[locale];
 
   /* Services slider — full viewport width, aligned with container content */
   .services-section { overflow-x: clip; }
+  .services-label { display: block; text-align: center; margin-bottom: 0; }
+  .services-heading { font-size: clamp(1.875rem, 4vw, 3.25rem); margin-top: 8px; margin-bottom: var(--block-spacing); }
 
   .services-slider {
     display: flex;
