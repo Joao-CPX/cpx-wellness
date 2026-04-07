@@ -493,6 +493,14 @@ const tabNames = {
           text: "Electrotherapy uses precise frequencies and low-intensity electrical signals within an informational framework designed to support cellular organisation and bioelectrical balance. The system focuses on supporting coherence within intra- and extracellular environments and favours conditions associated with balanced ionic distribution and effective cellular communication. This information is provided for educational and wellness purposes only and does not constitute medical advice or treatment."
         },
         {
+          heading: "Why Electrotherapy?",
+          paragraphs: [
+            "At the atomic and subatomic level, nothing is static. All matter is in constant motion, and everything that moves expresses a specific frequency, measured in Hertz (Hz). These frequencies may be higher or lower depending on the number of oscillations occurring within a given period of time.",
+            "Cells in the human body operate within specific frequency ranges, functioning together as a coordinated system. When one element becomes out of sync, this loss of coherence can influence the overall biological organisation.",
+            "Frequencies act as an informational language in cellular communication. Nuno Nina's work in this field led to the development of Gold Frequencies, designed to support bioelectrical coherence and the natural balance of membrane potential."
+          ]
+        },
+        {
           heading: "What cases can it be applied to?",
           text: "This approach acts at the cellular and bioelectrical level, allowing its application across a wide range of situations, both as ongoing support and as a preventive wellness strategy. It is commonly used in contexts related to physical comfort and functional balance (such as muscle tension, joint discomfort or general fatigue), as well as mental and emotional contexts, including stress management, relaxation, concentration and general well-being."
         },
@@ -517,7 +525,9 @@ const tabNames = {
     modalBody.innerHTML = data.sections.map(section => {
       const content = section.items
         ? `<ul>${section.items.map(item => `<li>${item}</li>`).join('')}</ul>`
-        : `<p>${section.text}</p>`;
+        : section.paragraphs
+          ? section.paragraphs.map(p => `<p>${p}</p>`).join('')
+          : `<p>${section.text}</p>`;
       return `<div class="service-modal__section"><h4>${section.heading}</h4>${content}</div>`;
     }).join('');
     modal.classList.add('is-open');

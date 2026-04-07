@@ -503,6 +503,14 @@ const tabNames = {
           text: "A electroterapia utiliza frequências precisas e sinais elétricos de baixa intensidade dentro de uma estrutura informacional concebida para apoiar a organização celular e o equilíbrio bioelétrico. O sistema foca-se no suporte à coerência dentro dos ambientes intra e extracelulares e favorece condições associadas a uma distribuição iónica equilibrada e a uma comunicação celular eficaz. Esta informação é fornecida apenas para fins educativos e de bem-estar e não constitui aconselhamento ou tratamento médico."
         },
         {
+          heading: "Porquê a Electroterapia?",
+          paragraphs: [
+            "A nível atómico e subatómico, nada é estático. Toda a matéria está em constante movimento, e tudo o que se move expressa uma frequência específica, medida em Hertz (Hz). Estas frequências podem ser maiores ou menores, dependendo do número de oscilações que ocorrem num determinado período de tempo.",
+            "As células do corpo humano operam dentro de gamas de frequência específicas, funcionando em conjunto como um sistema coordenado. Quando um elemento se dessincroniza, esta perda de coerência pode influenciar a organização biológica como um todo.",
+            "As frequências atuam como linguagem informativa na comunicação celular. O trabalho de Nuno Nina nesta área levou ao desenvolvimento das Frequências Douradas, concebidas para suportar a coerência bioelétrica e o equilíbrio natural do potencial de membrana."
+          ]
+        },
+        {
           heading: "Em que casos pode ser aplicado?",
           text: "Esta abordagem atua a nível celular e bioelétrico, o que permite a sua aplicação numa vasta gama de situações, tanto como suporte contínuo como estratégia preventiva de bem-estar. É comummente utilizado em contextos relacionados com o conforto físico e o equilíbrio funcional (como tensão muscular, desconforto articular ou fadiga geral), bem como em contextos mentais e emocionais, incluindo a gestão do stress, relaxamento, concentração e bem-estar geral."
         },
@@ -527,7 +535,9 @@ const tabNames = {
     modalBody.innerHTML = data.sections.map(section => {
       const content = section.items
         ? `<ul>${section.items.map(item => `<li>${item}</li>`).join('')}</ul>`
-        : `<p>${section.text}</p>`;
+        : section.paragraphs
+          ? section.paragraphs.map(p => `<p>${p}</p>`).join('')
+          : `<p>${section.text}</p>`;
       return `<div class="service-modal__section"><h4>${section.heading}</h4>${content}</div>`;
     }).join('');
     modal.classList.add('is-open');
