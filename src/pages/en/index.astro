@@ -69,41 +69,41 @@ const routes = localeRoutes[locale];
   </section>
 
   <!-- Treatments Preview -->
-  <section class="section">
+  <section class="section services-section">
     <div class="container">
       <h2 class="text-center reveal" style="margin-bottom: var(--block-spacing);">
         {i.treatmentsPreview.heading}
       </h2>
-      <div class="services-slider-wrap">
-        <div class="services-slider" id="services-slider">
-          {[
-            { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
-            { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
-            { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
-            { key: 'timewaver', img: '/images/timewaver.webp', pos: 'right center' },
-            { key: 'btascan', img: '/images/BTA.webp', pos: 'center center' },
-          ].map(({ key, img, pos }) => (
-            <a href={`${routes.treatments}#${key}`} class="service-card">
-              <div class="service-card__img-wrap">
-                <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
-                <div class="service-card__overlay"></div>
-                <div class="service-card__content">
-                  <p class="service-card__tagline">{i.treatmentsPreview[key].tagline}</p>
-                  <h4 class="service-card__title">{i.treatmentsPreview[key].name}</h4>
-                  <span class="service-card__btn">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div class="services-slider-nav">
-          <button class="services-slider-btn" id="slider-prev" aria-label="Previous" disabled>
-            <i class="ph-light ph-arrow-left"></i>
-          </button>
-          <button class="services-slider-btn" id="slider-next" aria-label="Next">
-            <i class="ph-light ph-arrow-right"></i>
-          </button>
-        </div>
+    </div>
+    <div class="services-slider" id="services-slider">
+      {[
+        { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
+        { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
+        { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
+        { key: 'timewaver', img: '/images/timewaver.webp', pos: 'right center' },
+        { key: 'btascan', img: '/images/BTA.webp', pos: 'center center' },
+      ].map(({ key, img, pos }) => (
+        <a href={`${routes.treatments}#${key}`} class="service-card">
+          <div class="service-card__img-wrap">
+            <img src={img} alt={i.treatmentsPreview[key].name} class="service-card__img" style={`object-position: ${pos};`} loading="lazy" />
+            <div class="service-card__overlay"></div>
+            <div class="service-card__content">
+              <p class="service-card__tagline">{i.treatmentsPreview[key].tagline}</p>
+              <h4 class="service-card__title">{i.treatmentsPreview[key].name}</h4>
+              <span class="service-card__btn">{i.treatmentsPreview.learnMore} <i class="ph-light ph-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="container">
+      <div class="services-slider-nav">
+        <button class="services-slider-btn" id="slider-prev" aria-label="Previous" disabled>
+          <i class="ph-light ph-arrow-left"></i>
+        </button>
+        <button class="services-slider-btn" id="slider-next" aria-label="Next">
+          <i class="ph-light ph-arrow-right"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -367,8 +367,8 @@ const routes = localeRoutes[locale];
     color: #ffffff;
   }
 
-  /* Services slider */
-  .services-slider-wrap { position: relative; }
+  /* Services slider — full viewport width, aligned with container content */
+  .services-section { overflow: hidden; }
 
   .services-slider {
     display: flex;
@@ -378,21 +378,19 @@ const routes = localeRoutes[locale];
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 4px;
-    margin-left: calc(-1 * var(--grid-padding, 20px));
-    margin-right: calc(-1 * var(--grid-padding, 20px));
-    padding-left: var(--grid-padding, 20px);
-    padding-right: var(--grid-padding, 20px);
+    padding-left: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding));
+    padding-right: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding));
   }
 
   .services-slider::-webkit-scrollbar { display: none; }
 
   .services-slider .service-card {
-    flex: 0 0 calc(25% - 15px);
+    flex: 0 0 clamp(200px, 22vw, 360px);
     scroll-snap-align: start;
   }
 
   @media (max-width: 1024px) {
-    .services-slider .service-card { flex: 0 0 calc(33.333% - 14px); }
+    .services-slider .service-card { flex: 0 0 clamp(200px, 32vw, 300px); }
   }
 
   @media (max-width: 767px) {
