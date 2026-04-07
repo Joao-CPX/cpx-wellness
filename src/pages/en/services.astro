@@ -32,7 +32,14 @@ const tabNames = {
 
 <Base title="Services" locale={locale} description="Explore our four wellness modalities: Electrotherapy, NanoPulse, Infrared Therapy, and SLM Wave. Personalized protocols for your well-being.">
 
-  <!-- Sticky sub-nav -->
+  <section class="page-hero section">
+    <div class="container">
+      <h1 class="reveal">{i.treatments.heading}</h1>
+      <p class="page-hero__body reveal">{i.treatments.intro}</p>
+    </div>
+  </section>
+
+  <!-- Sticky sub-nav (below hero) -->
   <div class="service-subnav" id="service-subnav">
     <!-- Desktop tabs -->
     <div class="container service-subnav__inner service-subnav__tabs">
@@ -52,14 +59,6 @@ const tabNames = {
       <i class="ph-light ph-caret-down service-subnav__select-icon" aria-hidden="true"></i>
     </div>
   </div>
-
-  <section class="page-hero section">
-    <div class="page-hero__overlay"></div>
-    <div class="container page-hero__content">
-      <h1 class="reveal">{i.treatments.heading}</h1>
-      <p class="page-hero__body reveal">{i.treatments.intro}</p>
-    </div>
-  </section>
 
   {treatmentKeys.map((key, index) => (
     <section id={key} class="section">
@@ -170,22 +169,14 @@ const tabNames = {
 
 <style>
   .page-hero {
-    position: relative;
     text-align: center;
+    background: var(--cpx-dark-bg);
     padding-bottom: var(--section-spacing);
-    background: url('/images/Services_banner.webp') center center / cover no-repeat;
   }
-  .page-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.50);
-    pointer-events: none;
-  }
-  .page-hero__content { position: relative; z-index: 1; }
   .page-hero h1 { margin-bottom: 16px; color: #fff; }
-  .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.80); }
+  .page-hero__body { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.70); }
 
-  .service-subnav { margin-top: var(--nav-height, 72px); position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
 
   /* Desktop tabs */
   .service-subnav__tabs { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
