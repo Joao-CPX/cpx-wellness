@@ -137,6 +137,10 @@ const serviceItems = [
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: background 0.4s ease, border-color 0.4s ease;
+    /* Fix: Chrome iOS drops fixed+backdrop-filter elements during scroll */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
   }
 
   /* Light mode (default) */
