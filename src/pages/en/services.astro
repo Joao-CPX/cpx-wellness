@@ -6,20 +6,23 @@ const locale = 'en';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver'] as const;
+const treatmentKeys = ['btascan', 'slmwave', 'nanopulse', 'infrared', 'timewaver'] as const;
 const icons = {
+  btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
   nanopulse: 'ph-magnet-straight',
   infrared: 'ph-sun-dim',
   slmwave: 'ph-lighthouse',
 };
 const images = {
+  btascan: '/images/btascan.webp',
   timewaver: '/images/timewaver.png',
   nanopulse: '/images/nanopulse.png',
   infrared: '/images/redlight.png',
   slmwave: '/images/slmwave.png',
 };
 const tabNames = {
+  btascan: 'BTA Scan',
   slmwave: 'SLM Wave',
   nanopulse: 'NanoPulse',
   infrared: 'InfraRed',
@@ -81,7 +84,7 @@ const tabNames = {
                     {i.treatments[key].cta}
                     <i class="ph-light ph-arrow-right"></i>
                   </a>
-                  {key !== 'slmwave' && (
+                  {key !== 'slmwave' && key !== 'btascan' && (
                     <button class="btn btn--outline treatment-detail__more" data-service={key}>
                       Learn More <i class="ph-light ph-plus"></i>
                     </button>
@@ -169,8 +172,8 @@ const tabNames = {
   .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  #slmwave { padding-top: 0; }
-  #slmwave .treatment-detail { border-top: none; }
+  #btascan { padding-top: 0; }
+  #btascan .treatment-detail { border-top: none; }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }

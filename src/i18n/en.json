@@ -25,6 +25,10 @@
   "treatmentsPreview": {
     "heading": "Our Services",
     "learnMore": "Learn more",
+    "btascan": {
+      "name": "BTA Scan",
+      "tagline": "Biological terrain assessment for a personalised protocol."
+    },
     "timewaver": {
       "name": "Electrotherapy",
       "tagline": "Frequency-based support for balance, coherence and well-being."
@@ -125,7 +129,23 @@
   },
   "treatments": {
     "heading": "Our Services",
-    "intro": "Four distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
+    "intro": "Five distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
+    "btascan": {
+      "name": "BTA Scan",
+      "tagline": "Biological terrain assessment for a personalised protocol",
+      "howItWorks": "The BTA Scan analyses the electrical parameters of three bodily fluids — blood, saliva, and urine — to assess your biological terrain. Based on Vincent's methodology, validated across 60,000+ cases over 40 years, it measures pH, rH2, and electrical resistance, providing a precise reading of the body's internal balance.",
+      "applicationsTitle": "What it assesses",
+      "applications": [
+        "Nutrient absorption capacity and waste elimination",
+        "Tissue conductivity and metabolic electrical potential",
+        "Acid-oxidative balance",
+        "Kidney, liver, and digestive function",
+        "Stress levels and electromagnetic pollution exposure"
+      ],
+      "sessionInfo": "2-hour fast required. Scan and report in approximately 15 minutes.",
+      "cta": "Book a BTA Scan",
+      "disclaimer": "The BTA Scan is a biological terrain assessment for wellness purposes. It does not constitute medical diagnosis or replace clinical evaluation."
+    },
     "timewaver": {
       "name": "Electrotherapy",
       "tagline": "Frequency-based support for balance, coherence and well-being",

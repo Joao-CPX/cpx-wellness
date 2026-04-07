@@ -25,6 +25,10 @@
   "treatmentsPreview": {
     "heading": "Os Nossos Serviços",
     "learnMore": "Saber mais",
+    "btascan": {
+      "name": "BTA Scan",
+      "tagline": "Avaliação do terreno biológico para um protocolo personalizado."
+    },
     "timewaver": {
       "name": "Electroterapia",
       "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar."
@@ -125,7 +129,23 @@
   },
   "treatments": {
     "heading": "Os Nossos Serviços",
-    "intro": "Quatro modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
+    "intro": "Cinco modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
+    "btascan": {
+      "name": "BTA Scan",
+      "tagline": "Avaliação do terreno biológico para um protocolo personalizado",
+      "howItWorks": "O BTA Scan analisa os parâmetros eléctricos de três fluidos corporais — sangue, saliva e urina — para avaliar o estado do terreno biológico interno. Baseado na metodologia de Vincent, validada em mais de 60.000 casos ao longo de 40 anos, mede pH, rH2 e resistência eléctrica, fornecendo uma leitura precisa do equilíbrio interno do organismo.",
+      "applicationsTitle": "O que avalia",
+      "applications": [
+        "Capacidade de absorção de nutrientes e eliminação de resíduos",
+        "Condutividade tecidular e potencial eléctrico metabólico",
+        "Equilíbrio ácido-oxidativo",
+        "Função renal, hepática e digestiva",
+        "Níveis de stress e exposição a poluição electromagnética"
+      ],
+      "sessionInfo": "Necessário jejum de 2 horas. Scan e relatório em aproximadamente 15 minutos.",
+      "cta": "Marcar BTA Scan",
+      "disclaimer": "O BTA Scan é uma avaliação do terreno biológico para fins de bem-estar. Não constitui diagnóstico médico nem substitui avaliação clínica."
+    },
     "timewaver": {
       "name": "Electroterapia",
       "tagline": "Suporte baseado em frequências para equilíbrio, coerência e bem-estar",
