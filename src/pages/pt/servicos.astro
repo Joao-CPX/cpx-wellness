@@ -389,10 +389,51 @@ const tabNames = {
   }
 
   @media (max-width: 767px) {
-    .service-modal__panel { max-width: 100%; }
-    .service-modal__header,
-    .service-modal__body,
-    .service-modal__footer { padding-left: 24px; padding-right: 24px; }
+    /* Bottom sheet on mobile */
+    .service-modal {
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .service-modal__panel {
+      max-width: 100%;
+      height: auto;
+      max-height: 85dvh;
+      border-radius: 20px 20px 0 0;
+      transform: translateY(100%);
+    }
+
+    .service-modal.is-open .service-modal__panel {
+      transform: translateY(0);
+    }
+
+    /* Drag handle */
+    .service-modal__panel::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      margin: 12px auto 0;
+      flex-shrink: 0;
+    }
+
+    .service-modal__header {
+      padding: 12px 24px 20px;
+    }
+
+    .service-modal__body {
+      padding-left: 24px;
+      padding-right: 24px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .service-modal__footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 </style>
 
