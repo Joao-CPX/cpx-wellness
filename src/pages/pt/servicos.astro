@@ -6,7 +6,7 @@ const locale = 'pt';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['btascan', 'slmwave', 'nanopulse', 'infrared', 'timewaver'] as const;
+const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver', 'btascan'] as const;
 const icons = {
   btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
@@ -84,7 +84,7 @@ const tabNames = {
                     {i.treatments[key].cta}
                     <i class="ph-light ph-arrow-right"></i>
                   </a>
-                  {key !== 'slmwave' && key !== 'btascan' && (
+                  {key !== 'slmwave' && (
                     <button class="btn btn--outline treatment-detail__more" data-service={key}>
                       Saber Mais <i class="ph-light ph-plus"></i>
                     </button>
@@ -173,8 +173,8 @@ const tabNames = {
 
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  #btascan { padding-top: 0; }
-  #btascan .treatment-detail { border-top: none; }
+  #slmwave { padding-top: 0; }
+  #slmwave .treatment-detail { border-top: none; }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
@@ -424,6 +424,34 @@ const tabNames = {
 
   // === Service Modal ===
   const serviceData = {
+    btascan: {
+      title: "BTA Scan",
+      sections: [
+        {
+          heading: "O que é?",
+          text: "O BTA é um método de avaliação avançado baseado na metodologia de Vincent, comprovado ao longo de 40 anos e testado em mais de 60.000 casos. Avalia três fluidos corporais — sangue, saliva e urina — para determinar o estado do terreno biológico interno."
+        },
+        {
+          heading: "O que mede?",
+          text: "A metodologia avalia os parâmetros eléctricos de soluções líquidas, medindo três factores fundamentais: pH (níveis de acidez), rH2 (níveis de oxidação) e R (resistência eléctrica). Esta abordagem bioelectrónica foca-se nos factores eléctricos e electromagnéticos do organismo."
+        },
+        {
+          heading: "O que avalia",
+          items: [
+            "Capacidade geral de absorção de nutrientes e eliminação de resíduos",
+            "Condutividade tecidular, impedância e potencial eléctrico metabólico",
+            "Função renal, hepática e digestiva",
+            "Níveis de stress emocional e exposição a poluição electromagnética",
+            "Equilíbrio ácido-oxidativo e risco de degeneração do terreno",
+            "Tendências para desequilíbrios autoimunes, infecções virais, bacterianas e reacções alérgicas"
+          ]
+        },
+        {
+          heading: "Preparação",
+          text: "Necessário jejum de 2 horas antes da colheita de amostras. O scan e o relatório ficam prontos em aproximadamente 15 minutos."
+        }
+      ]
+    },
     slmwave: {
       title: "SLM Wave",
       sections: [

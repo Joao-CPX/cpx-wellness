@@ -6,7 +6,7 @@ const locale = 'en';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['btascan', 'slmwave', 'nanopulse', 'infrared', 'timewaver'] as const;
+const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver', 'btascan'] as const;
 const icons = {
   btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
@@ -84,7 +84,7 @@ const tabNames = {
                     {i.treatments[key].cta}
                     <i class="ph-light ph-arrow-right"></i>
                   </a>
-                  {key !== 'slmwave' && key !== 'btascan' && (
+                  {key !== 'slmwave' && (
                     <button class="btn btn--outline treatment-detail__more" data-service={key}>
                       Learn More <i class="ph-light ph-plus"></i>
                     </button>
@@ -172,8 +172,8 @@ const tabNames = {
   .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
 
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  #btascan { padding-top: 0; }
-  #btascan .treatment-detail { border-top: none; }
+  #slmwave { padding-top: 0; }
+  #slmwave .treatment-detail { border-top: none; }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
@@ -423,6 +423,34 @@ const tabNames = {
 
   // === Service Modal ===
   const serviceData = {
+    btascan: {
+      title: "BTA Scan",
+      sections: [
+        {
+          heading: "What is it?",
+          text: "BTA is an advanced assessment method based on Vincent's methodology, proven over 40 years and tested across 60,000+ cases. It evaluates three bodily fluids — blood, saliva, and urine — to determine the state of the internal biological terrain."
+        },
+        {
+          heading: "What does it measure?",
+          text: "The methodology evaluates the electrical parameters of liquid solutions, measuring three key factors: pH (acidity levels), rH2 (oxidation levels), and R (electrical resistance). This bioelectronic approach focuses on the body's electrical and electromagnetic factors."
+        },
+        {
+          heading: "What it assesses",
+          items: [
+            "Overall capacity for nutrient absorption and waste elimination",
+            "Tissue conductivity, impedance, and metabolic electrical potential",
+            "Kidney, liver, and digestive function",
+            "Emotional stress levels and electromagnetic pollution exposure",
+            "Acid-oxidative balance and terrain degeneration status",
+            "Tendencies toward autoimmune imbalances, viral and bacterial infections, and allergic reactions"
+          ]
+        },
+        {
+          heading: "Preparation",
+          text: "A 2-hour fast is required before sample collection. The scan and report are ready in approximately 15 minutes."
+        }
+      ]
+    },
     nanopulse: {
       title: "NanoPulse",
       sections: [
