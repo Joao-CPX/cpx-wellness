@@ -378,8 +378,6 @@ const routes = localeRoutes[locale];
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 4px;
-    padding-left: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
-    padding-right: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
   }
 
   .services-slider::-webkit-scrollbar { display: none; }
@@ -387,6 +385,15 @@ const routes = localeRoutes[locale];
   .services-slider .service-card {
     flex: 0 0 clamp(200px, 22vw, 360px);
     scroll-snap-align: start;
+  }
+
+  /* Use margin on first/last card — more reliable than padding on scroll containers */
+  .services-slider .service-card:first-child {
+    margin-left: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
+  }
+
+  .services-slider .service-card:last-child {
+    margin-right: calc(max(0px, (100vw - 1440px) / 2) + var(--grid-padding) + 24px);
   }
 
   @media (max-width: 1024px) {
