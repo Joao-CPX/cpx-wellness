@@ -21,6 +21,19 @@ export function getPathForLocale(path: string, locale: string): string {
   return '/' + segments.join('/');
 }
 
+export function getAlternateUrl(currentPath: string, targetLocale: string, siteBase: string): string {
+  const clean = currentPath.replace(/\/$/, '') || '/';
+  for (const locale of ['en', 'pt']) {
+    for (const [key, path] of Object.entries(localeRoutes[locale])) {
+      const p = path.replace(/\/$/, '') || '/';
+      if (clean === p || clean === path) {
+        return siteBase + (localeRoutes[targetLocale][key] ?? path);
+      }
+    }
+  }
+  return siteBase + currentPath;
+}
+
 export const localeRoutes: Record<string, Record<string, string>> = {
   en: {
     home: '/en/',

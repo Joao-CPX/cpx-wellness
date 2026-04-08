@@ -4,15 +4,29 @@ import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 // import WhatsApp from '../components/WhatsApp.astro'; // Disabled - pending chat solution
 import '../styles/global.css';
+import { getAlternateUrl } from '../i18n/utils';
 
 interface Props {
   title: string;
   description?: string;
   locale?: string;
   canonicalUrl?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'CellPowerX Wellness Center - Lisbon\'s pioneering frequency-based wellness center since 2009.', locale = 'en', canonicalUrl } = Astro.props;
+const {
+  title,
+  description = 'CellPowerX Wellness Center — Lisbon\'s pioneering frequency-based wellness center founded by Nuno Nina in 2009. Formerly Integrative Medicine Lda.',
+  locale = 'en',
+  canonicalUrl,
+  ogImage = '/images/Services_banner.webp',
+} = Astro.props;
+
+const siteBase = 'https://wellnesscenter.cellpowerx.com';
+const canonical = canonicalUrl ?? (siteBase + Astro.url.pathname);
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : siteBase + ogImage;
+const hreflangEn = getAlternateUrl(Astro.url.pathname, 'en', siteBase);
+const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
 ---
 
 <!DOCTYPE html>
@@ -20,8 +34,14 @@ const { title, description = 'CellPowerX Wellness Center - Lisbon\'s pioneering 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | CellPowerX Wellness</title>
+  <title>{title} | CellPowerX Wellness Center</title>
   <meta name="description" content={description} />
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="en" href={hreflangEn} />
+  <link rel="alternate" hreflang="pt" href={hreflangPt} />
+  <link rel="alternate" hreflang="x-default" href={hreflangEn} />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,74 +54,104 @@ const { title, description = 'CellPowerX Wellness Center - Lisbon\'s pioneering 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <!-- OG Tags -->
-  <meta property="og:title" content={`${title} | CellPowerX Wellness`} />
+  <!-- Open Graph -->
+  <meta property="og:title" content={`${title} | CellPowerX Wellness Center`} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageAbsolute} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content={locale === 'pt' ? 'pt_PT' : 'en_US'} />
+  <meta property="og:site_name" content="CellPowerX Wellness Center" />
 
-  {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} | CellPowerX Wellness Center`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageAbsolute} />
 
-  <!-- Schema.org LocalBusiness -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
-    "name": "CellPowerX Wellness Center",
-    "alternateName": "Integrative Medicine Lda",
-    "url": "https://wellnesscenter.cellpowerx.com",
-    "logo": "https://wellnesscenter.cellpowerx.com/images/cpx-logo.svg",
-    "image": "https://wellnesscenter.cellpowerx.com/images/hero.webp",
-    "description": locale === 'pt'
-      ? "Centro de bem-estar pioneiro em Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências. Fundado em 2009."
-      : "Lisbon's pioneering wellness center dedicated to bioelectrical and frequency-based approaches to well-being. Founded in 2009.",
-    "telephone": "+351211929218",
-    "email": "geral@int-medicine.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Fontes Pereira de Melo, 21, 8º",
-      "addressLocality": "Lisbon",
-      "postalCode": "1050-116",
-      "addressCountry": "PT"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 38.7297,
-      "longitude": -9.1476
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "09:30",
-        "closes": "18:30"
+  <!-- Schema.org: LocalBusiness + Person (Nuno Nina) -->
+  <script type="application/ld+json" set:html={JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://wellnesscenter.cellpowerx.com/#business",
+      "name": "CellPowerX Wellness Center",
+      "alternateName": ["Integrative Medicine", "Integrative Medicine Lda", "IM Integrative Medicine"],
+      "url": "https://wellnesscenter.cellpowerx.com",
+      "logo": "https://wellnesscenter.cellpowerx.com/CPX_WellnessCenter_hor.svg",
+      "image": ogImageAbsolute,
+      "description": locale === 'pt'
+        ? "Centro de bem-estar pioneiro em Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências, fundado por Nuno Nina em 2009. Anteriormente conhecido como Integrative Medicine Lda."
+        : "Lisbon's pioneering wellness center founded by Nuno Nina in 2009, dedicated to bioelectrical and frequency-based approaches to well-being. Formerly known as Integrative Medicine Lda.",
+      "telephone": "+351211929218",
+      "email": "geral@int-medicine.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Fontes Pereira de Melo, 21, 8º",
+        "addressLocality": "Lisbon",
+        "postalCode": "1050-116",
+        "addressCountry": "PT"
       },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Friday",
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "15",
-      "bestRating": "5"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.7297,
+        "longitude": -9.1476
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "15",
+        "bestRating": "5"
+      },
+      "founder": {
+        "@type": "Person",
+        "@id": "https://wellnesscenter.cellpowerx.com/#nuno-nina",
+        "name": "Nuno Nina"
+      },
+      "foundingDate": "2009",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.cellpowerx.com",
+        "https://www.int-medicine.com",
+        "https://www.instagram.com/cellpowerx/",
+        "https://www.facebook.com/ImIntegrativeMedicine/",
+        "https://www.youtube.com/user/IMclinic/videos",
+        "https://pt.linkedin.com/company/im-integrative-medicine"
+      ]
     },
-    "founder": {
+    {
+      "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Nuno Nina"
-    },
-    "foundingDate": "2009",
-    "priceRange": "$$",
-    "sameAs": [
-      "https://www.cellpowerx.com",
-      "https://www.instagram.com/cellpowerx/",
-      "https://www.facebook.com/ImIntegrativeMedicine/",
-      "https://www.youtube.com/user/IMclinic/videos",
-      "https://pt.linkedin.com/company/im-integrative-medicine"
-    ]
-  })} />
+      "@id": "https://wellnesscenter.cellpowerx.com/#nuno-nina",
+      "name": "Nuno Nina",
+      "jobTitle": locale === 'pt' ? "Fundador e Director Clínico" : "Founder & Clinical Director",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://wellnesscenter.cellpowerx.com/#business"
+      },
+      "url": "https://wellnesscenter.cellpowerx.com",
+      "sameAs": [
+        "https://www.cellpowerx.com",
+        "https://www.int-medicine.com"
+      ]
+    }
+  ])} />
 </head>
 <body>
   <Nav locale={locale} />

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wellness.cellpowerx.com/sitemap-index.xml
+Sitemap: https://wellnesscenter.cellpowerx.com/sitemap-index.xml
