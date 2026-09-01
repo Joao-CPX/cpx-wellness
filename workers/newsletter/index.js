@@ -1,4 +1,10 @@
 export default {
+  async scheduled(event, env, ctx) {
+    await fetch('https://api.brevo.com/v3/account', {
+      headers: { 'api-key': env.BREVO_API_KEY, 'Accept': 'application/json' },
+    });
+  },
+
   async fetch(request, env) {
     // CORS headers
     const corsHeaders = {
@@ -21,7 +27,7 @@ export default {
     }
 
     try {
-      const { email } = await request.json();
+      const { email, listId } = await request.json();
 
       if (!email || !email.includes('@')) {
         return new Response(JSON.stringify({ error: 'Invalid email' }), {
@@ -30,7 +36,11 @@ export default {
         });
       }
 
-      // Add contact to Brevo list #19
+      // Allow list #19 (wellness) or #6 (cellpowerx.com) — default to 19
+      const allowedLists = [6, 19];
+      const targetList = allowedLists.includes(listId) ? listId : 19;
+
+      // Add contact to Brevo list
       const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: {
@@ -40,7 +50,7 @@ export default {
         },
         body: JSON.stringify({
           email: email,
-          listIds: [19],
+          listIds: [targetList],
           updateEnabled: true,
         }),
       });
