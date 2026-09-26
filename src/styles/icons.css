@@ -48,6 +48,7 @@
 .ph-light.ph-users-three:before { content: "\e68e"; }
 .ph-light.ph-wave-sine:before { content: "\ea9a"; }
 .ph-light.ph-whatsapp-logo:before { content: "\e5d0"; }
+.ph-light.ph-wind:before { content: "\e5d2"; }
 .ph-light.ph-x:before { content: "\e4f6"; }
 .ph-light.ph-youtube-logo:before { content: "\e4fc"; }
 
@@ -99,5 +100,6 @@
 .ph-fill.ph-users-three:before { content: "\e68e"; }
 .ph-fill.ph-wave-sine:before { content: "\ea9a"; }
 .ph-fill.ph-whatsapp-logo:before { content: "\e5d0"; }
+.ph-fill.ph-wind:before { content: "\e5d2"; }
 .ph-fill.ph-x:before { content: "\e4f6"; }
 .ph-fill.ph-youtube-logo:before { content: "\e4fc"; }

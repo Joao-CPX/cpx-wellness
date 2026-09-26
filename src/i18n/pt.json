@@ -18,7 +18,7 @@
     "card1Title": "Protocolos Personalizados",
     "card1Text": "Cada percurso começa com um scan bioeléctrico abrangente. Sem soluções genéricas - apenas protocolos desenhados para a sua biologia única.",
     "card2Title": "Tecnologia Pioneira",
-    "card2Text": "Centro da electroterapia, NanoPulse, terapia de infravermelhos e SLM Wave - tecnologias refinadas ao longo de duas décadas de prática clínica.",
+    "card2Text": "Centro da electroterapia, NanoPulse, terapia de infravermelhos, SLM Wave e inalação de hidrogénio - tecnologias refinadas ao longo de duas décadas de prática clínica.",
     "card3Title": "Equipa Especializada",
     "card3Text": "Os nossos profissionais trabalham ao lado de Nuno Nina há mais de uma década, formados nos métodos e protocolos desenvolvidos neste mesmo centro."
   },
@@ -40,6 +40,10 @@
     "infrared": {
       "name": "Terapia de Infravermelhos",
       "tagline": "Calor suave para conforto físico e sensação de leveza."
+    },
+    "hydrogen": {
+      "name": "Inalação de Hidrogénio",
+      "tagline": "Hidrogénio molecular, respirado com calma através de uma cânula nasal."
     },
     "slmwave": {
       "name": "SLM Wave",
@@ -130,7 +134,7 @@
   "treatments": {
     "label": "Protocolos Personalizados",
     "heading": "Os Nossos Serviços",
-    "intro": "Cinco modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
+    "intro": "Seis modalidades distintas, uma abordagem integrada. Cada serviço pode ser experienciado individualmente ou combinado num protocolo personalizado para as suas necessidades específicas.",
     "btascan": {
       "name": "BTA Scan",
       "tagline": "Avaliação do terreno biológico para um protocolo personalizado",
@@ -156,7 +160,7 @@
         "Bem-estar bioenergético",
         "Equilíbrio a longo prazo e suporte preventivo de bem-estar"
       ],
-                  "cta": "Marcar Sessão de Electroterapia"
+      "cta": "Marcar Sessão de Electroterapia"
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -166,7 +170,7 @@
       "applications": [
         "Relaxamento, equilíbrio energético e sensação geral de conforto e vitalidade"
       ],
-            "cta": "Marcar Sessão NanoPulse"
+      "cta": "Marcar Sessão NanoPulse"
     },
     "infrared": {
       "name": "Terapia de Infravermelhos",
@@ -177,6 +181,19 @@
         "Relaxamento, conforto físico, sensação reforçada de leveza e bem-estar geral"
       ],
       "cta": "Marcar Sessão de Infravermelhos"
+    },
+    "hydrogen": {
+      "name": "Inalação de Hidrogénio",
+      "tagline": "Hidrogénio molecular, respirado com calma através de uma cânula nasal",
+      "howItWorks": "O nosso AirPlus Hydrogen Respiration System separa água purificada em hidrogénio e oxigénio por electrólise. Senta-se confortavelmente, liga a sua própria cânula nasal e respira normalmente. O AirPlus fornece até 600 ml/min de hidrogénio com 99,99% de pureza especificada, em modo Pure H₂ ou H₂/O₂ Synergy.",
+      "applicationsTitle": "Aplicações",
+      "applications": [
+        "Uma sessão calma e sentada, de descanso e relaxamento",
+        "Pode ser combinada com outros serviços num protocolo personalizado",
+        "Uma primeira experiência de hidrogénio molecular com o AirPlus, acompanhada pela nossa equipa"
+      ],
+      "cta": "Marcar Sessão de Hidrogénio",
+      "disclaimer": "A inalação de hidrogénio é disponibilizada como uma sessão de bem-estar. A investigação sobre o hidrogénio molecular está em curso e não estabelece efeitos médicos nem substitui aconselhamento médico. Se tem alguma condição de saúde ou utiliza oxigénio prescrito, informe a nossa equipa antes da sessão."
     },
     "slmwave": {
       "name": "SLM Wave",

@@ -6,12 +6,13 @@ const locale = 'en';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver', 'btascan'] as const;
+const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'hydrogen', 'timewaver', 'btascan'] as const;
 const icons = {
   btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
   nanopulse: 'ph-magnet-straight',
   infrared: 'ph-sun-dim',
+  hydrogen: 'ph-wind',
   slmwave: 'ph-lighthouse',
 };
 const images = {
@@ -19,6 +20,7 @@ const images = {
   timewaver: '/images/electrotherapy2.webp',
   nanopulse: '/images/nanopulse2.webp',
   infrared: '/images/infrared2.webp',
+  hydrogen: '/images/hydrogen2.webp',
   slmwave: '/images/SLMWave2.webp',
 };
 const tabNames = {
@@ -26,11 +28,12 @@ const tabNames = {
   slmwave: 'SLM Wave',
   nanopulse: 'NanoPulse',
   infrared: 'InfraRed',
+  hydrogen: 'Hydrogen',
   timewaver: 'Electrotherapy',
 };
 ---
 
-<Base title="Services" locale={locale} description="Explore our four wellness modalities: Electrotherapy, NanoPulse, Infrared Therapy, and SLM Wave. Personalized protocols for your well-being.">
+<Base title="Services" locale={locale} description="Explore our wellness modalities: SLM Wave, NanoPulse, Infrared Therapy, Hydrogen Inhalation, Electrotherapy and BTA Scan. Personalized protocols for your well-being.">
 
   <section class="page-hero section">
     <div class="container">
@@ -217,6 +220,7 @@ const tabNames = {
   .cta-block--centered { text-align: center; max-width: 640px; margin: 0 auto; }
   .cta-block--centered p { margin-left: auto; margin-right: auto; }
   .disclaimers .disclaimer + .disclaimer { margin-top: 8px; }
+  .treatment-detail__header h2 { text-align: left; margin-left: 0; }
   .treatment-detail__header {
     display: flex; align-items: flex-start; gap: 24px;
     margin-bottom: var(--block-spacing);
@@ -560,6 +564,32 @@ const tabNames = {
         {
           heading: "Applications",
           text: "Can be used for relaxation, physical comfort and an enhanced sense of lightness and general well-being."
+        }
+      ]
+    },
+    hydrogen: {
+      title: "Hydrogen Inhalation",
+      sections: [
+        {
+          heading: "What is it?",
+          text: "Molecular hydrogen (H₂) is the smallest molecule in nature. It has been investigated in human research across exercise recovery, metabolism and healthy ageing, and has been well tolerated in the conditions studied. These are short-term studies in small groups; they do not establish medical effects or long-term benefits."
+        },
+        {
+          heading: "How does a session work?",
+          text: "You sit comfortably, connect your own nasal cannula and breathe normally while our team prepares the device and sets the session. Sessions take place in a ventilated room and each person always uses their own cannula."
+        },
+        {
+          heading: "The equipment",
+          items: [
+            "AirPlus Hydrogen Respiration System, designed in Europe and validated under the supervision of Nuno Nina",
+            "Up to 600 ml/min of hydrogen with 99.99% specified purity",
+            "Pure H₂ Mode or H₂/O₂ Synergy Mode (600 ml/min H₂ + 300 ml/min O₂)",
+            "Ionic Conditioning Matrix™ prepares the water before electrolysis"
+          ]
+        },
+        {
+          heading: "Before your session",
+          text: "If you have a health condition or use prescribed oxygen, please let us know in advance so we can discuss suitability with you."
         }
       ]
     },

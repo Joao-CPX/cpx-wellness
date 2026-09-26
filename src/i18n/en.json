@@ -18,7 +18,7 @@
     "card1Title": "Personalized Protocols",
     "card1Text": "Every journey begins with a comprehensive bioelectrical scan. No generic solutions - only protocols designed for your unique biology.",
     "card2Title": "Pioneering Technology",
-    "card2Text": "Home to Electrotherapy, NanoPulse, Infrared therapy, and SLM Wave - technologies refined over two decades of clinical practice.",
+    "card2Text": "Home to Electrotherapy, NanoPulse, Infrared therapy, SLM Wave and Hydrogen Inhalation - technologies refined over two decades of clinical practice.",
     "card3Title": "Expert Team",
     "card3Text": "Our practitioners have worked alongside Nuno Nina for over a decade, trained in the methods and protocols developed at this very center."
   },
@@ -40,6 +40,10 @@
     "infrared": {
       "name": "Infrared Therapy",
       "tagline": "Gentle warmth for physical comfort and a sense of lightness."
+    },
+    "hydrogen": {
+      "name": "Hydrogen Inhalation",
+      "tagline": "Molecular hydrogen, breathed in calmly through a nasal cannula."
     },
     "slmwave": {
       "name": "SLM Wave",
@@ -130,7 +134,7 @@
   "treatments": {
     "label": "Personalised Protocols",
     "heading": "Our Services",
-    "intro": "Five distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
+    "intro": "Six distinct modalities, one integrated approach. Each service can be experienced individually or combined into a personalized protocol designed for your specific needs.",
     "btascan": {
       "name": "BTA Scan",
       "tagline": "Biological terrain assessment for a personalised protocol",
@@ -156,7 +160,7 @@
         "Bioenergetic well-being",
         "Long-term balance and preventive wellness support"
       ],
-                  "cta": "Book an Electrotherapy Session"
+      "cta": "Book an Electrotherapy Session"
     },
     "nanopulse": {
       "name": "NanoPulse",
@@ -166,7 +170,7 @@
       "applications": [
         "Relaxation, energetic balance, and a general sense of comfort and vitality"
       ],
-            "cta": "Book a NanoPulse Session"
+      "cta": "Book a NanoPulse Session"
     },
     "infrared": {
       "name": "Infrared Therapy",
@@ -177,6 +181,19 @@
         "Relaxation, physical comfort, enhanced sense of lightness and overall well-being"
       ],
       "cta": "Book an Infrared Session"
+    },
+    "hydrogen": {
+      "name": "Hydrogen Inhalation",
+      "tagline": "Molecular hydrogen, breathed in calmly through a nasal cannula",
+      "howItWorks": "Our AirPlus Hydrogen Respiration System separates purified water into hydrogen and oxygen by electrolysis. You sit comfortably, connect your own nasal cannula and breathe normally. AirPlus delivers up to 600 ml/min of hydrogen with 99.99% specified purity, in Pure H₂ or H₂/O₂ Synergy mode.",
+      "applicationsTitle": "Applications",
+      "applications": [
+        "A calm, seated session of rest and relaxation",
+        "Can be combined with other services in a personalized protocol",
+        "A first experience of molecular hydrogen with AirPlus, guided by our team"
+      ],
+      "cta": "Book a Hydrogen Session",
+      "disclaimer": "Hydrogen inhalation is offered as a wellness session. Research on molecular hydrogen is ongoing and does not establish medical effects or replace medical advice. If you have a health condition or use prescribed oxygen, please tell our team before your session."
     },
     "slmwave": {
       "name": "SLM Wave",

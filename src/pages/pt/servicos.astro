@@ -6,12 +6,13 @@ const locale = 'pt';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'timewaver', 'btascan'] as const;
+const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'hydrogen', 'timewaver', 'btascan'] as const;
 const icons = {
   btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
   nanopulse: 'ph-magnet-straight',
   infrared: 'ph-sun-dim',
+  hydrogen: 'ph-wind',
   slmwave: 'ph-lighthouse',
 };
 const images = {
@@ -19,6 +20,7 @@ const images = {
   timewaver: '/images/electrotherapy2.webp',
   nanopulse: '/images/nanopulse2.webp',
   infrared: '/images/infrared2.webp',
+  hydrogen: '/images/hydrogen2.webp',
   slmwave: '/images/SLMWave2.webp',
 };
 const tabNames = {
@@ -26,11 +28,12 @@ const tabNames = {
   slmwave: 'SLM Wave',
   nanopulse: 'NanoPulse',
   infrared: 'InfraRed',
+  hydrogen: 'Hidrogénio',
   timewaver: 'Electroterapia',
 };
 ---
 
-<Base title="Serviços" locale={locale} description="Explore as nossas quatro modalidades: Electroterapia, NanoPulse, Terapia de Infravermelhos e SLM Wave. Protocolos personalizados para o seu bem-estar.">
+<Base title="Serviços" locale={locale} description="Explore as nossas modalidades: SLM Wave, NanoPulse, Infravermelhos, Inalação de Hidrogénio, Electroterapia e BTA Scan. Protocolos personalizados para o seu bem-estar.">
 
   <section class="page-hero section">
     <div class="container">
@@ -218,6 +221,7 @@ const tabNames = {
   .cta-block--centered { text-align: center; max-width: 640px; margin: 0 auto; }
   .cta-block--centered p { margin-left: auto; margin-right: auto; }
   .disclaimers .disclaimer + .disclaimer { margin-top: 8px; }
+  .treatment-detail__header h2 { text-align: left; margin-left: 0; }
   .treatment-detail__header {
     display: flex; align-items: flex-start; gap: 24px;
     margin-bottom: var(--block-spacing);
@@ -570,6 +574,32 @@ const tabNames = {
         {
           heading: "Aplicações",
           text: "Pode ser utilizado para relaxamento, conforto físico e uma maior sensação de leveza e bem-estar geral."
+        }
+      ]
+    },
+    hydrogen: {
+      title: "Inalação de Hidrogénio",
+      sections: [
+        {
+          heading: "O que é?",
+          text: "O hidrogénio molecular (H₂) é a molécula mais pequena da natureza. Tem sido investigado em estudos com pessoas nas áreas da recuperação após exercício, do metabolismo e do envelhecimento saudável, e foi bem tolerado nas condições estudadas. São estudos de curta duração em grupos pequenos; não estabelecem efeitos médicos nem benefícios a longo prazo."
+        },
+        {
+          heading: "Como funciona uma sessão?",
+          text: "Senta-se confortavelmente, liga a sua própria cânula nasal e respira normalmente, enquanto a nossa equipa prepara o equipamento e define a sessão. As sessões decorrem numa sala ventilada e cada pessoa utiliza sempre a sua própria cânula."
+        },
+        {
+          heading: "O equipamento",
+          items: [
+            "AirPlus Hydrogen Respiration System, concebido na Europa e validado sob a supervisão de Nuno Nina",
+            "Até 600 ml/min de hidrogénio com 99,99% de pureza especificada",
+            "Modo Pure H₂ ou modo H₂/O₂ Synergy (600 ml/min H₂ + 300 ml/min O₂)",
+            "Ionic Conditioning Matrix™ prepara a água antes da electrólise"
+          ]
+        },
+        {
+          heading: "Antes da sessão",
+          text: "Se tem alguma condição de saúde ou utiliza oxigénio prescrito, informe-nos com antecedência para avaliarmos consigo a adequação."
         }
       ]
     },
