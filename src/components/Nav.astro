@@ -200,8 +200,8 @@ const serviceItems = [
 
   .nav__links a {
     font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.9375rem;
+    font-weight: 300;
+    font-size: 0.875rem;
     color: var(--wc-charcoal);
     transition: color 0.4s ease;
   }
@@ -397,17 +397,17 @@ const serviceItems = [
   }
 
   .nav__cta {
-    padding: 10px 28px;
-    font-size: 0.6875rem;
+    padding: 9px 20px;
+    font-size: 0.8125rem;
     background: transparent;
     color: var(--wc-charcoal);
     border: 1px solid var(--wc-charcoal);
   }
 
   .nav__cta:hover {
-    background: var(--cpx-secondary);
-    color: var(--cpx-on-accent);
-    border-color: var(--cpx-secondary);
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
   }
 
   .nav--dark .nav__cta {
@@ -415,10 +415,14 @@ const serviceItems = [
     border-color: rgba(250, 248, 245, 0.6);
   }
 
+  .nav--dark .nav__cta {
+    background: transparent;
+  }
+
   .nav--dark .nav__cta:hover {
-    background: var(--cpx-secondary);
-    color: var(--cpx-on-accent);
-    border-color: var(--cpx-secondary);
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
   }
 
   /* === Hamburger === */
@@ -500,10 +504,6 @@ const serviceItems = [
 
   .nav__mobile-cta {
     align-self: center;
-    font-size: 0.6875rem !important;
-    padding: 12px 36px !important;
-    color: #ffffff !important;
-    letter-spacing: 0.08em;
     min-height: 0 !important;
     margin-top: 48px;
   }

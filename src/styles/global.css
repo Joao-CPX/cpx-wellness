@@ -12,17 +12,13 @@
   --cpx-accent-mid:   var(--cpx-accent-on-light);
   --cpx-accent-light: #c3d6dd;
   --cpx-secondary:    var(--cpx-accent-on-light);
-  --cpx-accent-hover: #00D3CD;
-  --cpx-accent-glow:  rgba(0, 179, 196, 0.25);
-  /* Text on accent fills - white fails contrast on both teals */
-  --cpx-on-accent:    #1d1d1f;
-  --cpx-light-bg:     #f2f2f2;
+  --cpx-light-bg:     #f0f0f0;
   --cpx-dark-bg:      #1d1d1f;
 
   /* === Wellness Center Extensions === */
   --wc-sand:          #e8e4df;
   --wc-sage:          #6a6a6a;
-  --wc-warm-white:    #f2f2f2;
+  --wc-warm-white:    #f0f0f0;
   --wc-charcoal:      #2d2d2d;
   --wc-mist:          #e0e0e0;
 
@@ -41,9 +37,9 @@
   --element-spacing:  clamp(16px, 2vh, 32px);
 
   /* === Radii === */
-  --radius-block:     18px;
-  --radius-button:    100px;
-  --radius-input:     12px;
+  --radius-block:     16px;
+  --radius-button:    999px;
+  --radius-input:     8px;
   --radius-tag:       8px;
 
   /* === Motion === */
@@ -60,7 +56,7 @@
   --fw-heading:       500;
   --fw-body:          300;
   --fw-body-medium:   400;
-  --tracking-heading: 0.02em;
+  --tracking-heading: 0.05em;
   --tracking-body:    0.01em;
   --lh-body:          1.5;
   --max-prose-width:  620px;
@@ -119,7 +115,7 @@ ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: var(--fw-heading);
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: var(--tracking-heading);
   line-height: 1.2;
@@ -140,8 +136,8 @@ p {
   font-family: var(--font-heading);
   font-weight: var(--fw-heading);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-size: 0.6875rem;
   color: var(--cpx-accent);
 }
 
@@ -199,10 +195,10 @@ p {
 .nav--dark,
 .footer,
 .nav__mobile,
-.service-subnav {
+.service-subnav,
+.cpx-banner {
   --cpx-accent: var(--cpx-accent-on-dark);
   --cpx-secondary: var(--cpx-accent-on-dark);
-  --cpx-accent-hover: #5fe6e1;
 }
 
 .section-block {
@@ -242,66 +238,76 @@ p {
    Buttons
    ============================================ */
 
+/* Aligned with cellpowerx.com: monochrome pills, sentence case, no colour fills.
+   Accent teal is reserved for labels, focus and small highlights. */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-heading);
-  font-weight: var(--fw-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.8125rem;
-  padding: 16px 40px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 14px 24px;
+  border: 1px solid transparent;
   border-radius: var(--radius-button);
-  transition: all 0.35s var(--ease-default);
+  transition: background 0.3s var(--ease-default), color 0.3s var(--ease-default),
+    border-color 0.3s var(--ease-default), transform 0.3s var(--ease-default),
+    box-shadow 0.3s var(--ease-default);
   white-space: nowrap;
 }
 
-.btn--primary {
-  background: var(--cpx-dark-bg);
-  color: #ffffff;
-}
-
+.btn--primary,
+.btn--cta,
 .btn--accent {
-  background: var(--cpx-dark-bg);
+  background: #000000;
   color: #ffffff;
 }
 
+.btn--primary:hover,
+.btn--cta:hover,
 .btn--accent:hover {
-  background: var(--cpx-secondary);
-  color: var(--cpx-on-accent);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px var(--cpx-accent-glow);
+  background: #303033;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.13);
 }
 
-.btn--primary:hover {
-  background: var(--cpx-secondary);
-  color: var(--cpx-on-accent);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px var(--cpx-accent-glow);
-}
-
-.btn--secondary {
+.btn--secondary,
+.btn--outline {
   background: transparent;
-  color: var(--wc-charcoal);
-  border: 1.5px solid var(--wc-charcoal);
+  color: var(--cpx-dark-bg);
+  border-color: var(--cpx-dark-bg);
 }
 
-.btn--secondary:hover {
-  background: var(--cpx-secondary);
-  color: var(--cpx-on-accent);
-  border-color: var(--cpx-secondary);
+.btn--secondary:hover,
+.btn--outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--cpx-dark-bg);
 }
 
-.btn--cta {
-  background: var(--cpx-secondary);
-  color: var(--cpx-on-accent);
+/* Dark backgrounds invert: white primary, translucent outline */
+:is(.hero, .section--dark, .footer, .nav__mobile, .cpx-banner, .nav--dark) :is(.btn--primary, .btn--cta, .btn--accent) {
+  background: #ffffff;
+  color: #000000;
 }
 
-.btn--cta:hover {
-  background: var(--cpx-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px var(--cpx-accent-glow);
+:is(.hero, .section--dark, .footer, .nav__mobile, .cpx-banner, .nav--dark) :is(.btn--primary, .btn--cta, .btn--accent):hover {
+  background: #e6e6e6;
+  color: #000000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+:is(.hero, .section--dark, .footer, .nav__mobile, .cpx-banner, .nav--dark) :is(.btn--secondary, .btn--outline) {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+:is(.hero, .section--dark, .footer, .nav__mobile, .cpx-banner, .nav--dark) :is(.btn--secondary, .btn--outline):hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn--ghost {
@@ -314,17 +320,7 @@ p {
 }
 
 .btn--ghost:hover {
-  text-decoration-color: var(--cpx-secondary);
-}
-
-.btn--dark {
-  color: var(--wc-warm-white);
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-.btn--dark:hover {
-  background: var(--cpx-accent);
-  color: var(--cpx-dark-bg);
+  text-decoration-color: currentColor;
 }
 
 /* ============================================
@@ -369,9 +365,9 @@ p {
   font-family: var(--font-body);
   font-weight: var(--fw-body);
   font-size: 1rem;
-  padding: 16px 24px;
+  padding: 14px;
   border-radius: var(--radius-input);
-  border: 1.5px solid var(--wc-mist);
+  border: 1px solid rgba(29, 29, 31, 0.16);
   background: #ffffff;
   color: var(--wc-charcoal);
   width: 100%;

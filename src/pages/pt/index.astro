@@ -19,7 +19,7 @@ const routes = localeRoutes[locale];
         <p class="hero__body reveal">{i.hero.body}</p>
         <p class="hero__former reveal">{i.hero.formerName}</p>
         <div class="hero__actions reveal">
-          <a href={routes.contact} class="btn hero__btn-primary">
+          <a href={routes.contact} class="btn btn--primary hero__btn-primary">
             {i.hero.ctaPrimary}
             <i class="ph-light ph-arrow-right"></i>
           </a>
@@ -307,10 +307,6 @@ const routes = localeRoutes[locale];
   .hero__body { font-size: 1.0625rem; line-height: 1.5; max-width: 520px; color: rgba(250, 248, 245, 0.85); }
   .hero__former { font-size: 0.8125rem; font-style: italic; color: rgba(250, 248, 245, 0.5); margin-top: 8px; }
   .hero__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
-  .hero__btn-primary { background: var(--cpx-secondary); color: var(--cpx-on-accent); border: none; }
-  .hero__btn-primary:hover { background: var(--cpx-accent-hover); box-shadow: 0 8px 24px var(--cpx-accent-glow); }
-  .hero__btn-secondary { background: transparent; border-color: rgba(250, 248, 245, 0.3); color: var(--wc-warm-white); }
-  .hero__btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(250, 248, 245, 0.6); color: #ffffff; }
 
   /* Services slider — full viewport width, aligned with container content */
   .services-section { overflow-x: clip; }
@@ -436,11 +432,9 @@ const routes = localeRoutes[locale];
     gap: 6px;
     align-self: flex-start;
     padding: 8px 18px;
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: var(--radius-button);

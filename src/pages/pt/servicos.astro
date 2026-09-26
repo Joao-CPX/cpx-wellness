@@ -90,7 +90,7 @@ const tabNames = {
                   </ul>
                 </div>
                 <div class="treatment-detail__actions">
-                  <a href={routes.contact} class="btn btn--secondary treatment-detail__cta">
+                  <a href={routes.contact} class="btn btn--primary treatment-detail__cta">
                     {i.treatments[key].cta}
                     <i class="ph-light ph-arrow-right"></i>
                   </a>
@@ -273,19 +273,7 @@ const tabNames = {
     margin-top: 0;
   }
 
-  .treatment-detail__actions .btn--secondary,
-  .treatment-detail__actions .btn--outline {
-    background: var(--wc-charcoal);
-    color: #ffffff;
-    border-color: var(--wc-charcoal);
-  }
 
-  .treatment-detail__actions .btn--secondary:hover,
-  .treatment-detail__actions .btn--outline:hover {
-    background: var(--cpx-accent);
-    color: var(--cpx-on-accent);
-    border-color: var(--cpx-accent);
-  }
 
   /* === Service Modal === */
   .service-modal {

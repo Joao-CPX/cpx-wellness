@@ -109,7 +109,7 @@ const t = {
   .cookie-banner__panel {
     max-width: 680px;
     margin: 0 auto 16px;
-    background: var(--cpx-light-bg, #f2f2f2);
+    background: var(--cpx-light-bg, #f0f0f0);
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: var(--radius-block, 18px);
     padding: 16px 24px;
@@ -150,27 +150,24 @@ const t = {
 
   /* Pill buttons */
   .cookie-btn {
-    font-family: var(--font-heading, 'Mulish', sans-serif);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: 100px;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    padding: 9px 20px;
+    border-radius: 999px;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
   }
 
   .cookie-btn--fill {
-    background: var(--cpx-dark-bg, #1d1d1f);
+    background: #000000;
     color: #fff;
   }
 
   .cookie-btn--fill:hover {
-    background: var(--cpx-secondary);
-    color: var(--cpx-on-accent);
+    background: #303033;
     transform: translateY(-1px);
   }
 
