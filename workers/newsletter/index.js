@@ -1,3 +1,14 @@
+// Wellness site + cellpowerx.com Shopify footer (list #6)
+const ALLOWED_ORIGINS = [
+  'https://wellnesscenter.cellpowerx.com',
+  'https://cpx-wellness.pages.dev',
+  'https://cpx-wellness.vercel.app',
+  'https://www.cellpowerx.com',
+  'https://cellpowerx.com',
+  'http://localhost:4321',
+  'http://localhost:4332',
+];
+
 export default {
   async scheduled(event, env, ctx) {
     await fetch('https://api.brevo.com/v3/account', {
@@ -7,10 +18,12 @@ export default {
 
   async fetch(request, env) {
     // CORS headers
+    const origin = request.headers.get('Origin');
     const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
+      'Vary': 'Origin',
     };
 
     // Handle preflight
@@ -26,17 +39,24 @@ export default {
       });
     }
 
+    if (!ALLOWED_ORIGINS.includes(origin)) {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
     try {
       const { email, listId } = await request.json();
 
-      if (!email || !email.includes('@')) {
+      if (typeof email !== 'string' || !email.includes('@')) {
         return new Response(JSON.stringify({ error: 'Invalid email' }), {
           status: 400,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
 
-      // Allow list #19 (wellness) or #6 (cellpowerx.com) — default to 19
+      // Allow list #19 (wellness) or #6 (cellpowerx.com) - default to 19
       const allowedLists = [6, 19];
       const targetList = allowedLists.includes(listId) ? listId : 19;
 
@@ -64,7 +84,7 @@ export default {
         });
       }
 
-      // Contact already exists — still success
+      // Contact already exists - still success
       if (brevoRes.status === 400 && brevoData?.message?.includes('already exist')) {
         return new Response(JSON.stringify({ success: true, existing: true }), {
           status: 200,
@@ -72,7 +92,7 @@ export default {
         });
       }
 
-      return new Response(JSON.stringify({ error: 'Subscription failed', detail: brevoData?.message }), {
+      return new Response(JSON.stringify({ error: 'Subscription failed' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
