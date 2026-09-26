@@ -78,12 +78,12 @@ const routes = localeRoutes[locale];
     </div>
     <div class="services-slider" id="services-slider">
       {[
+        { key: 'hydrogen', img: '/images/hydrogen.webp', pos: 'center center' },
+        { key: 'btascan', img: '/images/BTA.webp', pos: 'center center' },
+        { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
+        { key: 'timewaver', img: '/images/electrotherapy.webp', pos: 'center center' },
         { key: 'slmwave', img: '/images/slmwave.webp', pos: 'center center' },
         { key: 'nanopulse', img: '/images/nanopulse.webp', pos: 'left center' },
-        { key: 'infrared', img: '/images/infrared.webp', pos: 'center center' },
-        { key: 'hydrogen', img: '/images/hydrogen.webp', pos: 'center center' },
-        { key: 'timewaver', img: '/images/electrotherapy.webp', pos: 'center center' },
-        { key: 'btascan', img: '/images/BTA.webp', pos: 'center center' },
       ].map(({ key, img, pos }) => (
         <a href={`${routes.treatments}#${key}`} class="service-card">
           <div class="service-card__img-wrap">

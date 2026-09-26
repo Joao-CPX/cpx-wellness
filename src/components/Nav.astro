@@ -26,12 +26,12 @@ const enPath = locale === 'en' ? currentPath : altPath;
 const ptPath = locale === 'pt' ? currentPath : altPath;
 
 const serviceItems = [
+  { key: 'hydrogen', name: i.treatments.hydrogen.name },
+  { key: 'btascan', name: i.treatments.btascan.name },
+  { key: 'infrared', name: i.treatments.infrared.name },
+  { key: 'timewaver', name: i.treatments.timewaver.name },
   { key: 'slmwave', name: i.treatments.slmwave.name },
   { key: 'nanopulse', name: i.treatments.nanopulse.name },
-  { key: 'infrared', name: i.treatments.infrared.name },
-  { key: 'hydrogen', name: i.treatments.hydrogen.name },
-  { key: 'timewaver', name: i.treatments.timewaver.name },
-  { key: 'btascan', name: i.treatments.btascan.name },
 ];
 ---
 
@@ -137,11 +137,22 @@ const serviceItems = [
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    transition: background 0.4s ease, border-color 0.4s ease;
+    transition: background 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
     /* Fix: Chrome iOS drops fixed+backdrop-filter elements during scroll */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     will-change: transform;
+  }
+
+  /* Services page swaps the header for its section nav while scrolling */
+  .nav.nav--hidden {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav {
+      transition: none;
+    }
   }
 
   /* Light mode (default) */

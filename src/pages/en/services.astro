@@ -1,12 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ServiceNav from '../../components/ServiceNav.astro';
 import { t, localeRoutes } from '../../i18n/utils';
 
 const locale = 'en';
 const i = t(locale);
 const routes = localeRoutes[locale];
 
-const treatmentKeys = ['slmwave', 'nanopulse', 'infrared', 'hydrogen', 'timewaver', 'btascan'] as const;
+const treatmentKeys = ['hydrogen', 'btascan', 'infrared', 'timewaver', 'slmwave', 'nanopulse'] as const;
 const icons = {
   btascan: 'ph-flask',
   timewaver: 'ph-wave-sine',
@@ -23,19 +24,11 @@ const images = {
   hydrogen: '/images/hydrogen2.webp',
   slmwave: '/images/SLMWave2.webp',
 };
-const tabNames = {
-  btascan: 'BTA Scan',
-  slmwave: 'SLM Wave',
-  nanopulse: 'NanoPulse',
-  infrared: 'InfraRed',
-  hydrogen: 'Hydrogen',
-  timewaver: 'Electrotherapy',
-};
 ---
 
-<Base title="Services" locale={locale} description="Explore our wellness modalities: SLM Wave, NanoPulse, Infrared Therapy, Hydrogen Inhalation, Electrotherapy and BTA Scan. Personalized protocols for your well-being.">
+<Base title="Services" locale={locale} description="Explore our wellness modalities: Hydrogen Inhalation, BTA Scan, Infrared Therapy, Electrotherapy, SLM Wave and NanoPulse. Personalized protocols for your well-being.">
 
-  <section class="page-hero section">
+  <section class="page-hero section" id="services-top">
     <div class="container">
       <span class="label reveal">{i.treatments.label}</span>
       <h1 class="reveal">{i.treatments.heading}</h1>
@@ -43,29 +36,17 @@ const tabNames = {
     </div>
   </section>
 
-  <!-- Sticky sub-nav (below hero) -->
-  <div class="service-subnav" id="service-subnav">
-    <!-- Desktop tabs -->
-    <div class="container service-subnav__inner service-subnav__tabs">
-      {treatmentKeys.map((key) => (
-        <a href={`#${key}`} class="service-subnav__item" data-target={key}>
-          {i.treatments[key].name}
-        </a>
-      ))}
-    </div>
-    <!-- Mobile dropdown -->
-    <div class="service-subnav__dropdown-wrap">
-      <select class="service-subnav__select" id="service-subnav-select" aria-label="Jump to service">
-        {treatmentKeys.map((key) => (
-          <option value={key}>{tabNames[key]}</option>
-        ))}
-      </select>
-      <i class="ph-light ph-caret-down service-subnav__select-icon" aria-hidden="true"></i>
-    </div>
-  </div>
+  <ServiceNav
+    title="Services"
+    menuLabel="Services"
+    items={treatmentKeys.map((key) => ({ key, name: i.treatments[key].name }))}
+    bookHref={routes.contact}
+    bookLabel={i.nav.bookNow}
+  />
+
 
   {treatmentKeys.map((key, index) => (
-    <section id={key} class="section">
+    <section id={key} class={`section treatment-section${index === 0 ? ' treatment-section--first' : ''}`}>
       <div class="container">
         <div class="treatment-detail reveal">
           <div class={`treatment-detail__layout${index % 2 === 1 ? ' treatment-detail__layout--reverse' : ''}`}>
@@ -182,35 +163,12 @@ const tabNames = {
   .page-hero h1 { margin-bottom: 24px; color: #fff; }
   .page-hero__body { font-size: 1.0625rem; max-width: 640px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.70); }
 
-  .service-subnav { position: sticky; top: var(--nav-height, 72px); z-index: 50; background: var(--cpx-dark-bg); border-bottom: 1px solid rgba(255,255,255,0.12); }
-  #slmwave { padding-top: calc(var(--section-spacing) * 1.25); }
+  .treatment-section--first { padding-top: calc(var(--section-spacing) * 1.25); }
+  .treatment-section { scroll-margin-top: 66px; }
   @media (min-width: 768px) { .treatment-detail__layout--reverse .treatment-detail__visual { order: -1; } }
 
-  /* Desktop tabs */
-  .service-subnav__tabs { display: flex; justify-content: center; gap: 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; }
-  .service-subnav__tabs::-webkit-scrollbar { display: none; }
-  .service-subnav__item { font-family: var(--font-body); font-size: 0.8125rem; color: rgba(255,255,255,0.5); padding: 16px 0; border-bottom: 2px solid transparent; transition: all 0.25s ease; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-  .service-subnav__item:hover { color: rgba(255,255,255,0.8); }
-  .service-subnav__item.is-active { color: #ffffff; border-bottom-color: var(--cpx-secondary); }
-
-  /* Mobile dropdown */
-  .service-subnav__dropdown-wrap { display: none; position: relative; padding: 0 20px; }
-  .service-subnav__select {
-    width: 100%; appearance: none; -webkit-appearance: none;
-    background: transparent; border: none; outline: none;
-    color: #ffffff; font-family: var(--font-body); font-size: 0.875rem;
-    padding: 16px 40px 16px 4px; cursor: pointer;
-  }
-  .service-subnav__select option { background: var(--cpx-dark-bg); color: #ffffff; }
-  .service-subnav__select-icon { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.5); font-size: 1rem; pointer-events: none; }
-
-  @media (max-width: 767px) {
-    .service-subnav__tabs { display: none; }
-    .service-subnav__dropdown-wrap { display: block; }
-  }
-
   .treatment-detail { padding-top: 48px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  #slmwave .treatment-detail { border-top: none; }
+  .treatment-section--first .treatment-detail { border-top: none; }
   .treatment-detail__layout { display: grid; grid-template-columns: 1fr; gap: var(--block-spacing); align-items: center; }
   @media (min-width: 768px) { .treatment-detail__layout { grid-template-columns: 1fr 1fr; } }
   .treatment-detail__visual { display: flex; flex-direction: column; gap: 16px; }
@@ -466,43 +424,6 @@ const tabNames = {
 </style>
 
 <script>
-  const navEl = document.getElementById('nav');
-  if (navEl) {
-    const setNavHeight = () => {
-      document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
-    };
-    setNavHeight();
-    window.addEventListener('resize', setNavHeight);
-  }
-
-  const navItems = document.querySelectorAll('.service-subnav__item');
-  const selectEl = document.getElementById('service-subnav-select') as HTMLSelectElement | null;
-  const sections = document.querySelectorAll('.treatment-detail');
-
-  // Dropdown: navigate on change
-  if (selectEl) {
-    selectEl.addEventListener('change', () => {
-      const target = document.getElementById(selectEl.value);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  if (navItems.length && sections.length) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.closest('section')?.id;
-          navItems.forEach((item) => {
-            item.classList.toggle('is-active', item.getAttribute('data-target') === id);
-          });
-          // Sync dropdown
-          if (selectEl && id) selectEl.value = id;
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
-    sections.forEach((section) => observer.observe(section));
-  }
-
   // === Service Modal ===
   const serviceData = {
     btascan: {

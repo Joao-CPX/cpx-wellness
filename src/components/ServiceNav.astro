@@ -1,0 +1,285 @@
+---
+// Section nav for the services page, modelled on the cellpowerx.com product
+// nav (cpx-pnav): appears once the page hero scrolls away, replacing the main
+// header, and highlights the service currently in view.
+interface Props {
+  title: string;
+  items: { key: string; name: string }[];
+  bookHref: string;
+  bookLabel: string;
+  menuLabel: string;
+}
+
+const { title, items, bookHref, bookLabel, menuLabel } = Astro.props;
+---
+
+<div class="snav" id="service-nav" inert>
+  <div class="snav__inner">
+    <a href="#services-top" class="snav__brand">{title}</a>
+
+    <nav class="snav__links" aria-label={menuLabel}>
+      {items.map(({ key, name }) => (
+        <a href={`#${key}`} data-target={key}>{name}</a>
+      ))}
+    </nav>
+
+    <details class="snav__mobile">
+      <summary aria-label={menuLabel}>
+        <span class="snav__current">{items[0]?.name}</span>
+        <i class="ph-light ph-caret-down" aria-hidden="true"></i>
+      </summary>
+      <nav class="snav__mobile-links" aria-label={menuLabel}>
+        {items.map(({ key, name }) => (
+          <a href={`#${key}`} data-target={key}>{name}</a>
+        ))}
+      </nav>
+    </details>
+
+    <a href={bookHref} class="btn btn--primary snav__book">{bookLabel}</a>
+  </div>
+</div>
+
+<style>
+  .snav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 90;
+    background: rgba(247, 247, 248, 0.82);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  }
+
+  .snav.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .snav__inner {
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    min-height: 66px;
+    padding: 10px var(--grid-padding);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .snav__brand {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.1875rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--cpx-dark-bg);
+    margin-right: auto;
+  }
+
+  .snav__links {
+    display: none;
+  }
+
+  .snav__links a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #444449;
+    transition: color 0.2s;
+  }
+
+  .snav__links a::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 1px;
+    background: var(--cpx-dark-bg);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .snav__links a:hover,
+  .snav__links a[aria-current='location'] {
+    color: #000000;
+  }
+
+  .snav__links a[aria-current='location']::after {
+    opacity: 1;
+  }
+
+  .snav__book {
+    min-height: 36px;
+    padding: 9px 23px;
+    font-size: 0.75rem;
+  }
+
+  /* Mobile: current section + dropdown */
+  .snav__mobile summary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    color: var(--cpx-dark-bg);
+    padding: 8px 0;
+  }
+
+  .snav__mobile summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .snav__current {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .snav__mobile summary i {
+    transition: rotate 0.2s;
+  }
+
+  .snav__mobile[open] summary i {
+    rotate: 180deg;
+  }
+
+  .snav__mobile-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 8px var(--grid-padding) 16px;
+    /* Solid: a backdrop-filter nested inside the blurred bar has no effect */
+    background: #f7f7f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .snav__mobile-links a {
+    padding: 14px 0;
+    font-size: 0.9375rem;
+    color: #444449;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .snav__mobile-links a:last-child {
+    border-bottom: none;
+  }
+
+  .snav__mobile-links a[aria-current='location'] {
+    color: #000000;
+  }
+
+  /* Six links need room - switch to the inline bar only on wide screens */
+  @media (min-width: 1100px) {
+    .snav__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .snav__brand {
+      justify-self: start;
+    }
+
+    .snav__links {
+      display: flex;
+      gap: 24px;
+      align-self: stretch;
+      margin-block: -10px;
+    }
+
+    .snav__mobile {
+      display: none;
+    }
+
+    .snav__book {
+      justify-self: end;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .snav__brand {
+      font-size: 0.9375rem;
+    }
+
+    .snav__book {
+      padding-inline: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .snav,
+    .snav__links a,
+    .snav__links a::after {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const snav = document.getElementById('service-nav');
+  const mainNav = document.getElementById('nav');
+  const hero = document.getElementById('services-top');
+  const details = snav?.querySelector('details');
+  const current = snav?.querySelector('.snav__current');
+  const links = snav ? [...snav.querySelectorAll<HTMLAnchorElement>('a[data-target]')] : [];
+
+  // Show once the hero has scrolled away; hide the main header meanwhile
+  if (snav && hero) {
+    new IntersectionObserver(([entry]) => {
+      const show = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      snav.classList.toggle('is-visible', show);
+      snav.toggleAttribute('inert', !show);
+      mainNav?.classList.toggle('nav--hidden', show);
+      if (!show && details) details.open = false;
+    // Treat the hero as gone once only the bar's height of it remains, so
+    // jumping to the first service (scroll-margin 66px) keeps the bar shown
+    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  }
+
+  // Highlight the service in view
+  const setCurrent = (id: string) => {
+    links.forEach((link) => {
+      if (link.dataset.target === id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    const active = links.find((link) => link.dataset.target === id);
+    if (current && active) current.textContent = active.textContent;
+  };
+
+  // Active = last service whose top has passed 35% of the viewport
+  const sections = [...document.querySelectorAll<HTMLElement>('.treatment-section')];
+  let ticking = false;
+  const updateCurrent = () => {
+    ticking = false;
+    const line = window.innerHeight * 0.35;
+    let active = sections[0];
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= line) active = section;
+    }
+    if (active) setCurrent(active.id);
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateCurrent);
+    }
+  }, { passive: true });
+  updateCurrent();
+
+  // Close the mobile list after choosing a service
+  links.forEach((link) => link.addEventListener('click', () => {
+    if (details) details.open = false;
+  }));
+</script>
