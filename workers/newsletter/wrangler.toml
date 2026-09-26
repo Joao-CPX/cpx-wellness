@@ -2,5 +2,8 @@ name = "cpx-newsletter-api"
 main = "index.js"
 compatibility_date = "2024-01-01"
 
-[triggers]
-crons = ["0 9 * * 1"]
+# The Cloudflare account is at the free-plan limit of 5 cron triggers, so the
+# weekly Brevo keep-alive (scheduled() in index.js) runs from the weekly review
+# task instead. Re-add when a cron slot is free:
+# [triggers]
+# crons = ["0 9 * * 1"]
