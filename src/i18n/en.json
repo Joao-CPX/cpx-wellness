@@ -7,7 +7,7 @@
     "bookNow": "Book Now"
   },
   "hero": {
-    "label": "Lisbon's Pioneering Wellness Center - Since 2009",
+    "label": "Lisbon's Pioneering Wellness Center - Since 2005",
     "heading": "More than wellness, a new paradigm of care",
     "body": "Two decades of experience. 70,000+ client journeys. The original center where Nuno Nina's frequency-based protocols were born - now open to you.",
     "formerName": "Formerly known as Integrative Medicine",
@@ -71,10 +71,10 @@
   "about": {
     "label": "Our Story",
     "heading": "Two Decades of Frequency-Based Wellness",
-    "intro": "Founded in 2009 as Integrative Medicine Lda, CellPowerX Wellness Center is Lisbon's pioneering space dedicated to bioelectrical and frequency-based approaches to well-being. What began as a research-driven clinic has grown into a reference point for integrative wellness in Europe.",
+    "intro": "Founded in 2005 as Integrative Medicine Lda, CellPowerX Wellness Center is Lisbon's pioneering space dedicated to bioelectrical and frequency-based approaches to well-being. What began as a research-driven clinic has grown into a reference point for integrative wellness in Europe.",
     "stats": {
       "founded": "Founded",
-      "foundedValue": "2009",
+      "foundedValue": "2005",
       "journeys": "Client Journeys",
       "journeysValue": "70,000+",
       "experience": "Years of Experience",
@@ -116,7 +116,7 @@
     "activityBody": "In bioelectrical studies, healthy and well-functioning cells are typically associated with a stable and well-regulated membrane potential, which supports efficient cellular activity and metabolic coordination. This electrical balance is closely linked to mitochondrial function, energy availability and the organisation of intracellular processes.",
     "activityBody2": "Membrane potential is not a fixed value. It naturally varies over time as cells adapt to metabolic demand, age, environmental conditions and external influences. In research contexts, variations in membrane potential are observed as indicators of changes in cellular efficiency, stress response and adaptive capacity.",
     "activityBody3": "Within an educational and wellness framework, membrane potential is used as a reference concept to understand how cellular environments, hydration, mineral balance and lifestyle factors contribute to bioelectrical organisation and functional coherence.",
-    "keyStatement": "All diseases will relate to a value for cell membrane lost electrical potential.",
+    "keyStatement": "Every cell relies on the electrical potential of its membrane to function.",
     "keyStatementBody": "Variations in cell membrane potential are studied as indicators of changes in cellular bioelectrical organisation.",
     "keyStatementHighlight": "Within a wellness context, the practitioner's role is to support conditions that favour bioelectrical balance, cellular coherence and functional optimisation.",
     "cyclesHeading": "Natural cellular electrical cycles",
@@ -138,13 +138,12 @@
     "btascan": {
       "name": "BTA Scan",
       "tagline": "Biological terrain assessment for a personalised protocol",
-      "howItWorks": "The BTA Scan analyses the electrical parameters of three bodily fluids — blood, saliva, and urine — to assess your biological terrain. Based on Vincent's methodology, validated across 60,000+ cases over 40 years, it measures pH, rH2, and electrical resistance, providing a precise reading of the body's internal balance.",
+      "howItWorks": "The BTA Scan analyses the electrical parameters of three bodily fluids — blood, saliva, and urine — to assess your biological terrain. Based on Vincent's methodology, applied across 60,000+ cases over 40 years, it measures pH, rH2, and electrical resistance, providing a reading of your biological terrain.",
       "applicationsTitle": "What it assesses",
       "applications": [
         "Nutrient absorption capacity and waste elimination",
         "Tissue conductivity and metabolic electrical potential",
         "Acid-oxidative balance",
-        "Kidney, liver, and digestive function",
         "Stress levels and electromagnetic pollution exposure"
       ],
       "cta": "Book a BTA Scan",
@@ -193,7 +192,8 @@
         "A first experience of molecular hydrogen with AirPlus, guided by our team"
       ],
       "cta": "Book a Hydrogen Session",
-      "disclaimer": "Hydrogen inhalation is offered as a wellness session. Research on molecular hydrogen is ongoing and does not establish medical effects or replace medical advice. If you have a health condition or use prescribed oxygen, please tell our team before your session."
+      "disclaimer": "Hydrogen inhalation is offered as a wellness session. Research on molecular hydrogen is ongoing and does not establish medical effects or replace medical advice. If you have a health condition or use prescribed oxygen, please tell our team before your session.",
+      "sessionInfo": "Sessions last around 60 minutes, adapted to each client's needs."
     },
     "slmwave": {
       "name": "SLM Wave",

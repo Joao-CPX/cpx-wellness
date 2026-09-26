@@ -7,7 +7,7 @@
     "bookNow": "Marcar"
   },
   "hero": {
-    "label": "Centro de Bem-Estar Pioneiro em Lisboa - Desde 2009",
+    "label": "Centro de Bem-Estar Pioneiro em Lisboa - Desde 2005",
     "heading": "Mais do que bem-estar, um novo paradigma de cuidado",
     "body": "Duas décadas de experiência. Mais de 70.000 clientes. O centro original onde os protocolos de frequência de Nuno Nina nasceram.",
     "formerName": "Anteriormente conhecido como Integrative Medicine",
@@ -71,10 +71,10 @@
   "about": {
     "label": "A Nossa História",
     "heading": "Duas Décadas de Bem-Estar Baseado em Frequências",
-    "intro": "Fundado em 2009 como Integrative Medicine Lda, o CellPowerX Wellness Center é o espaço pioneiro de Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências para o bem-estar. O que começou como uma clínica orientada para a investigação tornou-se uma referência em bem-estar integrativo na Europa.",
+    "intro": "Fundado em 2005 como Integrative Medicine Lda, o CellPowerX Wellness Center é o espaço pioneiro de Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências para o bem-estar. O que começou como uma clínica orientada para a investigação tornou-se uma referência em bem-estar integrativo na Europa.",
     "stats": {
       "founded": "Fundação",
-      "foundedValue": "2009",
+      "foundedValue": "2005",
       "journeys": "Percursos de Clientes",
       "journeysValue": "70.000+",
       "experience": "Anos de Experiência",
@@ -116,7 +116,7 @@
     "activityBody": "Em estudos bioelétricos, células saudáveis e em bom funcionamento estão tipicamente associadas a um potencial de membrana estável e bem regulado, que suporta atividade celular eficiente e coordenação metabólica. Este equilíbrio elétrico está estreitamente ligado à função mitocondrial, à disponibilidade de energia e à organização de processos intracelulares.",
     "activityBody2": "O potencial de membrana não é um valor fixo. Varia naturalmente ao longo do tempo à medida que as células se adaptam à procura metabólica, à idade, às condições ambientais e a influências externas. Em contextos de investigação, as variações no potencial de membrana são observadas como indicadores de alterações na eficiência celular, na resposta ao stress e na capacidade adaptativa.",
     "activityBody3": "Num enquadramento educacional e de bem-estar, o potencial de membrana é utilizado como conceito de referência para compreender como os ambientes celulares, a hidratação, o equilíbrio mineral e os fatores de estilo de vida contribuem para a organização bioelétrica e a coerência funcional.",
-    "keyStatement": "Todas as doenças estão relacionadas com um valor de perda do potencial elétrico da membrana celular.",
+    "keyStatement": "Cada célula depende do potencial elétrico da sua membrana para funcionar.",
     "keyStatementBody": "As variações no potencial de membrana celular são estudadas como indicadores de alterações na organização bioelétrica celular.",
     "keyStatementHighlight": "Num contexto de bem-estar, o papel do profissional é apoiar condições que favoreçam o equilíbrio bioelétrico, a coerência celular e a otimização funcional.",
     "cyclesHeading": "Ciclos elétricos celulares naturais",
@@ -138,13 +138,12 @@
     "btascan": {
       "name": "BTA Scan",
       "tagline": "Avaliação do terreno biológico para um protocolo personalizado",
-      "howItWorks": "O BTA Scan analisa os parâmetros eléctricos de três fluidos corporais — sangue, saliva e urina — para avaliar o estado do terreno biológico interno. Baseado na metodologia de Vincent, validada em mais de 60.000 casos ao longo de 40 anos, mede pH, rH2 e resistência eléctrica, fornecendo uma leitura precisa do equilíbrio interno do organismo.",
+      "howItWorks": "O BTA Scan analisa os parâmetros eléctricos de três fluidos corporais — sangue, saliva e urina — para avaliar o estado do terreno biológico interno. Baseado na metodologia de Vincent, aplicada em mais de 60.000 casos ao longo de 40 anos, mede pH, rH2 e resistência eléctrica, fornecendo uma leitura do seu terreno biológico.",
       "applicationsTitle": "O que avalia",
       "applications": [
         "Capacidade de absorção de nutrientes e eliminação de resíduos",
         "Condutividade tecidular e potencial eléctrico metabólico",
         "Equilíbrio ácido-oxidativo",
-        "Função renal, hepática e digestiva",
         "Níveis de stress e exposição a poluição electromagnética"
       ],
       "cta": "Marcar BTA Scan",
@@ -193,7 +192,8 @@
         "Uma primeira experiência de hidrogénio molecular com o AirPlus, acompanhada pela nossa equipa"
       ],
       "cta": "Marcar Sessão de Hidrogénio",
-      "disclaimer": "A inalação de hidrogénio é disponibilizada como uma sessão de bem-estar. A investigação sobre o hidrogénio molecular está em curso e não estabelece efeitos médicos nem substitui aconselhamento médico. Se tem alguma condição de saúde ou utiliza oxigénio prescrito, informe a nossa equipa antes da sessão."
+      "disclaimer": "A inalação de hidrogénio é disponibilizada como uma sessão de bem-estar. A investigação sobre o hidrogénio molecular está em curso e não estabelece efeitos médicos nem substitui aconselhamento médico. Se tem alguma condição de saúde ou utiliza oxigénio prescrito, informe a nossa equipa antes da sessão.",
+      "sessionInfo": "As sessões duram cerca de 60 minutos, adaptadas às necessidades de cada cliente."
     },
     "slmwave": {
       "name": "SLM Wave",
