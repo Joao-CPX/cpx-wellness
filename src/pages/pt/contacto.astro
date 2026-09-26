@@ -1,8 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
 import { t } from '../../i18n/utils';
 
 const locale = 'pt';
+// Cloudflare Turnstile anti-spam, enabled when the site key is set at build time
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const i = t(locale);
 
 const faqs = [
@@ -49,6 +52,9 @@ const faqs = [
               <input type="checkbox" name="consent" />
               <span>Aceito receber comunicações comerciais personalizadas da CellPowerX através de e-mail (opcional).</span>
             </label>
+            {turnstileSiteKey && (
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-language={locale === 'pt' ? 'pt-pt' : 'en'}></div>
+            )}
             <button type="submit" class="btn btn--primary">
               {i.contact.form.submit}
               <i class="ph-light ph-paper-plane-tilt"></i>
@@ -88,18 +94,7 @@ const faqs = [
               <p>{i.contact.hours.weekend}</p>
             </div>
           </div>
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.1234!2d-9.1456!3d38.7305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933870e000001%3A0x1!2sAv.+Fontes+Pereira+de+Melo+21%2C+Lisboa!5e0!3m2!1spt-PT!2spt!4v1"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Localização CellPowerX Wellness Center">
-            </iframe>
-          </div>
+          <MapEmbed locale={locale} />
         </div>
       </div>
     </div>
@@ -124,6 +119,7 @@ const faqs = [
     </div>
   </section>
 
+  {turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 </Base>
 
 <style>
@@ -165,8 +161,6 @@ const faqs = [
   .contact-info__hours h4 { margin-bottom: 8px; }
   .contact-info__hours p { font-size: 0.875rem; color: var(--wc-sage); }
 
-  .map-embed { aspect-ratio: 16/9; border-radius: var(--radius-block); overflow: hidden; }
-  .map-embed iframe { width: 100%; height: 100%; }
 
   .faq-list { max-width: 720px; display: flex; flex-direction: column; }
   .faq-item { border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
@@ -222,7 +216,8 @@ const faqs = [
             email: data.get('email'),
             phone: data.get('phone') || '',
             message: data.get('message') || '',
-            consent: data.get('consent') === 'on'
+            consent: data.get('consent') === 'on',
+            turnstileToken: data.get('cf-turnstile-response') || ''
           })
         });
 
@@ -231,6 +226,7 @@ const faqs = [
           status.className = 'form-status form-status--success';
           status.style.display = 'block';
           form.reset();
+          (window as any).turnstile?.reset();
         } else {
           throw new Error('Failed');
         }

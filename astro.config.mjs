@@ -25,6 +25,13 @@ export default defineConfig({
       },
     }),
   ],
+  // Emit every script as a file (no inline <script>) so the CSP in
+  // public/_headers can use script-src 'self' without 'unsafe-inline'
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'pt'],

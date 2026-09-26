@@ -42,10 +42,26 @@ export default {
     }
 
     try {
-      const { name, email, phone, message, consent } = await request.json();
+      const { name, email, phone, message, consent, turnstileToken } = await request.json();
 
       if (!name || !email || !String(email).includes('@')) {
         return json({ error: 'Name and email required' }, 400);
+      }
+
+      // Cloudflare Turnstile, enforced once TURNSTILE_SECRET is configured
+      if (env.TURNSTILE_SECRET) {
+        const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          body: new URLSearchParams({
+            secret: env.TURNSTILE_SECRET,
+            response: turnstileToken || '',
+            remoteip: request.headers.get('CF-Connecting-IP') || '',
+          }),
+        });
+        const outcome = await verify.json().catch(() => ({}));
+        if (!outcome.success) {
+          return json({ error: 'Verification failed' }, 403);
+        }
       }
 
       // 1. Send notification email via Brevo

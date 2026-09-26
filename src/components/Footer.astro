@@ -371,6 +371,7 @@ const routes = localeRoutes[locale];
     sending: lang === 'pt' ? 'A enviar...' : 'Sending...',
     success: lang === 'pt' ? 'Subscrito com sucesso!' : 'Successfully subscribed!',
     existing: lang === 'pt' ? 'Este email já está subscrito.' : 'This email is already subscribed.',
+    pending: lang === 'pt' ? 'Quase feito! Confirme a subscrição no email que lhe enviámos.' : 'Almost done! Please confirm via the email we just sent you.',
     error: lang === 'pt' ? 'Ocorreu um erro. Tente novamente.' : 'Something went wrong. Please try again.',
     subscribe: lang === 'pt' ? 'Subscrever' : 'Subscribe',
   };
@@ -397,7 +398,7 @@ const routes = localeRoutes[locale];
       const data = await res.json();
 
       if (data.success) {
-        msg.textContent = data.existing ? texts.existing : texts.success;
+        msg.textContent = data.pending ? texts.pending : data.existing ? texts.existing : texts.success;
         msg.classList.add('footer__newsletter-msg--success');
         emailInput.value = '';
       } else {

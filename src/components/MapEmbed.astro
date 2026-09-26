@@ -1,0 +1,114 @@
+---
+// Google Maps sets third-party cookies, so the iframe only loads after the
+// visitor accepts marketing cookies or clicks "Show map" (GDPR / ePrivacy).
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const isPT = locale === 'pt';
+
+const src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.1234!2d-9.1456!3d38.7305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933870e000001%3A0x1!2sAv.+Fontes+Pereira+de+Melo+21%2C+Lisboa!5e0!3m2!1spt-PT!2spt!4v1';
+const mapsLink = 'https://www.google.com/maps/search/?api=1&query=Av.+Fontes+Pereira+de+Melo+21+1050-116+Lisboa';
+const title = 'CellPowerX Wellness Center Location';
+---
+
+<div class="map-embed" data-map-src={src} data-map-title={title}>
+  <div class="map-embed__placeholder">
+    <i class="ph-light ph-map-pin map-embed__icon" aria-hidden="true"></i>
+    <p class="map-embed__address">Av. Fontes Pereira de Melo, 21, 8º<br />1050-116 {isPT ? 'Lisboa' : 'Lisbon'}</p>
+    <div class="map-embed__actions">
+      <button type="button" class="btn btn--secondary map-embed__load">
+        {isPT ? 'Mostrar mapa' : 'Show map'}
+      </button>
+      <a href={mapsLink} target="_blank" rel="noopener" class="btn btn--ghost">
+        {isPT ? 'Abrir no Google Maps' : 'Open in Google Maps'}
+      </a>
+    </div>
+    <p class="map-embed__note">
+      {isPT
+        ? 'Ao mostrar o mapa, o Google pode definir cookies.'
+        : 'Showing the map lets Google set cookies.'}
+    </p>
+  </div>
+</div>
+
+<style>
+  .map-embed {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-block);
+    overflow: hidden;
+    background: #e6e6e6;
+  }
+
+  .map-embed :global(iframe) {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .map-embed__placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .map-embed__icon {
+    font-size: 1.75rem;
+    color: var(--cpx-accent);
+  }
+
+  .map-embed__address {
+    font-size: 0.9375rem;
+    color: var(--wc-charcoal);
+  }
+
+  .map-embed__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .map-embed__note {
+    font-size: 0.75rem;
+    color: var(--wc-sage);
+  }
+</style>
+
+<script>
+  const CONSENT_KEY = 'cpx-cookie-consent';
+
+  const loadMap = (container: HTMLElement) => {
+    if (container.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = container.dataset.mapSrc ?? '';
+    iframe.title = container.dataset.mapTitle ?? '';
+    iframe.loading = 'lazy';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    container.replaceChildren(iframe);
+  };
+
+  const hasMarketingConsent = () => {
+    try {
+      return JSON.parse(localStorage.getItem(CONSENT_KEY) ?? 'null')?.marketing === true;
+    } catch {
+      return false;
+    }
+  };
+
+  document.querySelectorAll<HTMLElement>('.map-embed').forEach((container) => {
+    if (hasMarketingConsent()) loadMap(container);
+    container.querySelector('.map-embed__load')?.addEventListener('click', () => loadMap(container));
+  });
+
+  window.addEventListener('cookie-consent-updated', ((e: CustomEvent) => {
+    if (e.detail?.marketing) document.querySelectorAll<HTMLElement>('.map-embed').forEach(loadMap);
+  }) as EventListener);
+</script>

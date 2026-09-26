@@ -60,6 +60,30 @@ export default {
       const allowedLists = [6, 19];
       const targetList = allowedLists.includes(listId) ? listId : 19;
 
+      // Double opt-in: once BREVO_DOI_TEMPLATE_ID is set, Brevo emails a
+      // confirmation link and only adds the contact after it is clicked
+      if (env.BREVO_DOI_TEMPLATE_ID) {
+        const doiRes = await fetch('https://api.brevo.com/v3/contacts/doubleOptinConfirmation', {
+          method: 'POST',
+          headers: {
+            'api-key': env.BREVO_API_KEY,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            includeListIds: [targetList],
+            templateId: parseInt(env.BREVO_DOI_TEMPLATE_ID),
+            redirectionUrl: env.DOI_REDIRECT_URL || `${origin}/`,
+          }),
+        });
+
+        return new Response(JSON.stringify(doiRes.ok ? { success: true, pending: true } : { error: 'Subscription failed' }), {
+          status: doiRes.ok ? 200 : 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
       // Add contact to Brevo list
       const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
