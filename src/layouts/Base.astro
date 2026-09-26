@@ -3,6 +3,11 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 // import WhatsApp from '../components/WhatsApp.astro'; // Disabled - pending chat solution
+// Self-hosted fonts and icons (no third-party requests before cookie consent)
+import '@fontsource/inter/latin-300.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/mulish/latin-500.css';
+import '../styles/icons.css';
 import '../styles/global.css';
 import { getAlternateUrl } from '../i18n/utils';
 
@@ -12,14 +17,16 @@ interface Props {
   locale?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = 'CellPowerX Wellness Center — Lisbon\'s pioneering frequency-based wellness center founded by Nuno Nina in 2009. Formerly Integrative Medicine Lda.',
+  description = 'CellPowerX Wellness Center - Lisbon\'s pioneering frequency-based wellness center founded by Nuno Nina in 2009. Formerly Integrative Medicine Lda.',
   locale = 'en',
   canonicalUrl,
-  ogImage = '/images/Services_banner.webp',
+  ogImage = '/images/og-image.jpg',
+  noindex = false,
 } = Astro.props;
 
 const siteBase = 'https://wellnesscenter.cellpowerx.com';
@@ -36,6 +43,7 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} | CellPowerX Wellness Center</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex" />}
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href={canonical} />
@@ -43,13 +51,7 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
   <link rel="alternate" hreflang="pt" href={hreflangPt} />
   <link rel="alternate" hreflang="x-default" href={hreflangEn} />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
-
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <slot name="head" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -113,12 +115,6 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
           "closes": "18:00"
         }
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "15",
-        "bestRating": "5"
-      },
       "founder": {
         "@type": "Person",
         "@id": "https://wellnesscenter.cellpowerx.com/#nuno-nina",
@@ -154,9 +150,10 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
   ])} />
 </head>
 <body>
+  <a href="#main" class="skip-link">{locale === 'pt' ? 'Saltar para o conteúdo' : 'Skip to content'}</a>
   <Nav locale={locale} />
 
-  <main>
+  <main id="main" tabindex="-1">
     <slot />
   </main>
 
@@ -172,74 +169,77 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Reveal animations
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach((el) => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
-    });
-
-    // Stagger groups
-    const staggerGroups = document.querySelectorAll('[data-stagger]');
-    staggerGroups.forEach((group) => {
-      const children = group.children;
-      gsap.fromTo(children,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          stagger: 0.12,
-          scrollTrigger: {
-            trigger: group,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
-    });
-
-    // Counter animation for stats
-    const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
-    counters.forEach((el) => {
-      const target = el.getAttribute('data-counter');
-      if (!target) return;
-      const isNumber = /^\d+$/.test(target.replace(/[+,\.]/g, ''));
-      if (!isNumber) return;
-
-      const numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
-      const suffix = target.replace(/[0-9]/g, '');
-
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 85%',
-        once: true,
-        onEnter: () => {
-          const obj = { val: 0 };
-          gsap.to(obj, {
-            val: numericTarget,
-            duration: 2,
+    // Respect users who ask for less motion - content stays visible, counters show final values
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Reveal animations
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
             ease: 'power2.out',
-            onUpdate: () => {
-              el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              once: true,
             },
-          });
-        },
+          }
+        );
       });
-    });
+
+      // Stagger groups
+      const staggerGroups = document.querySelectorAll('[data-stagger]');
+      staggerGroups.forEach((group) => {
+        const children = group.children;
+        gsap.fromTo(children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: group,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Counter animation for stats
+      const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+      counters.forEach((el) => {
+        const target = el.getAttribute('data-counter');
+        if (!target) return;
+        const isNumber = /^\d+$/.test(target.replace(/[+,\.]/g, ''));
+        if (!isNumber) return;
+
+        const numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
+        const suffix = target.replace(/[0-9]/g, '');
+
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            const obj = { val: 0 };
+            gsap.to(obj, {
+              val: numericTarget,
+              duration: 2,
+              ease: 'power2.out',
+              onUpdate: () => {
+                el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+              },
+            });
+          },
+        });
+      });
+    }
   </script>
 </body>
 </html>

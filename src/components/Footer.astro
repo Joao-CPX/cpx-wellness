@@ -28,7 +28,7 @@ const routes = localeRoutes[locale];
     <div class="footer__grid">
       <!-- Column 1: Links -->
       <div class="footer__col">
-        <h4 class="footer__heading">{i.footer.linksHeading}</h4>
+        <h3 class="footer__heading">{i.footer.linksHeading}</h3>
         <nav class="footer__links">
           <a href={routes.treatments}>{i.nav.treatments}</a>
           <a href={routes.ourScience}>{i.nav.ourScience}</a>
@@ -43,7 +43,7 @@ const routes = localeRoutes[locale];
 
       <!-- Column 2: Contact -->
       <div class="footer__col">
-        <h4 class="footer__heading">{i.footer.contactHeading}</h4>
+        <h3 class="footer__heading">{i.footer.contactHeading}</h3>
         <div class="footer__contact-list">
           <div class="footer__contact-item">
             <i class="ph-light ph-phone"></i>
@@ -70,10 +70,10 @@ const routes = localeRoutes[locale];
 
       <!-- Column 3: Newsletter -->
       <div class="footer__col footer__col--newsletter">
-        <h4 class="footer__heading">{i.footer.newsletterHeading}</h4>
+        <h3 class="footer__heading">{i.footer.newsletterHeading}</h3>
         <p class="footer__newsletter-body">{i.footer.newsletterBody}</p>
         <form class="footer__newsletter-form" id="newsletter-form">
-          <input type="email" class="footer__newsletter-input" id="newsletter-email" placeholder={i.footer.newsletterPlaceholder} required />
+          <input type="email" class="footer__newsletter-input" id="newsletter-email" name="email" autocomplete="email" aria-label={i.footer.newsletterPlaceholder} placeholder={i.footer.newsletterPlaceholder} required />
           <label class="footer__consent">
             <input type="checkbox" required />
             <span set:html={i.footer.consentText} />
@@ -258,7 +258,7 @@ const routes = localeRoutes[locale];
   }
 
   .footer__newsletter-input::placeholder {
-    color: rgba(250, 248, 245, 0.3);
+    color: rgba(250, 248, 245, 0.5);
   }
 
   .footer__newsletter-input:focus {
@@ -333,7 +333,7 @@ const routes = localeRoutes[locale];
 
   .footer__bottom p {
     font-size: 0.75rem;
-    color: rgba(250, 248, 245, 0.35);
+    color: rgba(250, 248, 245, 0.6);
   }
 
   .footer__socials {
@@ -343,7 +343,7 @@ const routes = localeRoutes[locale];
 
   .footer__socials a {
     font-size: 1.5rem;
-    color: rgba(250, 248, 245, 0.35);
+    color: rgba(250, 248, 245, 0.6);
     transition: color 0.2s ease;
   }
 

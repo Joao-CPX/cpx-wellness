@@ -21,17 +21,23 @@ export function getPathForLocale(path: string, locale: string): string {
   return '/' + segments.join('/');
 }
 
-export function getAlternateUrl(currentPath: string, targetLocale: string, siteBase: string): string {
+// Built pages are served as directories, so canonical/hreflang/sitemap URLs end in '/'
+const withTrailingSlash = (p: string) => (p.endsWith('/') ? p : p + '/');
+
+export function getRouteKey(currentPath: string): { locale: string; key: string } | null {
   const clean = currentPath.replace(/\/$/, '') || '/';
   for (const locale of ['en', 'pt']) {
     for (const [key, path] of Object.entries(localeRoutes[locale])) {
-      const p = path.replace(/\/$/, '') || '/';
-      if (clean === p || clean === path) {
-        return siteBase + (localeRoutes[targetLocale][key] ?? path);
-      }
+      if (clean === (path.replace(/\/$/, '') || '/')) return { locale, key };
     }
   }
-  return siteBase + currentPath;
+  return null;
+}
+
+export function getAlternateUrl(currentPath: string, targetLocale: string, siteBase: string): string {
+  const match = getRouteKey(currentPath);
+  const path = match ? localeRoutes[targetLocale][match.key] : currentPath;
+  return siteBase + withTrailingSlash(path);
 }
 
 export const localeRoutes: Record<string, Record<string, string>> = {

@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import { localeRoutes } from '../i18n/utils';
+
+// Single static 404 served for every unknown URL, so it speaks both languages
+const en = localeRoutes.en;
+const pt = localeRoutes.pt;
+---
+
+<Base title="Page not found" locale="en" noindex description="The page you are looking for does not exist.">
+  <section class="section not-found">
+    <div class="container text-center">
+      <span class="label">404</span>
+      <h1>Page not found</h1>
+      <p class="mx-auto">The page you are looking for does not exist or has moved.</p>
+      <div class="not-found__actions">
+        <a href={en.home} class="btn btn--primary">Home</a>
+        <a href={en.treatments} class="btn btn--secondary">Services</a>
+      </div>
+
+      <hr class="not-found__divider" />
+
+      <h2 lang="pt">Página não encontrada</h2>
+      <p class="mx-auto" lang="pt">A página que procura não existe ou foi movida.</p>
+      <div class="not-found__actions" lang="pt">
+        <a href={pt.home} class="btn btn--primary">Início</a>
+        <a href={pt.treatments} class="btn btn--secondary">Serviços</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    padding-top: calc(72px + var(--section-spacing));
+  }
+
+  .not-found h1,
+  .not-found h2 {
+    margin: 16px auto;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .not-found__divider {
+    width: 64px;
+    margin: 64px auto;
+    border: none;
+    border-top: 1px solid var(--wc-mist);
+  }
+</style>

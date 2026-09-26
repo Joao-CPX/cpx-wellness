@@ -1,11 +1,14 @@
 ---
-// Root redirect to /en/
+// Root redirect to /en/. The host serves a real 301 via public/_redirects;
+// this page is only a fallback for hosts that ignore that file.
 ---
 
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="0;url=/en/" />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://wellnesscenter.cellpowerx.com/en/" />
   <title>CellPowerX Wellness Center</title>
   <style>body{margin:0;background:#f2f2f2;}</style>
 </head>

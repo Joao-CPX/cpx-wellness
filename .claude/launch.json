@@ -3,9 +3,27 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["astro", "dev"],
-      "port": 4321
+      "runtimeExecutable": "/usr/local/bin/node",
+      "runtimeArgs": [
+        "/usr/local/bin/npx",
+        "astro",
+        "dev",
+        "--port",
+        "4332"
+      ],
+      "port": 4332
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "/usr/local/bin/node",
+      "runtimeArgs": [
+        "/usr/local/bin/npx",
+        "astro",
+        "preview",
+        "--port",
+        "4400"
+      ],
+      "port": 4400
     }
   ]
 }

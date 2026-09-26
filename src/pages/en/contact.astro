@@ -44,8 +44,12 @@ const faqs = [
               <textarea id="message" name="message" class="input" placeholder={i.contact.form.messagePlaceholder}></textarea>
             </div>
             <label class="consent-check">
-              <input type="checkbox" name="consent" required />
-              <span>I have read and understood the <a href="/en/privacy">Privacy and Cookie Policy</a> and agree to receive personalized commercial communications from CellPowerX via email.</span>
+              <input type="checkbox" name="privacy" required />
+              <span>I have read and understood the <a href="/en/privacy">Privacy and Cookie Policy</a>.</span>
+            </label>
+            <label class="consent-check">
+              <input type="checkbox" name="consent" />
+              <span>I agree to receive personalized commercial communications from CellPowerX via email (optional).</span>
             </label>
             <button type="submit" class="btn btn--primary">
               {i.contact.form.submit}
@@ -229,7 +233,7 @@ const faqs = [
 
   .contact-info__hours p {
     font-size: 0.875rem;
-    color: rgba(58, 58, 70, 0.6);
+    color: var(--wc-sage);
   }
 
   /* Map */
@@ -303,7 +307,7 @@ const faqs = [
     gap: 10px;
     font-size: 0.75rem;
     line-height: 1.5;
-    color: rgba(58, 58, 70, 0.6);
+    color: var(--wc-sage);
     cursor: pointer;
   }
 

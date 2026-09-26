@@ -42,8 +42,12 @@ const faqs = [
               <textarea id="message" name="message" class="input" placeholder={i.contact.form.messagePlaceholder}></textarea>
             </div>
             <label class="consent-check">
-              <input type="checkbox" name="consent" required />
-              <span>Li e entendi a <a href="/pt/privacidade">Política de Privacidade e de Cookies</a> e aceito receber comunicações comerciais personalizadas da CellPowerX através de e-mail.</span>
+              <input type="checkbox" name="privacy" required />
+              <span>Li e entendi a <a href="/pt/privacidade">Política de Privacidade e de Cookies</a>.</span>
+            </label>
+            <label class="consent-check">
+              <input type="checkbox" name="consent" />
+              <span>Aceito receber comunicações comerciais personalizadas da CellPowerX através de e-mail (opcional).</span>
             </label>
             <button type="submit" class="btn btn--primary">
               {i.contact.form.submit}
@@ -157,7 +161,7 @@ const faqs = [
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
   .contact-info__hours h4 { margin-bottom: 8px; }
-  .contact-info__hours p { font-size: 0.875rem; color: rgba(58, 58, 70, 0.6); }
+  .contact-info__hours p { font-size: 0.875rem; color: var(--wc-sage); }
 
   .map-embed { aspect-ratio: 16/9; border-radius: var(--radius-block); overflow: hidden; }
   .map-embed iframe { width: 100%; height: 100%; }
@@ -184,7 +188,7 @@ const faqs = [
   .consent-check {
     display: flex; align-items: flex-start; gap: 10px;
     font-size: 0.75rem; line-height: 1.5;
-    color: rgba(58, 58, 70, 0.6); cursor: pointer;
+    color: var(--wc-sage); cursor: pointer;
   }
   .consent-check input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; }
   .consent-check a { text-decoration: underline; color: inherit; }

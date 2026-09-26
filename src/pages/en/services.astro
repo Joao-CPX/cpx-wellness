@@ -103,7 +103,7 @@ const tabNames = {
               </div>
             </div>
             <div class="treatment-detail__visual">
-              <img src={images[key]} alt={i.treatments[key].name} class="treatment-detail__img" loading="lazy" />
+              <img src={images[key]} width="1536" height="1024" alt={i.treatments[key].name} class="treatment-detail__img" loading="lazy" />
               {i.treatments[key].sessionInfo && (
                 <p class="treatment-detail__session">
                   <i class="ph-light ph-info" style="color: var(--cpx-accent);"></i>
@@ -228,7 +228,7 @@ const tabNames = {
   }
   .treatment-detail__tagline {
     font-size: 1.0625rem; margin-top: 4px; max-width: none;
-    color: rgba(58, 58, 70, 0.7);
+    color: var(--wc-sage);
   }
   .treatment-detail__content { display: flex; flex-direction: column; gap: 28px; }
   .treatment-detail__section h3 { font-size: 0.875rem; margin-bottom: 12px; }
@@ -256,7 +256,7 @@ const tabNames = {
 
   .cta-block { max-width: 640px; }
   .disclaimer {
-    font-size: 0.75rem; color: rgba(58, 58, 70, 0.5);
+    font-size: 0.75rem; color: var(--wc-sage);
     line-height: 1.6; max-width: none;
   }
 
