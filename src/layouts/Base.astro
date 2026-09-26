@@ -233,7 +233,9 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
               duration: 2,
               ease: 'power2.out',
               onUpdate: () => {
-                el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+                const formatted = Math.round(obj.val).toLocaleString('en');
+                // PT uses '.' as thousands separator (70.000)
+                el.textContent = (document.documentElement.lang === 'pt' ? formatted.replace(/,/g, '.') : formatted) + suffix;
               },
             });
           },

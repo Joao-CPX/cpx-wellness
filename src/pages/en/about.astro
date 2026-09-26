@@ -18,37 +18,31 @@ const routes = localeRoutes[locale];
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <section class="stats section--accent" style="padding: clamp(40px, 5vw, 64px) 0;">
-    <div class="container">
-      <div class="stats__grid" data-stagger>
-        <div class="stats__item">
-          <span class="stats__label">{i.about.stats.founded}</span>
-          <span class="stats__value">2009</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__label">{i.about.stats.journeys}</span>
-          <span class="stats__value" data-counter="70000+">70,000+</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__label">{i.about.stats.experience}</span>
-          <span class="stats__value" data-counter="20+">20+</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Founder Profile -->
   <section class="section">
     <div class="container">
       <div class="founder reveal">
         <div class="founder__image">
-          <img width="1800" height="1800" src="/images/nuno-nina.webp" alt="Nuno Nina - Founder of CellPowerX" class="founder__photo" loading="lazy" />
+          <img width="1000" height="1500" src="/images/nuno-nina.webp" alt="Nuno Nina - Founder of CellPowerX" class="founder__photo" loading="lazy" />
         </div>
         <div class="founder__content">
           <h2>{i.about.founderName}</h2>
           <span class="label label--dark" style="margin-bottom: 20px; display: block;">{i.about.founderRole}</span>
           <p>{i.about.founderBio}</p>
+          <div class="stats__grid" data-stagger>
+            <div class="stats__item">
+              <span class="stats__label">{i.about.stats.founded}</span>
+              <span class="stats__value">2009</span>
+            </div>
+            <div class="stats__item">
+              <span class="stats__label">{i.about.stats.journeys}</span>
+              <span class="stats__value" data-counter="70000+">70,000+</span>
+            </div>
+            <div class="stats__item">
+              <span class="stats__label">{i.about.stats.experience}</span>
+              <span class="stats__value" data-counter="20+">20+</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -116,14 +110,26 @@ const routes = localeRoutes[locale];
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
-    text-align: center;
+    text-align: left;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(29, 29, 31, 0.12);
   }
 
   @media (max-width: 480px) {
     .stats__grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 16px;
     }
+  }
+
+  .stats__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats__item .stats__label {
+    margin-bottom: auto;
+    padding-bottom: 8px;
   }
 
   .stats__label {
@@ -141,7 +147,7 @@ const routes = localeRoutes[locale];
   .stats__value {
     font-family: var(--font-heading);
     font-weight: var(--fw-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
     letter-spacing: 0.02em;
     color: var(--wc-charcoal);
   }
@@ -157,13 +163,13 @@ const routes = localeRoutes[locale];
   @media (min-width: 768px) {
     .founder {
       grid-template-columns: 2fr 3fr;
+      align-items: center;
     }
   }
 
   .founder__photo {
     width: 100%;
-    aspect-ratio: 1/1;
-    max-height: 480px;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
     object-position: top;
     border-radius: var(--radius-block);
@@ -171,6 +177,8 @@ const routes = localeRoutes[locale];
 
   .founder__content h2 {
     margin-bottom: 4px;
+    text-align: left;
+    margin-left: 0;
   }
 
   .founder__content p {
