@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { getAlternateUrl, getRouteKey } from './src/i18n/utils.ts';
 
-const site = 'https://wellnesscenter.cellpowerx.com';
+const site = 'https://wellness.cellpowerx.com';
 
 export default defineConfig({
   site,

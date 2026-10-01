@@ -29,7 +29,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteBase = 'https://wellnesscenter.cellpowerx.com';
+const siteBase = 'https://wellness.cellpowerx.com';
 const canonical = canonicalUrl ?? (siteBase + Astro.url.pathname);
 const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : siteBase + ogImage;
 const hreflangEn = getAlternateUrl(Astro.url.pathname, 'en', siteBase);
@@ -78,11 +78,11 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
     {
       "@context": "https://schema.org",
       "@type": "HealthAndBeautyBusiness",
-      "@id": "https://wellnesscenter.cellpowerx.com/#business",
+      "@id": "https://wellness.cellpowerx.com/#business",
       "name": "CellPowerX Wellness Center",
       "alternateName": ["Integrative Medicine", "Integrative Medicine Lda", "IM Integrative Medicine"],
-      "url": "https://wellnesscenter.cellpowerx.com",
-      "logo": "https://wellnesscenter.cellpowerx.com/CPX_WellnessCenter_hor.svg",
+      "url": "https://wellness.cellpowerx.com",
+      "logo": "https://wellness.cellpowerx.com/CPX_WellnessCenter_hor.svg",
       "image": ogImageAbsolute,
       "description": locale === 'pt'
         ? "Centro de bem-estar pioneiro em Lisboa dedicado a abordagens bioeléctricas e baseadas em frequências, fundado por Nuno Nina em 2005. Anteriormente conhecido como Integrative Medicine Lda."
@@ -117,7 +117,7 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
       ],
       "founder": {
         "@type": "Person",
-        "@id": "https://wellnesscenter.cellpowerx.com/#nuno-nina",
+        "@id": "https://wellness.cellpowerx.com/#nuno-nina",
         "name": "Nuno Nina"
       },
       "foundingDate": "2005",
@@ -134,14 +134,14 @@ const hreflangPt = getAlternateUrl(Astro.url.pathname, 'pt', siteBase);
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "https://wellnesscenter.cellpowerx.com/#nuno-nina",
+      "@id": "https://wellness.cellpowerx.com/#nuno-nina",
       "name": "Nuno Nina",
       "jobTitle": locale === 'pt' ? "Fundador e Director Científico" : "Founder & Scientific Director",
       "worksFor": {
         "@type": "Organization",
-        "@id": "https://wellnesscenter.cellpowerx.com/#business"
+        "@id": "https://wellness.cellpowerx.com/#business"
       },
-      "url": "https://wellnesscenter.cellpowerx.com",
+      "url": "https://wellness.cellpowerx.com",
       "sameAs": [
         "https://www.cellpowerx.com",
         "https://www.int-medicine.com"

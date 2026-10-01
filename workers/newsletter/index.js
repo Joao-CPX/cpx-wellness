@@ -1,5 +1,6 @@
 // Wellness site + cellpowerx.com Shopify footer (list #6)
 const ALLOWED_ORIGINS = [
+  'https://wellness.cellpowerx.com',
   'https://wellnesscenter.cellpowerx.com',
   'https://cpx-wellness.pages.dev',
   'https://cpx-wellness.vercel.app',
