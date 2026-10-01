@@ -3,6 +3,7 @@
 // - www.int-medicine.com: Nuno Nina's former clinic site (WordPress), mapped
 //   page by page so its search history carries over to the new pages.
 const NEW_ORIGIN = 'https://wellness.cellpowerx.com';
+const INT_MEDICINE_GSC_FILE = 'google36b0d22618e75cd4.html';
 
 const INT_MEDICINE_PATHS = {
   '/': '/en/',
@@ -32,6 +33,13 @@ export async function onRequest({ request, next }) {
   }
 
   if (url.hostname === 'www.int-medicine.com' || url.hostname === 'int-medicine.com') {
+    // Google Search Console ownership file (needed for the change-of-address
+    // tool); must keep being served, so it is exempt from the redirect
+    if (url.pathname === `/${INT_MEDICINE_GSC_FILE}`) {
+      return new Response(`google-site-verification: ${INT_MEDICINE_GSC_FILE}`, {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      });
+    }
     return Response.redirect(intMedicineTarget(url.pathname), 301);
   }
 
