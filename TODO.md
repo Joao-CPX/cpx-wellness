@@ -11,7 +11,11 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] **Revisão semanal:** carregar em "Run now" na tarefa "CPX Wellness - revisão semanal" para aprovar as ferramentas (a de 28/09 ficou parada).
 - [ ] *(Opcional)* API token Cloudflare com Pages + Turnstile + Account Analytics, guardado em `CLOUDFLARE_API_TOKEN` (para analítica sem cookies e anti-spam).
 
+- [ ] **Auditoria 01/10 - decisões:** quem faz a colheita no BTA Scan; oferta "Discovery Visit" (preço); crédito da sessão de hidrogénio na compra do AirPlus (sim/não, prazo); fotos reais do espaço e da equipa (nomes/funções); ferramenta de analítica (Plausible ~9€/mês ou Cloudflare grátis). Relatório: https://claude.ai/artifact/7DXUoN2xn5fN96vN94oBr5
+
 ## Nuno Nina (validar)
+
+- [ ] Novos textos propostos na auditoria: BTA Scan, Electroterapia, hero da homepage.
 
 - [ ] Tradução PT da Inalação de Hidrogénio.
 - [ ] Privacy e Terms em inglês (as páginas EN estão em português).
