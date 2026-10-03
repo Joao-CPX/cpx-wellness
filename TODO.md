@@ -14,8 +14,6 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] **Auditoria 01/10 - decisões:** quem faz a colheita no BTA Scan; oferta "Discovery Visit" (preço); crédito da sessão de hidrogénio na compra do AirPlus (sim/não, prazo); fotos reais do espaço e da equipa (nomes/funções); ferramenta de analítica (Plausible ~9€/mês ou Cloudflare grátis). Relatório: https://claude.ai/artifact/7DXUoN2xn5fN96vN94oBr5
 
 - [ ] **Google Business Profile** (gerido pela conta `geral@cellpowerwater.com`): falta decidir
-  - **Horário:** Google diz seg-sex 9:30-18:00; site diz seg-qui 9:30-18:30 e sex 9:00-18:00. Qual está certo?
-  - **Código postal:** Google 1050-008, site 1050-116. Qual está certo?
   - **Categoria adicional "Médico":** manter (licença ERS / direção clínica) ou trocar?
   - **Nome:** a mudança para "CellPowerX Wellness Center" foi rejeitada pelo Google. Só voltar a pedir quando a sinalética/porta mostrar o nome novo (e com prova), senão arrisca suspensão.
 
@@ -35,6 +33,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] Atualizar link do wellness no tema Shopify Horizon (quando for publicado).
 
 ## Feito recentemente
+
+- [x] 2026-10-03 - Horário seg-sex 9:30-18:00 em todo o site; código postal 1050-116 na ficha Google; descrição e website da ficha aprovados.
 
 - [x] 2026-10-03 - Google Business Profile: categoria -> Centro de bem-estar (aprovada); descrição (2005, sem "clinic") e website -> wellness.cellpowerx.com enviados; rating do site ligado à ficha.
 
