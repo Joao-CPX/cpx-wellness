@@ -14,7 +14,6 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] **Auditoria 01/10 - decisões:** quem faz a colheita no BTA Scan; oferta "Discovery Visit" (preço); crédito da sessão de hidrogénio na compra do AirPlus (sim/não, prazo); fotos reais do espaço e da equipa (nomes/funções); ferramenta de analítica (Plausible ~9€/mês ou Cloudflare grátis). Relatório: https://claude.ai/artifact/7DXUoN2xn5fN96vN94oBr5
 
 - [ ] **Google Business Profile** (gerido pela conta `geral@cellpowerwater.com`): falta decidir
-  - **Categoria adicional "Médico":** manter (licença ERS / direção clínica) ou trocar?
   - **Nome:** a mudança para "CellPowerX Wellness Center" foi rejeitada pelo Google. Só voltar a pedir quando a sinalética/porta mostrar o nome novo (e com prova), senão arrisca suspensão.
 
 ## Nuno Nina (validar)
@@ -33,6 +32,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] Atualizar link do wellness no tema Shopify Horizon (quando for publicado).
 
 ## Feito recentemente
+
+- [x] 2026-10-03 - Ficha Google: categoria adicional "Médico" removida (fica só Centro de bem-estar).
 
 - [x] 2026-10-03 - Horário seg-sex 9:30-18:00 em todo o site; código postal 1050-116 na ficha Google; descrição e website da ficha aprovados.
 
