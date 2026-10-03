@@ -263,8 +263,7 @@ const whatsappUrl = 'https://wa.me/351912051564?text=' + encodeURIComponent(
     const time = hour + min / 60;
 
     if (day === 0 || day === 6) return false; // Weekend
-    if (day === 5) return time >= 9 && time < 18; // Friday 9:00-18:00
-    return time >= 9.5 && time < 18.5; // Mon-Thu 9:30-18:30
+    return time >= 9.5 && time < 18; // Mon-Fri 9:30-18:00
   }
 
   // Set status text

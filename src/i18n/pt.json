@@ -233,8 +233,7 @@
     "reference": "Entre o Saldanha e o Marquês de Pombal",
     "hoursHeading": "Horário de Funcionamento",
     "hours": {
-      "monThu": "Segunda – Quinta: 9:30 – 18:30",
-      "fri": "Sexta: 9:00 – 18:00",
+      "weekdays": "Segunda – Sexta: 9:30 – 18:00",
       "weekend": "Sábado – Domingo: Encerrado"
     },
     "faq": {

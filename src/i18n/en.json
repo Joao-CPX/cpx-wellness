@@ -233,8 +233,7 @@
     "reference": "Between Saldanha and Marquês de Pombal",
     "hoursHeading": "Opening Hours",
     "hours": {
-      "monThu": "Monday – Thursday: 9:30 AM – 6:30 PM",
-      "fri": "Friday: 9:00 AM – 6:00 PM",
+      "weekdays": "Monday – Friday: 9:30 AM – 6:00 PM",
       "weekend": "Saturday – Sunday: Closed"
     },
     "faq": {
