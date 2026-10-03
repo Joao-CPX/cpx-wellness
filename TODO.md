@@ -9,7 +9,7 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] **Dados da empresa** para a Política de Privacidade: nome legal, NIF, morada.
 - [ ] **Instagram (app):** mudar link da bio para `wellness.cellpowerx.com/en`; confirmar se a morada ficou nas opções de contacto.
 - [ ] **Revisão semanal:** carregar em "Run now" na tarefa "CPX Wellness - revisão semanal" para aprovar as ferramentas (a de 28/09 ficou parada).
-- [ ] *(Opcional)* API token Cloudflare com Pages + Turnstile + Account Analytics, guardado em `CLOUDFLARE_API_TOKEN` (para analítica sem cookies e anti-spam).
+- [ ] *(Opcional)* API token Cloudflare com Turnstile, guardado em `CLOUDFLARE_API_TOKEN` (anti-spam no formulário).
 
 - [ ] **Auditoria 01/10 - decisões:** quem faz a colheita no BTA Scan; oferta "Discovery Visit" (preço); crédito da sessão de hidrogénio na compra do AirPlus (sim/não, prazo); fotos reais do espaço e da equipa (nomes/funções); ferramenta de analítica (Plausible ~9€/mês ou Cloudflare grátis). Relatório: https://claude.ai/artifact/7DXUoN2xn5fN96vN94oBr5
 
@@ -32,6 +32,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] Atualizar link do wellness no tema Shopify Horizon (quando for publicado).
 
 ## Feito recentemente
+
+- [x] 2026-10-03 - Cloudflare Web Analytics ativo (sem cookies; conta joao.relego@cellpowerx.com). Política de Privacidade atualizada.
 
 - [x] 2026-10-03 - Ficha Google: Instagram @cellpowerx.wellness adicionado aos perfis sociais (pelo João).
 
