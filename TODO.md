@@ -13,6 +13,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 
 - [ ] **Auditoria 01/10 - decisões:** quem faz a colheita no BTA Scan; oferta "Discovery Visit" (preço); crédito da sessão de hidrogénio na compra do AirPlus (sim/não, prazo); fotos reais do espaço e da equipa (nomes/funções); ferramenta de analítica (Plausible ~9€/mês ou Cloudflare grátis). Relatório: https://claude.ai/artifact/7DXUoN2xn5fN96vN94oBr5
 
+- [ ] **Google Business Profile ("Integrative Medicine", 4.9 / 16 reviews):** as reviews não se perderam, a ficha é que ainda aponta para o site antigo. Entrar no browser da app com a conta Google que gere a ficha (ou dizer qual é) para eu atualizar: website → wellness.cellpowerx.com, categoria (está "Medical equipment manufacturer") → Wellness center, código postal (Maps 1050-008, site 1050-116 - qual está certo?) e, se quiserem, nome → CellPowerX Wellness Center.
+
 ## Nuno Nina (validar)
 
 - [ ] Novos textos propostos na auditoria: BTA Scan, Electroterapia, hero da homepage.
@@ -29,6 +31,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] Atualizar link do wellness no tema Shopify Horizon (quando for publicado).
 
 ## Feito recentemente
+
+- [x] 2026-10-03 - Correções inequívocas da auditoria (FAQ BTA, Privacidade/Termos EN traduzidos, RGPD, PT AO90, mobile).
 
 - [x] 2026-10-01 - Site movido para `wellness.cellpowerx.com` (antigo redireciona 301).
 - [x] 2026-10-01 - `int-medicine.com` redireciona página a página; email intacto.
