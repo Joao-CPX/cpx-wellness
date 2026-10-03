@@ -25,7 +25,7 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 
 ## Claude
 
-- [ ] Lote 2 de posts Instagram (EN) - até 5/10.
+- [ ] Lote 2 de posts Instagram (EN) - feito a 03/10, à espera de aprovação do João (5 a 16 out). Lote 3 até 19/10.
 - [ ] Botão telefone/WhatsApp no hero + CTA fixo em mobile.
 - [ ] Link para as reviews do Google.
 - [ ] Rascunhos dos emails Brevo (boas-vindas, pós-visita) para aprovação.
