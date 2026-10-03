@@ -20,7 +20,7 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 - [ ] Novos textos propostos na auditoria: BTA Scan, Electroterapia, hero da homepage.
 
 - [ ] Tradução PT da Inalação de Hidrogénio.
-- [ ] Privacy e Terms em inglês (as páginas EN estão em português).
+- [ ] Rever tradução EN de Privacy e Terms (feita a 03/10, conteúdo igual ao PT).
 
 ## Claude
 
