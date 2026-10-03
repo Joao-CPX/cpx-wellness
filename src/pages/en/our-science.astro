@@ -178,7 +178,7 @@ const routes = localeRoutes[locale];
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.4);
+    color: var(--wc-sage);
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
@@ -189,6 +189,16 @@ const routes = localeRoutes[locale];
 
   .science-tabs__btn:hover {
     color: var(--wc-charcoal);
+  }
+
+  /* Long PT tab labels overflowed at 390px: let them shrink and wrap */
+  @media (max-width: 600px) {
+    .science-tabs__btn {
+      min-width: 0;
+      padding: 14px 8px;
+      font-size: 0.8125rem;
+      line-height: 1.3;
+    }
   }
 
   .science-tabs__btn.is-active {

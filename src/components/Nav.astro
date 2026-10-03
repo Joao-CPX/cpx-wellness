@@ -46,8 +46,8 @@ const serviceItems = [
 
     <!-- Logo (centered on mobile) -->
     <a href={routes.home} class="nav__logo">
-      <img src="/CPX_WellnessCenter_hor.svg" alt="CellPowerX Wellness Center" class="nav__logo-img nav__logo-img--desktop hide-mobile" />
-      <img src="/CPX_WellnessCenter.svg" alt="CellPowerX Wellness Center" class="nav__logo-img nav__logo-img--mobile hide-desktop" />
+      <img src="/CPX_WellnessCenter_hor.svg" width="870" height="60" alt="CellPowerX Wellness Center" class="nav__logo-img nav__logo-img--desktop hide-mobile" />
+      <img src="/CPX_WellnessCenter.svg" width="550" height="140" alt="CellPowerX Wellness Center" class="nav__logo-img nav__logo-img--mobile hide-desktop" />
     </a>
 
     <!-- Desktop nav links -->
@@ -320,7 +320,10 @@ const serviceItems = [
   .nav__lang-trigger {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
+    min-width: 44px;
+    min-height: 44px;
     font-size: 1.5rem;
     color: var(--wc-charcoal);
     transition: color 0.4s ease;
@@ -441,8 +444,11 @@ const serviceItems = [
   .nav__hamburger {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .nav__hamburger span {

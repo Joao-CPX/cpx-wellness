@@ -15,11 +15,11 @@ const routes = localeRoutes[locale];
     <!-- Logo row -->
     <div class="footer__logo-row">
       <div class="footer__logo">
-        <img src="/images/cpx-logo.svg" alt="CellPowerX" class="footer__logo-img" />
+        <img src="/images/cpx-logo.svg" width="314" height="57" alt="CellPowerX" class="footer__logo-img" />
         <span class="footer__logo-links">
           <a href={routes.home}>Wellness Center</a>
           <span class="footer__logo-divider">|</span>
-          <a href="https://www.cellpowerx.com" target="_blank" rel="noopener">Wellness Devices</a>
+          <a href="https://www.cellpowerx.com" target="_blank" rel="noopener">{locale === 'pt' ? 'Dispositivos de Bem-Estar' : 'Wellness Devices'}</a>
         </span>
       </div>
     </div>
@@ -87,7 +87,7 @@ const routes = localeRoutes[locale];
     <!-- Bottom -->
     <div class="footer__bottom">
       <div class="footer__bottom-row">
-        <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}<br />ERS License n. E176530 - Clinical leadership by Nuno Nina (ACSS 0300169)</p>
+        <p>&copy; {new Date().getFullYear()} CellPowerX Wellness Center. {i.footer.rights}<br />{locale === 'pt' ? 'Licença ERS n.º E176530 - Direção clínica: Nuno Nina (cédula ACSS 0300169)' : 'ERS License n. E176530 - Clinical leadership by Nuno Nina (ACSS 0300169)'}</p>
         <div class="footer__socials">
           <a href="https://www.instagram.com/cellpowerx/" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="ph-light ph-instagram-logo"></i>
@@ -277,6 +277,8 @@ const routes = localeRoutes[locale];
   }
 
   .footer__consent input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     margin-top: 2px;
     accent-color: var(--cpx-accent);

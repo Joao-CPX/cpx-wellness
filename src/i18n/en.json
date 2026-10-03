@@ -138,7 +138,7 @@
     "btascan": {
       "name": "BTA Scan",
       "tagline": "Biological terrain assessment for a personalised protocol",
-      "howItWorks": "The BTA Scan analyses the electrical parameters of three bodily fluids — blood, saliva, and urine — to assess your biological terrain. Based on Vincent's methodology, applied across 60,000+ cases over 40 years, it measures pH, rH2, and electrical resistance, providing a reading of your biological terrain.",
+      "howItWorks": "The BTA Scan analyses the electrical parameters of three bodily fluids (blood, saliva and urine) to assess your biological terrain. Based on Vincent's methodology, applied across 60,000+ cases over 40 years, it measures pH, rH2, and electrical resistance, providing a reading of your biological terrain.",
       "applicationsTitle": "What it assesses",
       "applications": [
         "Nutrient absorption capacity and waste elimination",
@@ -244,7 +244,7 @@
       "q2": "How long is a typical session?",
       "a2": "Sessions vary by modality: Electrotherapy sessions typically last 45–60 minutes, NanoPulse 3–20 minutes, and Infrared and SLM Wave sessions are tailored to your needs.",
       "q3": "Are the services safe?",
-      "a3": "All our services are non-invasive and generally well tolerated. Specific contraindications exist for certain modalities - your practitioner will review these with you during your first visit.",
+      "a3": "Most of our services are non-invasive and generally well tolerated; the BTA Scan uses small blood, saliva and urine samples. Specific contraindications exist for certain modalities - your practitioner will review these with you during your first visit.",
       "q4": "Can services be combined?",
       "a4": "Yes. Many clients benefit from a combined protocol that integrates multiple modalities. Your practitioner will design the optimal combination based on your bioelectrical analysis.",
       "q5": "Do you offer packages?",

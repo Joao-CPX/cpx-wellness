@@ -44,7 +44,8 @@ const faqs = [
             </div>
             <div class="form-group">
               <label for="message" class="form-label">{i.contact.form.message}</label>
-              <textarea id="message" name="message" class="input" placeholder={i.contact.form.messagePlaceholder}></textarea>
+              <textarea id="message" name="message" class="input" aria-describedby="message-hint" placeholder={i.contact.form.messagePlaceholder}></textarea>
+              <p class="form-hint" id="message-hint">Please don't include health or medical details here. We'll talk about them in person.</p>
             </div>
             <label class="consent-check">
               <input type="checkbox" name="privacy" required />
@@ -174,6 +175,12 @@ const faqs = [
     }
   }
 
+  .form-hint {
+    margin-top: 6px;
+    font-size: 0.8125rem;
+    color: var(--wc-sage);
+  }
+
   .form-label {
     display: block;
     font-family: var(--font-body);
@@ -299,6 +306,8 @@ const faqs = [
   }
 
   .consent-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
     margin-top: 2px;
     flex-shrink: 0;
   }
