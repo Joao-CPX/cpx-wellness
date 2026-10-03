@@ -31,13 +31,13 @@ const routes = localeRoutes[locale];
       </div>
     </div>
     <div class="hero__stats">
-      <div class="hero__stat">
+      <a class="hero__stat hero__stat--link" href="https://www.google.com/maps?cid=16400951556225720817" target="_blank" rel="noopener">
         <i class="ph-fill ph-star hero__stat-star"></i>
         <div class="hero__stat-text">
           <strong>4.9/5</strong>
           <span>Google Reviews</span>
         </div>
-      </div>
+      </a>
       <div class="hero__stat">
         <i class="ph-light ph-users"></i>
         <div class="hero__stat-text">
@@ -219,6 +219,9 @@ const routes = localeRoutes[locale];
     padding: 16px var(--grid-padding);
     background: none;
   }
+
+  .hero__stat--link { color: inherit; text-decoration: none; }
+  .hero__stat--link:hover span { text-decoration: underline; text-underline-offset: 3px; }
 
   .hero__stat {
     display: flex;
