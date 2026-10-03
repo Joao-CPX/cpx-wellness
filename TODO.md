@@ -33,6 +33,8 @@ Lista viva de pendentes. Atualizada pelo Claude a cada sessão e na revisão sem
 
 ## Feito recentemente
 
+- [x] 2026-10-03 - Ficha Google: Instagram @cellpowerx.wellness adicionado aos perfis sociais (pelo João).
+
 - [x] 2026-10-03 - Ficha Google: categoria adicional "Médico" removida (fica só Centro de bem-estar).
 
 - [x] 2026-10-03 - Horário seg-sex 9:30-18:00 em todo o site; código postal 1050-116 na ficha Google; descrição e website da ficha aprovados.
